@@ -1,0 +1,42 @@
+Write scenarios:
+- wireframes/GUI Ashmita/Salonika/Brandon
+- mockups/GUI Ashmita/Salonika/Brandon
+
+Architecture:
+- object diagrams (Marcus/Krishna)
+- class diagrams (Marcus/Krishna)
+- 1/2 component/communication/sequence diagrams 
+- SDMLib (Heymond/Marcus/Krishna)
+
+Testing:
+- Heymond/Salonika/Sara
+
+Admin Backend: 
+- Persistant backend: Ermal/Brandan/Ashmita/Jess
+
+Android Team:
+- Sara/Jess/Heymond/Ermal/Brandon
+
+Concurrent:
+- Salonika/Heymond - Everyone who can help!!
+
+Snapshot rollback: 
+- Firebase must do that
+
+Security:
+- Jess/Ermal/Sara/Salonika/Sushena
+
+Admin:
+- authentication: firebase
+
+Usecases:
+- Jess: swipe for biometric scanner
+- Brandon: authentication 
+- Marcus: buttons to access account info
+- Heymond: single log-in
+- Sushena: modify account info
+- Ashmita: undo 1 or more actions
+- Salonika: concurrency 
+- Sara: security policies, withdraw amounts
+- Ermal: concurrency with one person
+- Krishna: freeze accounts if threats are detected
