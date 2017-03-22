@@ -12,7 +12,7 @@ Testing:
 - Heymond/Salonika/Sara
 
 Admin Backend: 
-- Persistant backend: Ermal/Brandan/Ashmita/Jess
+- Persistant backend: Ermal/Brandon/Ashmita/Jess
 
 Android Team:
 - Sara/Jess/Heymond/Ermal/Brandon
