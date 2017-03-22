@@ -1,0 +1,24 @@
+3/23
+Accomplished:
+  Created and finished PPTC Framework
+  Created and finished Burndown chart template
+  Created and finished Scrum standup guidelines
+  Created standup notes template
+  Added all of the above to Done Kanban folder
+  Created and added task templates to the 4 Kanban folders
+  Created task scenario folder and added a sample
+  Pushed everything to master branch
+Issues with items worked on:
+  None
+Plan to do:
+  Create user scenarios in class
+  Ask ulno requirements questions
+  Start working on Scrum sprint PowerPoint for presentation
+Other issues:
+  None
+
+3/27
+Accomplished:
+Issues with items worked on:
+Plan to do:
+Other issues:
