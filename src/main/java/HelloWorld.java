@@ -3,5 +3,9 @@ public class HelloWorld {
         System.out.println("what up");
         System.out.println("ayyyy nothing much just testing a push to git");
         System.out.println("Did the push work?");
+        System.out.println("Hello from Heymond");
+        System.out.println("Hello from Salonika!");
+        System.out.println("Hello from Ermal!");
+
     }
 }
