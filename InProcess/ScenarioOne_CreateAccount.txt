@@ -1,0 +1,27 @@
+Title: Scenario One for Create Account
+
+Description:
+
+  Write scenario for a bank holder/user, Salonika, creating a new account for the first time.
+
+Related scenario(s):
+
+  - 
+
+Time estimate(s):
+
+  25 mins
+
+Author(s):
+
+  - Salonika
+
+Assigned persons (currently working on task):
+
+  - Salonika
+
+Log entries (who worked when and how long on this):
+
+  - 2017-03-23: 13:09-13:19 Salonika
+
+  - 2017-03-23: 20:16-20:26 Salonika
