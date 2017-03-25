@@ -1,0 +1,35 @@
+Title: Create scenario, tests, for user to modify the most recent transaction that Sal made.
+
+Description:
+
+  Create scenarios that describe how user Sal can modify her most recent transaction.
+  This includes canceling the transaction, increasing, decreasing the amount withdrawn/deposited.
+  Scenarios must be extensive and cover cases as far as discussed.
+  Create tests that correlate with these scenarios. It's okay if these tests do not compile.
+  Write the tests assuming the required objects and classes.
+
+Related scenario(s): **update these
+
+  - Deposit Scenario 1:
+  - Deposit Scenario 2:
+  - Deposit Scenario 3:
+
+Time estimate(s):
+
+  3h
+
+Author(s):
+
+  - Krishna
+
+Assigned persons (currently working on task):
+
+  - Krishna
+
+Log entries (who worked when and how long on this): **update this @Krishna!
+
+  - 2017-03-10: 12:00-14:00 ulno
+
+  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
+
+  - 2017-03-13: 22:00-02:30 ulno

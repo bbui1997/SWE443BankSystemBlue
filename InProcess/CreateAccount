@@ -1,0 +1,34 @@
+Title: Create scenario, tests, code for user Sal to create bank account
+
+Description:
+
+  Create scenarios that describe how user Sal can create an account.
+  Scenarios must be extensive and cover cases as far as discussed.
+  Create tests that correlate with these scenarios.
+  Finally, implement the scenarios.
+
+Related scenario(s):
+
+  - Create_Account Scenario 1: Happy path
+  - Create_Account Scenario 2: Creating account with too short of a password
+  - Create_Account Scenario 3: Creating account with a negative monetary value.
+
+Time estimate(s):
+
+  3h
+
+Author(s):
+
+  - Salonika
+
+Assigned persons (currently working on task):
+
+  - Salonika
+
+Log entries (who worked when and how long on this): **update this @salonika!
+
+  - 2017-03-10: 12:00-14:00 ulno
+
+  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
+
+  - 2017-03-13: 22:00-02:30 ulno
