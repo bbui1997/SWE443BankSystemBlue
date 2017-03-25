@@ -2,15 +2,16 @@ Title: User, Salonika, logs into her account
 
 Scenario 2:
  1 Salonika runs the ATM program.
- 2 She gets the first prompt of “Do you have an account”.
+ 2 She gets the first prompt: “Do you have an account?”.
  3 She types “yes” in the console.
- 4 The next prompt asks her to enter her username.
- 5 She enters her username.
-  5.1 If
-  5.2 If the program does not accept the username, a prompt will be displayed indicating that the username entered is already taken and Salonika returns to Step 5
- 6 She enters a password, into the console
-  6.1 If the program accepts the password Salonika has entered, a new prompt will say: “Congratulations, you’ve created your account!”
-  6.2 If the program does not accept the password, a prompt will be displayed indicating the password was not acceptable, and Salonika returns to Step 6
+ 4 The next prompt: "Please enter your username".
+ 5 She enters her username into the console.
+  5.1 If she has input the correct username, she will be prompted: "Please enter your password".
+  5.2 If she has input an incorrect username, the following prompt will be displayed: "Username is incorrect". Salonika returns to Step 5.
+ 6 She enters her password into the console.
+  6.1 If she has input the correct password, then her bank account balance will be listed.
+  6.2 If she has input an incorrect password, the following prompt will be displayed: "Password is incorrect". Salonika returns to Step 6.
+
 
 Author(s):
 
@@ -22,5 +23,4 @@ Assigned persons (currently working on task):
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-23: 13:09 Salonika “started scenario, worked for 10 mins”
-  - 2017-03-23: 20:16 Salonika “finished scenario one, worked for 10 min”
+  - 2017-03-23: 21:15 Salonika “started scenario, worked for 10 mins”

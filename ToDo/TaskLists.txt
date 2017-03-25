@@ -46,8 +46,8 @@ Potential Scenarios Titles:
 -Administrator can delete an account.
 -Administrator can block an account, if threats are detected.
 -User requests to open an account. (Done by Salonika)
--User logs in to the system.
--User can view accountes,
+-User logs in to the system. (Done by Salonika)
+-User can view accounts,
     -can view transactions he has made.
     -can view balances,
 -user requests to remove/close account.
