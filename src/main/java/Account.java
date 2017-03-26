@@ -1,5 +1,3 @@
-import java.util.Date;
-
 /**
  * Created by Salonika on 3/25/17. Started working at 11:35 am - 12:51 pm; 1:54pm - 2:43 pm
  */
@@ -74,7 +72,7 @@ public class Account {
             this.initialAmount = initialAmount;
         }
         else {
-            System.out.println("Please do not enter negative number. Please enter a positve initial amount to deposit.");
+            System.out.println("Please do not enter negative number. Please enter a positive initial amount to deposit.");
             this.initialAmount = 0.00;
         }
 

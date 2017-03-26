@@ -1,15 +1,15 @@
 /**
  * Created by Salonika on 3/25/17. Started working at 11:35 am - 12:51 pm; 1:54pm - 2:43 pm
  */
-import com.sun.tools.javah.Util;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 public class CreateAccountTest {
     User sal;
     @Before
@@ -25,7 +25,7 @@ public class CreateAccountTest {
 
         String[] args = null;
         final InputStream original = System.in;
-        final FileInputStream ScenarioOneInput = new FileInputStream(new File("/Users/Salonika/Desktop/GitRepo/SWE443BankSystemBlue/src/test/java/ScenarioOneInput.txt"));
+        final FileInputStream ScenarioOneInput = new FileInputStream(new File("src/test/java/ScenarioOneInput.txt"));
         System.setIn(ScenarioOneInput);
         BlueBank.main(args);
         System.setIn(original);
@@ -42,7 +42,7 @@ public class CreateAccountTest {
     public void scenarioTwoTest() throws FileNotFoundException {
         String[] args = null;
         final InputStream original = System.in;
-        final FileInputStream ScenarioTwoInput = new FileInputStream(new File("/Users/Salonika/Desktop/GitRepo/SWE443BankSystemBlue/src/test/java/ScenarioTwoInput.txt"));
+        final FileInputStream ScenarioTwoInput = new FileInputStream(new File("src/test/java/ScenarioTwoInput.txt"));
         System.setIn(ScenarioTwoInput);
         BlueBank.main(args);
         System.setIn(original);
@@ -59,7 +59,7 @@ public class CreateAccountTest {
     public void scenarioThreeTest() throws FileNotFoundException {
         String[] args = null;
         final InputStream original = System.in;
-        final FileInputStream ScenarioThreeInput = new FileInputStream(new File("/Users/Salonika/Desktop/GitRepo/SWE443BankSystemBlue/src/test/java/ScenarioThreeInput.txt"));
+        final FileInputStream ScenarioThreeInput = new FileInputStream(new File("src/test/java/ScenarioThreeInput.txt"));
         System.setIn(ScenarioThreeInput);
         BlueBank.main(args);
         System.setIn(original);
