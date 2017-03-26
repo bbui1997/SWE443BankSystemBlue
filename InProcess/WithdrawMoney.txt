@@ -7,7 +7,7 @@ Description:
   Create tests that correlate with these scenarios.
   Finally, implement the scenarios.
 
-Related scenario(s): **update these
+Related scenario(s):
 
   - Withdraw Scenario 1: Sal successfully withdraws $40 from her account.
   - Withdraw Scenario 2: Sal attempts to withdraw an incorrect denomination of money.
