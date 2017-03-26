@@ -7,9 +7,9 @@ Description:
   Create tests that correlate with these scenarios.
   Finally, implement the scenarios.
 
-Related scenario(s): **update these
+Related scenario(s):
 
-  - Deposit Scenario 1:
+  - Deposit Scenario 1: Sal successfully deposits $50 into her account.
   - Deposit Scenario 2:
   - Deposit Scenario 3:
 
@@ -25,10 +25,6 @@ Assigned persons (currently working on task):
 
   - Marcus
 
-Log entries (who worked when and how long on this): **update this @Marcus!
+Log entries (who worked when and how long on this):
 
-  - 2017-03-10: 12:00-14:00 ulno
-
-  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
-
-  - 2017-03-13: 22:00-02:30 ulno
+  - 2017-03-26: 11:52- marcus
