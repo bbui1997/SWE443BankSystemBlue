@@ -1,19 +1,22 @@
-Title: TASK_NAME
+Title: Sal deposits money to bring her account balance positive.
 
-Scenario 1:
-  Brandon turned on his computer. He browsed to his "Task Scenario" folder. He wrote a
-  sample scenario and saved the text file.
+Scenario 2:
+  - Sal’s account currently has a negative balance of ($25).
+  - She has earned $100 at a bake sale she sales pastries on the weekend.
+  - After the fair she goes to the ATM to deposit her newly earned wages.
+  - Sal inserts her card and enters her credentials.
+  - She selects to deposit money and inserts the $100 into her account.
+  - Sal checks the balance of her account and it is now positive with $75.
+  - She prints her receipt and exits the system.
 
 Author(s):
 
-  - Brandon
+  - Marcus
 
 Assigned persons (currently working on task):
 
-  - Brandon
+  - Marcus
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-22: 16:51-16:52 Brandon, himself | Wrote scenario template and pushed to git
-
-  - 2017-03-22: 16:50-16:51 Brandon
+  - 2017-03-26: 12:12-12:32 Marcus | Wrote scenario and pushed to git

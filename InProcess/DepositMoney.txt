@@ -10,8 +10,8 @@ Description:
 Related scenario(s):
 
   - Deposit Scenario 1: Sal successfully deposits $50 into her account.
-  - Deposit Scenario 2:
-  - Deposit Scenario 3:
+  - Deposit Scenario 2: Sal deposits money to bring her account balance positive.
+  - Deposit Scenario 3: Sal attempts to make two deposits in one transaction.
 
 Time estimate(s):
 
