@@ -1,0 +1,34 @@
+Title: Create scenario, tests, code for user Sal to deposit money into their account
+
+Description:
+
+  Create scenarios that describe how user Sal can deposit money into her account.
+  Scenarios must be extensive and cover cases as far as discussed.
+  Create tests that correlate with these scenarios.
+  Finally, implement the scenarios.
+
+Related scenario(s): **update these
+
+  - Deposit Scenario 1:
+  - Deposit Scenario 2:
+  - Deposit Scenario 3:
+
+Time estimate(s):
+
+  3h
+
+Author(s):
+
+  - Marcus
+
+Assigned persons (currently working on task):
+
+  - Marcus
+
+Log entries (who worked when and how long on this): **update this @Marcus!
+
+  - 2017-03-10: 12:00-14:00 ulno
+
+  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
+
+  - 2017-03-13: 22:00-02:30 ulno

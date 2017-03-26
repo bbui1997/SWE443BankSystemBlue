@@ -1,0 +1,33 @@
+Title: Create scenario, tests, for user Sal to transfer money from one account to another, while both accounts belong to one user.
+
+Description:
+
+  Create scenarios that describe how user Sal can transfer money from one account to another, while both accounts belong to one user, Sal.
+  Scenarios must be extensive and cover cases as far as discussed.
+  Create tests that correlate with these scenarios. It's okay if these tests do not compile. Write the tests assuming the required objects and classes.
+
+Related scenario(s): **update these
+
+  - Deposit Scenario 1:
+  - Deposit Scenario 2:
+  - Deposit Scenario 3:
+
+Time estimate(s):
+
+  3h
+
+Author(s):
+
+  - Sara
+
+Assigned persons (currently working on task):
+
+  - Sara
+
+Log entries (who worked when and how long on this): **update this @Sara!
+
+  - 2017-03-10: 12:00-14:00 ulno
+
+  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
+
+  - 2017-03-13: 22:00-02:30 ulno
