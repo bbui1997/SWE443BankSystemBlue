@@ -1,19 +1,21 @@
-Title: TASK_NAME
+Title: Sal attempts to withdraw an incorrect denomination of money.
 
-Scenario 1:
-  Brandon turned on his computer. He browsed to his "Task Scenario" folder. He wrote a
-  sample scenario and saved the text file.
+Scenario 2:
+  - Sal goes to the ATM to withdraw money for the week.
+  - Her current balance is is $75.
+  - Sal inserts her card and inputs her credentials.
+  - She selects the withdraw option and inputs $35.
+  - The system rejects request with an error of incorrect denomination.
+  - Sal decides to try again later and exits the system.
 
 Author(s):
 
-  - Brandon
+  - Marcus
 
 Assigned persons (currently working on task):
 
-  - Brandon
+  - Marcus
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-22: 16:51-16:52 Brandon, himself | Wrote scenario template and pushed to git
-
-  - 2017-03-22: 16:50-16:51 Brandon
+  - 2017-03-26: 13:30-13:40 Marcus | Wrote scenario and pushed to git

@@ -10,8 +10,8 @@ Description:
 Related scenario(s): **update these
 
   - Withdraw Scenario 1: Sal successfully withdraws $40 from her account.
-  - Withdraw Scenario 2:
-  - Withdraw Scenario 3:
+  - Withdraw Scenario 2: Sal attempts to withdraw an incorrect denomination of money.
+  - Withdraw Scenario 3: Sal’s account has a negative balance after withdrawal from her account.
 
 Time estimate(s):
 
@@ -25,6 +25,6 @@ Assigned persons (currently working on task):
 
   - Marcus
 
-Log entries (who worked when and how long on this): **update this @Marcus!
+Log entries (who worked when and how long on this):
 
-  - 2017-03-10: 13:15- marcus
+  - 2017-03-26: 13:15-14:00 marcus

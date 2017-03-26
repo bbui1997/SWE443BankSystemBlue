@@ -1,19 +1,21 @@
-Title: TASK_NAME
+Title: Sal’s account has a negative balance after withdrawal from her account.
 
-Scenario 1:
-  Brandon turned on his computer. He browsed to his "Task Scenario" folder. He wrote a
-  sample scenario and saved the text file.
+Scenario 3:
+  - Sal needs money to get a gift for her best friend.
+  - Sal currently has $30 in her account but the gift costs $40.
+  - She goes to the ATM, inserts her card, and enters her credentials.
+  - Sal selects the option to withdraw money and inputs $40.
+  - The machine dispenses $40 and her balance is updated to negative ($10).
+  - Sal prints her receipt and exits the system.
 
 Author(s):
 
-  - Brandon
+  - Marcus
 
 Assigned persons (currently working on task):
 
-  - Brandon
+  - Marcus
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-22: 16:51-16:52 Brandon, himself | Wrote scenario template and pushed to git
-
-  - 2017-03-22: 16:50-16:51 Brandon
+  - 2017-03-26: 13:50-14:00 Marcus | Wrote scenario and pushed to git
