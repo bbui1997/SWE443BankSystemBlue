@@ -1,0 +1,21 @@
+Title: Sal successfully withdraws $40 from her account.
+
+Scenario 1:
+  - Sal needs money to purchase a dress for a party she is attending.
+  - She currently has a balance of $60 in her account.
+  - She arrives at the ATM, inserts her card, and enters her credentials.
+  - Sal selects the option to withdraw money from her account.
+  - She enters an amount of $40.
+  - The machine dispenses the money, Sal prints a receipt, and exits the system.
+
+Author(s):
+
+  - Marcus
+
+Assigned persons (currently working on task):
+
+  - Marcus
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  - 2017-03-22: 13:15-13:23 Marcus | Wrote scenario and pushed to git

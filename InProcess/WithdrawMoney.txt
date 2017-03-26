@@ -9,7 +9,7 @@ Description:
 
 Related scenario(s): **update these
 
-  - Withdraw Scenario 1:
+  - Withdraw Scenario 1: Sal successfully withdraws $40 from her account.
   - Withdraw Scenario 2:
   - Withdraw Scenario 3:
 
@@ -27,8 +27,4 @@ Assigned persons (currently working on task):
 
 Log entries (who worked when and how long on this): **update this @Marcus!
 
-  - 2017-03-10: 12:00-14:00 ulno
-
-  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
-
-  - 2017-03-13: 22:00-02:30 ulno
+  - 2017-03-10: 13:15- marcus
