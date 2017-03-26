@@ -1,8 +1,17 @@
 Title: Sal attempts to make two deposits in one transaction.
 
-Scenario 1:
-  Brandon turned on his computer. He browsed to his "Task Scenario" folder. He wrote a
-  sample scenario and saved the text file.
+Scenario 3:
+  - Sal needs to make another trip to the ATM to deposit $80 she received at the bake sale.
+  - She currently has $120 in her account.
+  - Sal arrives at the ATM and enters her card and credentials.
+  - She selects the option to deposit money into her account.
+  - She inputs $80 and inserts the cash into the machine.
+  - Sal now has a balance of $200.
+  - Before exiting the system she realizes that she has $40 in her purse from a previous sale.
+  - Sal goes back to the menu screen and selects deposit option.
+  - She inputs $40 and inserts the money into the machine.
+  - Her deposit is now $240.
+  - She prints the receipt and exits the system.
 
 Author(s):
 
@@ -14,4 +23,4 @@ Assigned persons (currently working on task):
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-22: 12:38- Marcus, himself | Wrote scenario and pushed to git
+  - 2017-03-26: 12:38-12:54 Marcus | Wrote scenario and pushed to git
