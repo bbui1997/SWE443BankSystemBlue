@@ -7,9 +7,9 @@
  */
 import java.util.*;
 import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Before;
+import static org.junit.Assert.*;
 
 public class TransactionTests {
     Account sal; //represents account for Sal to be used in testing.
@@ -29,19 +29,54 @@ public class TransactionTests {
         sal.setInitialAmount(0); //set inital balance to 0
     }
 
+    /**
+     * This method tests deposit Scenario1:
+     * Sal successfully deposits $50 into her account.
+     * Her initial balance is zero.
+     */
     @Test
     public void testDepositScenario1(){
+        setup(); //setup the environment
 
+        sal.deposit(50); //sal deoposits $50
+        assertEquals("Balance:",50,sal.getAccountBalance(),0); //check that current balance equals $50
+
+        destroy(); //teardown the environment
     }
 
+    /**
+     * This method tests deposit Scenario2:
+     * Sal brings her account balance positive.
+     * Sal initially has a negative balance of ($25).
+     * She deposits $100 and the new balance is $75.
+     */
     @Test
     public void testDepositScenario2(){
+        setup(); //setup the envinronment
+        sal.setAccountBalance(-25); //set inital balance to -$25
 
+        sal.deposit(100); //Sal deposits $100 into her account
+        assertEquals("Balance:",75,sal.getAccountBalance(),0); //check that current balance equals $75 after deposit
+
+        destroy(); //teardown the environment
     }
 
+    /**
+     * This method tests deposit Scenario3:
+     * Sal attempts to make two deposits in one transaction.
+     * She has an intial balance of $120 and makes a deposit of $80.
+     * She then makes another deposit of $40.
+     */
     @Test
     public void testDepositScenario3(){
+        setup(); //setup the environment
+        sal.setInitialAmount(120); //set initial balance to $120
 
+        sal.deposit(80); //first deposit of $80
+        sal.deposit(40); //second deposit of $40
+        assertEquals("Balance:",240,sal.getAccountBalance(),0); //check that the current balance equals $240 after both deposits
+
+        destroy(); //teardwon the environment
     }
 
     @Test
@@ -64,7 +99,7 @@ public class TransactionTests {
      * The method will be used after each test run to destory object before the next test.
      */
     @After
-    public void exitSystem(){
+    public void destroy(){
         sal = null; //set the object to null
     }
 }

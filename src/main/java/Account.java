@@ -2,16 +2,17 @@
  * Created by Salonika on 3/25/17. Started working at 11:35 am - 12:51 pm; 1:54pm - 2:43 pm
  */
 public class Account {
-    String name;
-    int ssn;
+    private String name;
+    private int ssn;
     //Date should be an actual Date obj but just for simplicity I am keeping it a String for now
-    String dob;
-    String username;
-    String password;
-    double initialAmount;
+    private String dob;
+    private String username;
+    private String password;
+    private double initialAmount;
+    private double accountBalance;
 
     public Account(){
-
+        accountBalance = 0; //account balance begins with no money
     }
 
     public String getName() {
@@ -68,8 +69,9 @@ public class Account {
     }
 
     public void setInitialAmount(double initialAmount) {
-        if(initialAmount > 0.0) {
+        if(initialAmount >= 0.0) {
             this.initialAmount = initialAmount;
+            this.accountBalance = initialAmount; //set account balance to initial amount deposited
         }
         else {
             System.out.println("Please do not enter negative number. Please enter a positive initial amount to deposit.");
@@ -78,6 +80,32 @@ public class Account {
 
     }
 
+    /**
+     * This method is used to increase the acocunt balance by the amount a user
+     * deposits into their account.
+     *
+     * @param amt the amount that is deposited into the account
+     */
+    public void deposit(double amt){
+        this.setAccountBalance(amt+getAccountBalance()); //add amount to the account balance.
+    }
+
+    /**
+     * This method is used to update the account balance.
+     *
+     * @param amt the amount of the account balance.
+     */
+    public void setAccountBalance(double amt){
+        accountBalance = amt; //set the account balance to the specified amount.
+    }
+
+    /**
+     * This method returns the value of the account balance
+     * @return double This returns the account balance
+     */
+    public double getAccountBalance(){
+        return this.accountBalance; //return the account balance
+    }
 
 
 }

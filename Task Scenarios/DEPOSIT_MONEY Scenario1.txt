@@ -2,9 +2,11 @@ Title: Sal successfully deposits $50 into her account.
 
 Scenario 1:
   - Sal receives $50 from her friend as repayment for a favor.
+  - Sal currently has $0 in her account.
   - She quickly goes to the ATM to deposit her money into the bank.
-  - Sal enters her username and password at the console screen.
+  - Sal inserts her card and enters her credentials at the screen.
   - She selects the option to deposit money into her account and inserts the $50 into the machine.
+  - Her current balance now reads $50.
   - Sal prints a receipt of the transaction and exits the program.
 
 Author(s):
