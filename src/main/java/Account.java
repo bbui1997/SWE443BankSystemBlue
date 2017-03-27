@@ -86,8 +86,15 @@ public class Account {
      *
      * @param amt the amount that is deposited into the account
      */
-    public void deposit(double amt){
-        this.setAccountBalance(amt+getAccountBalance()); //add amount to the account balance.
+    public void deposit(double amt) throws IllegalArgumentException{
+        /**
+         * check if valid amount. add amount to balance if greater than 0.
+         */
+        if(amt >= 0) {
+            this.setAccountBalance(amt + getAccountBalance()); //add amount to the account balance.
+        }else{
+            throw new IllegalArgumentException(amt+" is less than or equal to 0");
+        }
     }
 
     /**
@@ -95,7 +102,7 @@ public class Account {
      * withdrawn in denominations of 10,20,or 100.
      *
      * @param amt the amount that is withdrawn from the account in denominations of 10,20, or 100.
-     * @return int the amount requested to be withdrawn
+     * @return int the amount requested to be withdrawn. 0 if incorrect denomination.
      */
     public int withdraw(int amt){
 

@@ -114,7 +114,8 @@ public class BlueBank {
         System.out.print("Please enter amount to withdraw:"); //prompt for amount to withraw
         amt  = input.nextInt(); //read withdrawal amount
 
-        acct.withdraw(amt); //withdraw amount from account
+        amt = acct.withdraw(amt); //withdraw amount from account
+        if(amt==0) System.out.println("No money has been withdrawn."); //check amt to be returned
         System.out.println();
         System.out.println("Your remaining balance: $"+acct.getAccountBalance()); //print balance
     }
