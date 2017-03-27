@@ -8,7 +8,7 @@ Description:
   Create tests that correlate with these scenarios. It's okay if these tests do not compile.
   Write the tests assuming the required objects and classes.
 
-Related scenario(s): **update these
+Related scenario(s):
 
   - Deposit Money Scenario 1,
   - Deposit Money Scenario 2,
@@ -22,7 +22,7 @@ Related scenario(s): **update these
 
 Time estimate(s):
 
-  3h
+  3h 
 
 Author(s):
 
@@ -32,10 +32,11 @@ Assigned persons (currently working on task):
 
   - Krishna
 
-Log entries (who worked when and how long on this): **update this @Krishna!
+Log entries (who worked when and how long on this):
 
-  - 2017-03-10: 12:00-14:00 ulno
+  - 2017-03-27: 2:40 pm - 2:50 pm ; Krishna | wrote the scenario and pushed to git. Took about 10 mins to do so.
 
-  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
+  - 2017-03-27: 3:00 pm - 3:10 pm ; Krishna | wrote the scenario and pushed to git. Took about 10 mins to do so.
 
-  - 2017-03-13: 22:00-02:30 ulno
+  - 2017-03-27: 03:15 pm -03:30 pm Krishna | Wrote scenario and pushed to git. Took about 15 mins to do so.
+
