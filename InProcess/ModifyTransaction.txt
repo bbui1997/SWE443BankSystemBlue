@@ -40,3 +40,6 @@ Log entries (who worked when and how long on this):
 
   - 2017-03-27: 03:15 pm -03:30 pm Krishna | Wrote scenario and pushed to git. Took about 15 mins to do so.
 
+  - 2017-03-27: 03:30 pm -04:30 pm Krishna | Wrote the test cases for Modify Transaction and pushed to git.
+
+
