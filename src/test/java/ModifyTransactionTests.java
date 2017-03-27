@@ -9,7 +9,7 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertTrue;
 
 public class ModifyTransactionTests {
@@ -47,7 +47,7 @@ public class ModifyTransactionTests {
         sal.deposit(50);               //sal deposits $50
         sal.undoRecentTransaction();        //sal undoes the deposit.
 
-        assertTrue(sal.getAccountBalance() = initialBalance);      //check if the balance has been updated to initial value.
+        assertTrue(sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
 
         destroy(); //teardown the environment
     }
@@ -68,7 +68,7 @@ public class ModifyTransactionTests {
         sal.withdraw(50);               //sal withdraws $50
         sal.undoRecentTransaction();        //sal undoes the withdrawal.
 
-        assertTrue(sal.getAccountBalance() = initialBalance);      //check if the balance has been updated to initial value.
+        assertTrue(sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
 
         destroy(); //teardown the environment
     }
@@ -88,8 +88,8 @@ public class ModifyTransactionTests {
 
         sal.transfer(1223334444);           //Sal transfers money to sara who's account # is 1223334444
         sal.undoRecentTransaction();        //sal undoes the transfer.
-
-        assertTrue(sal.getAccountBalance() = initialBalance);      //check if the balance has been updated to initial value.
+        double beforeUndo = sal.getAccountBalance();
+        assertTrue(sal.getAccountBalance() == initialBalance && beforeUndo != initialBalance);      //check if the balance has been updated to initial value.
 
         //also we need to check whether sara's account was updated.
 

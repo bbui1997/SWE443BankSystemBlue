@@ -145,4 +145,15 @@ public class Account {
     public double getAccountBalance(){
         return this.accountBalance; //return the account balance
     }
+
+
+    //TODO Implement me!
+    public void undoRecentTransaction(){
+
+    }
+
+    //TODO Implement me!
+    public void transfer(int amount){
+
+    }
 }
