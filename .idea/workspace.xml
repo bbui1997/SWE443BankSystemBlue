@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65a2ad5d-2e52-44e7-ba0c-8fb3daf1934a" name="Default" comment="Added WELCOME_SCREEN Scenarios and task, added LOG_IN Scenarios and task&#10;Added PersistenceLayer task">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Task Scenarios/MODIFY_TRANSFER Scenario1.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Task Scenarios/MODIFY_TRANSFER Scenario1.txt" afterPath="$PROJECT_DIR$/Task Scenarios/MODIFY_TRANSACTION Scenario1.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InProcess/ModifyTransaction.txt" afterPath="$PROJECT_DIR$/InProcess/ModifyTransaction.txt" />
     </list>
     <ignored path="blue.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +38,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MODIFY_TRANSFER Scenario1.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Task Scenarios/MODIFY_TRANSFER Scenario1.txt">
+      <file leaf-file-name="MODIFY_TRANSACTION Scenario1.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Task Scenarios/MODIFY_TRANSACTION Scenario1.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
               <caret line="23" column="112" lean-forward="false" selection-start-line="23" selection-start-column="112" selection-end-line="23" selection-end-column="112" />
@@ -1519,7 +1518,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Task Scenarios/MODIFY_TRANSFER Scenario1.txt">
+    <entry file="file://$PROJECT_DIR$/Task Scenarios/MODIFY_TRANSACTION Scenario1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="112" lean-forward="false" selection-start-line="23" selection-start-column="112" selection-end-line="23" selection-end-column="112" />
