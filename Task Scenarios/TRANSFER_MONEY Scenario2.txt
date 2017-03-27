@@ -1,6 +1,6 @@
 Title: Sal’s account has a negative balance after transfer from her account to Sara's account.
 
-Scenario 1:
+Scenario 2:
   - Sal needs to payback $100 that she borrowed from Sara yesterday.
   - Sal currently has $50 in her account.
   - She goes to the ATM, inserts her card, and enters her credentials.
@@ -25,4 +25,4 @@ Assigned persons (currently working on task):
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-27: 12:44-14:00 Sara | Wrote scenario and pushed to git
+  - 2017-03-27: 12:51-4:00 Sara | Wrote scenario and pushed to git

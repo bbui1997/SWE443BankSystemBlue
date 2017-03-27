@@ -1,0 +1,16 @@
+Title:
+
+Scenario 3:
+  -
+
+Author(s):
+
+  - Sara
+
+Assigned persons (currently working on task):
+
+  - Sara
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  - 2017-03-27: 12:54-14:00 Sara | Wrote scenario and pushed to git
