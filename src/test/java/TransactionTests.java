@@ -5,11 +5,11 @@
  *
  * @Author: Marcus Yarbrough
  */
-import java.util.*;
 import org.junit.After;
-import org.junit.Test;
 import org.junit.Before;
-import static org.junit.Assert.*;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class TransactionTests {
     Account sal; //represents account for Sal to be used in testing.
@@ -38,7 +38,7 @@ public class TransactionTests {
     public void testDepositScenario1(){
         setup(); //setup the environment
 
-        sal.deposit(50); //sal deoposits $50
+        sal.deposit(50); //sal deposits $50
         assertEquals("Balance:",50,sal.getAccountBalance(),0); //check that current balance equals $50
 
         destroy(); //teardown the environment
@@ -52,8 +52,8 @@ public class TransactionTests {
      */
     @Test
     public void testDepositScenario2(){
-        setup(); //setup the envinronment
-        sal.setAccountBalance(-25); //set inital balance to -$25
+        setup(); //setup the environment
+        sal.setAccountBalance(-25); //set initial balance to -$25
 
         sal.deposit(100); //Sal deposits $100 into her account
         assertEquals("Balance:",75,sal.getAccountBalance(),0); //check that current balance equals $75 after deposit
@@ -64,7 +64,7 @@ public class TransactionTests {
     /**
      * This method tests deposit Scenario3:
      * Sal attempts to make two deposits in one transaction.
-     * She has an intial balance of $120 and makes a deposit of $80.
+     * She has an initial balance of $120 and makes a deposit of $80.
      * She then makes another deposit of $40.
      */
     @Test
@@ -76,7 +76,7 @@ public class TransactionTests {
         sal.deposit(40); //second deposit of $40
         assertEquals("Balance:",240,sal.getAccountBalance(),0); //check that the current balance equals $240 after both deposits
 
-        destroy(); //teardwon the environment
+        destroy(); //tear down the environment
     }
 
     @Test
@@ -95,8 +95,8 @@ public class TransactionTests {
     }
 
     /**
-     * This method sets the gloabal object sal to null.
-     * The method will be used after each test run to destory object before the next test.
+     * This method sets the global object sal to null.
+     * The method will be used after each test run to destroy object before the next test.
      */
     @After
     public void destroy(){
