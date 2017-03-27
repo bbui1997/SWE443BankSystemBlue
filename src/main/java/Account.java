@@ -9,7 +9,7 @@ public class Account {
     private String username;
     private String password;
     private double initialAmount;
-    private double accountBalance;
+    private double accountBalance; //current balance in account
 
     public Account(){
         accountBalance = 0; //account balance begins with no money
@@ -81,13 +81,48 @@ public class Account {
     }
 
     /**
-     * This method is used to increase the acocunt balance by the amount a user
+     * This method is used to increase the account balance by the amount a user
      * deposits into their account.
      *
      * @param amt the amount that is deposited into the account
      */
     public void deposit(double amt){
         this.setAccountBalance(amt+getAccountBalance()); //add amount to the account balance.
+    }
+
+    /**
+     * This method is used to decrease the account balance by the amount
+     * withdrawn in denominations of 10,20,or 100.
+     *
+     * @param amt the amount that is withdrawn from the account in denominations of 10,20, or 100.
+     * @return int the amount requested to be withdrawn
+     */
+    public int withdraw(int amt){
+
+        /**
+         * Check if amount is a denomination of 10
+         */
+        if((amt%10)==0){
+            this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
+            return amt; //return requested amount
+        }
+
+        /**
+         * Check if amount is a denomination of 20
+         */
+        if((amt%20)==0){
+            this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
+            return amt; //return requested amount
+        }
+
+        /**
+         * Check if amount is a denomination of 100
+         */
+        if((amt%100)==0){
+            this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
+            return amt; //return requested amount
+        }
+        return 0; //return 0 if denominations don't match
     }
 
     /**
@@ -106,6 +141,4 @@ public class Account {
     public double getAccountBalance(){
         return this.accountBalance; //return the account balance
     }
-
-
 }

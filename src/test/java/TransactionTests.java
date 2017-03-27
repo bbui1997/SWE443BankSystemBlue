@@ -70,28 +70,66 @@ public class TransactionTests {
     @Test
     public void testDepositScenario3(){
         setup(); //setup the environment
-        sal.setInitialAmount(120); //set initial balance to $120
+        sal.setAccountBalance(120); //set initial balance to $120
 
         sal.deposit(80); //first deposit of $80
         sal.deposit(40); //second deposit of $40
         assertEquals("Balance:",240,sal.getAccountBalance(),0); //check that the current balance equals $240 after both deposits
 
-        destroy(); //teardwon the environment
+        destroy(); //teardown the environment
     }
 
+    /**
+     * This method tests withdraw Scenario1:
+     * Sal withdraws $40 from her account.
+     * She initially has a balance of $60 and after the withdrawal the balance is $20.
+     */
     @Test
     public void testWithdrawScenario1(){
+        setup(); //setup the environment
+        sal.setAccountBalance(60); //Sal has an account balance of $60.
 
+        int cash = sal.withdraw(40); //withdraw $40 from account
+        assertEquals("Withdrawn:",40,cash,0); //$40 is returned
+        assertEquals("Balance:",20,sal.getAccountBalance(),0); //check account balance is $20 after withdrawal
+
+        destroy(); //teardown the environment
     }
 
+    /**
+     * This method tests withdraw Scenario2:
+     * Sal attempts to withdraw an incorrect denomination.
+     * She currently has a balance of $75 and attempts to withrdaw $35.
+     * The transaction fails and returns $0.
+     */
     @Test
     public void testWithdrawScenario2(){
+        setup(); //setup the environment
+        sal.setAccountBalance(75); //Sal has an account balance of $75.
 
+        int cash = sal.withdraw(35);
+        assertEquals("Withdrawn:",0,cash,0); //no money is returned
+        assertEquals("Balance:",75,sal.getAccountBalance(),0); //Sal's account balance remains the same.
+
+        destroy(); //teardown the environment
     }
 
+    /**
+     * This method tests withdraw Scenario3:
+     * Sal's account has a negative balance after withdrawal.
+     * Sal has an account balance of $30. She withdraws $40
+     * and now has an account balance of negative ($10).
+     */
     @Test
     public void testWithdrawScenario3(){
+        setup(); //setup the environment
+        sal.setAccountBalance(30); //Sal has an account balance of $40
 
+        int cash = sal.withdraw(40); //withdraw $40 from account
+        assertEquals("Withdrawn:",40,cash,0); //$40 returned
+        assertEquals("Balance:",-10,sal.getAccountBalance(),0); //account balance is negative ($10)
+
+        destroy(); //teardown the environment
     }
 
     /**
