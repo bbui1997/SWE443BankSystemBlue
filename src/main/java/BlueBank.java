@@ -1,4 +1,3 @@
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -16,8 +15,9 @@ public class BlueBank {
         /**
          * while loop for user interface to display options
          * 1 - create account
-         * 2 - make deposit
-         * 3 - make withdrawal
+         * 2 - log in
+         * 3 - make deposit
+         * 4 - make withdrawal
          * 0 - to exit
          */
         while (opt != 0) {
@@ -31,9 +31,12 @@ public class BlueBank {
                     createAccount();
                     break;
                 case 2:
-                    makeDeposit();
+                    logIn();
                     break;
                 case 3:
+                    makeDeposit();
+                    break;
+                case 4:
                     makeWithdrawal();
                     break;
             }
@@ -84,6 +87,13 @@ public class BlueBank {
         //acct.setInitialAmount(Double.parseDouble(argv[5]));
         System.out.println("Thank you for the information, " + acct.getName() + " You currently have "
                 + acct.getInitialAmount() + " dollars in your account.");
+    }
+
+    /**
+     * This method is used for when we have a persistence layer going and can log in to an existing account
+     */
+    static void logIn(){
+
     }
 
     /**
