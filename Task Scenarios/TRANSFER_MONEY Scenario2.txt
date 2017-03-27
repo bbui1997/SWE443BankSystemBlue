@@ -1,15 +1,18 @@
-Title: Sal successfully transfer $100 from her account to Sara's account.
+Title: Sal’s account has a negative balance after transfer from her account to Sara's account.
 
 Scenario 1:
   - Sal needs to payback $100 that she borrowed from Sara yesterday.
-  - Sal currently has $150 in her account.
+  - Sal currently has $50 in her account.
   - She goes to the ATM, inserts her card, and enters her credentials.
   - Sal selects the option to transfer money and the amount $100 to do.
-  - The machine checks Sal's account balance and prompts destination account info.
+  - The machine checks Sal's account balance and prompts the amount she typed in.
+  - Sal accepts the amount.
+  - The machine prompts destination account number.
   - Sal types in sara's account number as a destination.
   - The machine checks Sara's account validity and prompts Sal Sara's name and account number.
   - Sal presses "OK" button since the prompt info was correct.
   - The machine withdraws $100 from Sal's account and deposits $100 to Sara's account.
+  - Sal has negative $50 balance in her account now.
   - Sal selects to print her receipt and exits the system.
 
 Author(s):
