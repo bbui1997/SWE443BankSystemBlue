@@ -5,12 +5,63 @@ import java.util.Scanner;
  * Created by Salonika on 3/25/17. Started working at 11:35 am - 12:51 pm; 1:54pm - 2:43 pm
  */
 public class BlueBank {
-    static Account acct = new Account();
+    static Account acct = null; //account variable for newly created account
 
-    public static void main (String[] argv){
+    public static void main (String[] argv) {
+        Scanner input = new Scanner(System.in); //placeholder for user input
+        int opt = -1; //placeholder for user option
+
+        System.out.println("Welcome to BlueBank!");
+
+        /**
+         * while loop for user interface to display options
+         * 1 - create account
+         * 2 - make deposit
+         * 3 - make withdrawal
+         * 0 - to exit
+         */
+        while (opt != 0) {
+            System.out.print(mainMenu()); //print main menu
+            System.out.print("Please enter option (0 to exit):"); //print line for user to enter menu option
+            opt = input.nextInt(); //scan user input
+
+            //call function based on user option selected
+            switch (opt) {
+                case 1:
+                    createAccount();
+                    break;
+                case 2:
+                    makeDeposit();
+                    break;
+                case 3:
+                    makeWithdrawal();
+                    break;
+            }
+        }
+    }
+
+    /**
+     * This method is the main menu for the banking system.
+     * @return StringBuilder contains string builder of main menu
+     */
+    private static StringBuilder mainMenu(){
+        StringBuilder menu = new StringBuilder();
+        menu.append("\n\nMain Menu:\n");
+        menu.append("1. Create Account\n");
+        menu.append("2. Make Deposit\n");
+        menu.append("3. Make Withdraw\n");
+        return menu;
+    }
+
+    /**
+     * This method creates a new account for the user based on the option chosen at the main menu.
+     */
+    static void createAccount(){
+        acct = new Account(); //create a new account
         Scanner scanStr = new Scanner(System.in);
         Scanner scanInt = new Scanner(System.in);
         Scanner scanDouble = new Scanner(System.in);
+
         System.out.println("Welcome to BlueBank! Lets create an account: Please enter your first and last name.");
         acct.setName(scanStr.nextLine());
         //acct.setName(argv[0]);
@@ -31,11 +82,40 @@ public class BlueBank {
         //acct.setInitialAmount(scanDouble.nextDouble());
         acct.setInitialAmount(Double.parseDouble(scanStr.nextLine()));
         //acct.setInitialAmount(Double.parseDouble(argv[5]));
-        System.out.println("Thank you for the information, "+acct.getName()+" You currently have "
-                            +acct.getInitialAmount()+ " dollars in your account.");
+        System.out.println("Thank you for the information, " + acct.getName() + " You currently have "
+                + acct.getInitialAmount() + " dollars in your account.");
+    }
 
+    /**
+     * This method is used to deposit money into a user's account based on option chosen at menu.
+     */
+    static void makeDeposit(){
+        Scanner input = new Scanner(System.in);
+        int amt;
 
+        System.out.println("\n");
+        System.out.print("Please enter the deposit amount:"); //prompt user for amount
+        amt = input.nextInt(); //read deposit amount
 
+        acct.deposit(amt); //deposit amount into account
+        System.out.println();
+        System.out.println("Your remaining balance: $"+acct.getAccountBalance()); //print balance
+    }
 
+    /**
+     * This method is used to withdraw money from user's account based on option chosen at menu.
+     */
+    static void makeWithdrawal(){
+        Scanner input = new Scanner(System.in);
+        int amt;
+
+        System.out.println("\n");
+        System.out.println("Machine dispenses money in denomiations of $10, $20, or $100");
+        System.out.print("Please enter amount to withdraw:"); //prompt for amount to withraw
+        amt  = input.nextInt(); //read withdrawal amount
+
+        acct.withdraw(amt); //withdraw amount from account
+        System.out.println();
+        System.out.println("Your remaining balance: $"+acct.getAccountBalance()); //print balance
     }
 }
