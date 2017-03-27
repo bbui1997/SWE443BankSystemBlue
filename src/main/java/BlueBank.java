@@ -51,8 +51,9 @@ public class BlueBank {
         StringBuilder menu = new StringBuilder();
         menu.append("\n\nMain Menu:\n");
         menu.append("1. Create Account\n");
-        menu.append("2. Make Deposit\n");
-        menu.append("3. Make Withdraw\n");
+        menu.append("2. Log In (NOT FUNCTIONING YET) \n");
+        menu.append("3. Make Deposit\n");
+        menu.append("4. Make Withdraw\n");
         return menu;
     }
 

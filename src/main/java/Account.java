@@ -31,10 +31,7 @@ public class Account {
         this.ssn = ssn;
     }
 
-    public String getDob() {
-
-        return dob;
-    }
+    public String getDob() { return dob; }
 
     public void setDob(String dob) {
         this.dob = dob;
