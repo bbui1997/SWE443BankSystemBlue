@@ -31,10 +31,7 @@ public class Account {
         this.ssn = ssn;
     }
 
-    public String getDob() {
-
-        return dob;
-    }
+    public String getDob() { return dob; }
 
     public void setDob(String dob) {
         this.dob = dob;
@@ -147,5 +144,16 @@ public class Account {
      */
     public double getAccountBalance(){
         return this.accountBalance; //return the account balance
+    }
+
+
+    //TODO Implement me!
+    public void undoRecentTransaction(){
+
+    }
+
+    //TODO Implement me!
+    public void transfer(int amount){
+
     }
 }

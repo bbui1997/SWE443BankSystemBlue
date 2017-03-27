@@ -1,14 +1,10 @@
 /**
  * Created by Salonika on 3/25/17. Started working at 11:35 am - 12:51 pm; 1:54pm - 2:43 pm
  */
-import com.sun.corba.se.pept.encoding.InputObject;
-import jdk.internal.util.xml.impl.Input;
-import jdk.nashorn.internal.runtime.regexp.joni.ScanEnvironment;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 public class CreateAccountTest {

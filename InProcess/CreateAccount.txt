@@ -1,8 +1,8 @@
-Title: Create scenario, tests, code for user Sal to create bank account
+Title: Create scenario, tests, code for user Salonika to create bank account
 
 Description:
 
-  Create scenarios that describe how user Sal can create an account.
+  Create scenarios that describe how user Salonika can create an account.
   Scenarios must be extensive and cover cases as far as discussed.
   Create tests that correlate with these scenarios.
   Finally, implement the scenarios.
@@ -25,10 +25,13 @@ Assigned persons (currently working on task):
 
   - Salonika
 
-Log entries (who worked when and how long on this): **update this @salonika!
+Log entries (who worked when and how long on this):
 
-  - 2017-03-10: 12:00-14:00 ulno
+  - 2017-03-25: 10:39 Salonika “CREATE_ACCOUNT Scenario1, worked for 10 mins”
 
-  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
+  - 2017-03-25: 10:57 Salonika “CREATE_ACCOUNT Scenario2, worked for 4 mins”
 
-  - 2017-03-13: 22:00-02:30 ulno
+  - 2017-03-25: 11:05 Salonika “CREATE_ACCOUNT Scenario3, worked for 5 mins”
+
+  - 2017-03-25: 11:35; 13:54 Salonika "Started working on BlueBank, Account, and User
+    at 11:35 am - 13:51 pm; started again at 13:54pm - 14:43 pm"
