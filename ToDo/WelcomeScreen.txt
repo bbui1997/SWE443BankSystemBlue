@@ -1,0 +1,32 @@
+Title: Create scenario, tests, develop code for user Brandon to view the welcome screen and choose 
+       either to create an account, or log in.
+
+Description:
+
+  Create scenarios that describe what Brandon sees upon viewing the welcome screen.
+  Scenarios must be extensive and cover cases as far as discussed.
+  Create tests that correlate with these scenarios.
+  Finally, implement the scenarios, this will most likely only be using console.
+
+Related scenario(s):
+
+  - Welcome_Screen Scenario 1: Brandon turns on the application and sees a welcome screen.
+  - Welcome_Screen Scenario 2: Brandon turns on the application and sees a welcome screen and creates an account
+  - Welcome_Screen Scenario 3: Brandon turns on the application and sees a welcome screen and logs in.
+
+
+Time estimate(s):
+
+  1h (for now)
+
+Author(s):
+
+  - Brandon
+
+Assigned persons (currently working on task):
+
+  - 
+
+Log entries (who worked when and how long on this): 
+
+  - 

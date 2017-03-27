@@ -1,8 +1,9 @@
 Title: TASK_NAME
 
 Scenario 1:
-  Brandon turned on his computer. He browsed to his "Task Scenario" folder. He wrote a
-  sample scenario and saved the text file.
+  1) Brandon turned on his computer. 
+  2) He browsed to his "Task Scenario" folder. 
+  3) He wrote a sample scenario and saved the text file.
 
 Author(s):
 

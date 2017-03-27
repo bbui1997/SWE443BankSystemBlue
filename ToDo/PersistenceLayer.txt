@@ -1,0 +1,29 @@
+Title: Persistence Layer - Some type of database for existing accounts
+
+Description:
+
+  Brainstorm ideas about what type of persistence layer will be used.
+  Create tests that correlate with scenarios below and persistence layer that will be used.
+  Finally, implement the scenarios.
+
+Related scenario(s):
+
+  - Welcome_Screen Scenarios:
+  - Create_Account Scenarios:
+  - Log_In Scenarios: 
+
+Time estimate(s):
+
+  5h
+
+Author(s):
+
+  - Brandon
+
+Assigned persons (currently working on task):
+
+  - 
+
+Log entries (who worked when and how long on this): 
+
+  - 
