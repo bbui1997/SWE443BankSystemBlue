@@ -7,6 +7,7 @@ Scenario 1:
     - But she suddenly remembers that she need this money to buy groceries.
     - At the prompt, she chooses to undo her most recent transaction.
     - The ATM gives back her $50, and updates her account accordingly.
+    - The ATM return to the initial prompt, and asks sal what she wants to do.
     - Sal takes the cash, and prints a receipt of her transaction and exits the ATM.
     - The receipt shows her initial balance, deposit of $50, then a deduction of $50, and her current balance.
 
