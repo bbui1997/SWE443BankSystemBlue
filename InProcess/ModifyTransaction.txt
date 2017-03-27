@@ -22,7 +22,7 @@ Related scenario(s):
 
 Time estimate(s):
 
-  3h 
+  3h
 
 Author(s):
 
