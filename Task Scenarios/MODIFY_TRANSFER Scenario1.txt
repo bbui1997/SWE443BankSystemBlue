@@ -1,0 +1,24 @@
+Title: User Sal successfully undoes her recent deposit
+
+Scenario 1:
+
+    - Sal has logged in to her account. And she has followed the steps in the DEPOSIT_MONEY
+      scenario and has successfully deposited $50 into her account.
+    - But she suddenly remembers that she need this money to buy groceries.
+    - At the prompt, she chooses to undo her most recent transaction.
+    - The ATM gives back her $50, and updates her account accordingly.
+    - Sal takes the cash, and prints a receipt of her transaction and exits the ATM.
+    - The receipt shows her initial balance, deposit of $50, then a deduction of $50, and her current balance.
+
+
+Author(s):
+
+  - Krishna.
+
+Assigned persons (currently working on task):
+
+  - Krishna.
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  - 2017-03-27: 2:40 pm - 2:50 pm ; Krishna | wrote the scenario and pushed to git. Took about 10 mins to do so.
