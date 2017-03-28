@@ -104,9 +104,9 @@ public class Account {
     public double withdraw(double amt){
 
         /**
-         * Check if amount is a denomination of 10
+         * Check if amount is a denomination of 100
          */
-        if((amt%10)==0){
+        if((amt%100)==0){
             this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
             return amt; //return requested amount
         }
@@ -120,9 +120,9 @@ public class Account {
         }
 
         /**
-         * Check if amount is a denomination of 100
+         * Check if amount is a denomination of 10
          */
-        if((amt%100)==0){
+        if((amt%10)==0){
             this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
             return amt; //return requested amount
         }
