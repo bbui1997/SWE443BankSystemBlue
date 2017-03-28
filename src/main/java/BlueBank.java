@@ -133,7 +133,7 @@ public class BlueBank {
             System.out.println("Please create an account first! You will be redirected to create account.");
             createAccount();
         }
-        
+
         Scanner input = new Scanner(System.in);
         double amt;
 
