@@ -118,7 +118,7 @@ public class BlueBank {
      */
     static void makeWithdrawal(){
         Scanner input = new Scanner(System.in);
-        int amt;
+        double amt;
 
         System.out.println("\n");
         System.out.println("Machine dispenses money in denomiations of $10, $20, or $100");
