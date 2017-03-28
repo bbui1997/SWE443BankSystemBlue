@@ -2,4 +2,3 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-03-28: 09:40-09:44 Marcus | resolve type mismatch when withdrawing.
   - 2017-03-28: 09:44-09:53 Marcus | add check that account is created before withdraw/deposit.
-  - 2017-03-28: 10:07-
