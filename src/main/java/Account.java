@@ -101,7 +101,7 @@ public class Account {
      * @param amt the amount that is withdrawn from the account in denominations of 10,20, or 100.
      * @return int the amount requested to be withdrawn. 0 if incorrect denomination.
      */
-    public int withdraw(int amt){
+    public double withdraw(double amt){
 
         /**
          * Check if amount is a denomination of 10

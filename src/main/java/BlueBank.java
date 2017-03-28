@@ -1,3 +1,4 @@
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.Scanner;
 
 /**
@@ -101,6 +102,14 @@ public class BlueBank {
      * This method is used to deposit money into a user's account based on option chosen at menu.
      */
     static void makeDeposit(){
+        /**
+         * Check if user created an account. Call create account if not.
+         */
+        if(acct==null){
+            System.out.println("Please create an account first! You will be redirected to create account.");
+            createAccount();
+        }
+
         Scanner input = new Scanner(System.in);
         int amt;
 
@@ -117,8 +126,16 @@ public class BlueBank {
      * This method is used to withdraw money from user's account based on option chosen at menu.
      */
     static void makeWithdrawal(){
+        /**
+         * Check if user created an account. Call create account if not.
+         */
+        if(acct==null){
+            System.out.println("Please create an account first! You will be redirected to create account.");
+            createAccount();
+        }
+
         Scanner input = new Scanner(System.in);
-        int amt;
+        double amt;
 
         System.out.println("\n");
         System.out.println("Machine dispenses money in denomiations of $10, $20, or $100");
