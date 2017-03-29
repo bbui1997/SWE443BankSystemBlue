@@ -92,7 +92,9 @@ public class BlueBank {
      * This method is used for when we have a persistence layer going and can log in to an existing account
      */
     static void logIn(){
-
+        Scanner scannInput = new Scanner(System.in);
+        System.out.println("Please enter a username: ");
+        String  userName= scannInput.nextLine();
     }
 
     /**
