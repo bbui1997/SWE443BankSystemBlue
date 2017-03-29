@@ -1,15 +1,15 @@
 # SWE443BankSystemBlue
-SWE 443 Banking System Group Project - Team Blue
-Team Leaders:
-Product Owner: Jess Miers
-Scrum Master: Brandon Bui
-Software Architect: Ashmita Kumar
+SWE 443 Banking System Group Project - Team Blue <br>
+Team Leaders: <br>
+<b>Product Owner:</b> Jess Miers <br>
+<b>Scrum Master:</b> Brandon Bui <br>
+<b>Software Architect:</b> Ashmita Kumar <br> <br>
 
-Developers:
-Ermal Dedej
-Heymond Truong
-Krishna Kanakapura
-Marcus Yarbrough
-Salonika Bose
-Sara Borghei
-Sushena Jammi
+<b>Developers:</b> <br>
+Ermal Dedej <br>
+Heymond Truong <br>
+Krishna Kanakapura <br>
+Marcus Yarbrough <br>
+Salonika Bose <br>
+Sara Borghei <br>
+Sushena Jammi 
