@@ -86,7 +86,7 @@ public class ModifyTransactionTests {
 
         double initialBalance = sal.getAccountBalance();
 
-        sal.transfer(1223334444);           //Sal transfers money to sara who's account # is 1223334444
+        sal.transfer(100, new Account());           //Sal transfers money to sara who's account # is 1223334444
         sal.undoRecentTransaction();        //sal undoes the transfer.
         double beforeUndo = sal.getAccountBalance();
         assertTrue(sal.getAccountBalance() == initialBalance && beforeUndo != initialBalance);      //check if the balance has been updated to initial value.

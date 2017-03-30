@@ -1,4 +1,4 @@
-Title: Create scenario, tests, for user Sal to transfer money from one account to another, while both accounts belong to one user.
+Title: Create scenario, tests, for user Sal to transfer money from one account to another, // while both accounts belong to one user.
 
 Description:
 
@@ -8,9 +8,9 @@ Description:
 
 Related scenario(s): **update these
 
-  - Deposit Scenario 1:
-  - Deposit Scenario 2:
-  - Deposit Scenario 3:
+  - Deposit Scenario 1: Sal successfully transfer $100 from her account to Sara's account.
+  - Deposit Scenario 2: Sal’s account has a negative balance after transfer from her account to Sara's account.
+  - Deposit Scenario 3: Sara successfully transfer $100 from one of her accounts to the another one.
 
 Time estimate(s):
 
