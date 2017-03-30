@@ -176,7 +176,7 @@ public class Account {
     }
 
     //TODO Implement me!
-    public void transfer(int amount){
+    public void transfer(int amount, Account account){
 
     }
 }
