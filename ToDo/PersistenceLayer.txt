@@ -22,8 +22,8 @@ Author(s):
 
 Assigned persons (currently working on task):
 
-  - 
+  - Heymond
 
 Log entries (who worked when and how long on this): 
 
-  - 
+  - 2017-03-30: 7:00 pm | implementing json integration to retain information
