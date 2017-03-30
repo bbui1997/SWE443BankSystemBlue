@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="includes/diagramstyle.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="includes/dagre.min.js"></script>
+<script src="includes/drawer.js"></script>
+<script src="includes/graph.js"></script>
+</head><body>
+<p>Storyboard <a href='.././src/test/java/TransactionTests.java' type='text/x-java'>DepositScenario3</a></p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"A1 : Account",
+         "attributes":[
+            "name=Sal",
+            "ssn=123568900",
+            "dob=03/28/1986",
+            "username=sal",
+            "password=password123",
+            "initialAmount=0.0",
+            "accountBalance=0.0"
+         ]
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasDepositScenario31", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>Check: Balance: 240.0 actual 240.0</p>
+
+</body>
+</html>

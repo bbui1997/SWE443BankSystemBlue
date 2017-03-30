@@ -9,6 +9,8 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.sdmlib.storyboards.Storyboard;
+import swe443.bluebank.Account;
 
 import static org.junit.Assert.assertTrue;
 
@@ -37,18 +39,21 @@ public class ModifyTransactionTests {
      * Sal successfully deposits $50 into her account.
      * Then undoes this deposit.
      * Her account balance updates to what it previously was.
+     * @see <a href='../../../doc/ModifyTransactionUndoDeposit.html'>ModifyTransactionUndoDeposit.html</a>
      */
     @Test
     public void testModifyTransactionUndoDeposit(){
-        setup(); //setup the environment
+        //setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
 
         double initialBalance = sal.getAccountBalance();
 
         sal.deposit(50);               //sal deposits $50
         sal.undoRecentTransaction();        //sal undoes the deposit.
 
-        assertTrue(sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
-
+        storyboard.assertTrue(" ", sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
+        storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
 
@@ -58,18 +63,21 @@ public class ModifyTransactionTests {
      * Sal successfully withdraws $50 from her account.
      * Then undoes this withdrawal.
      * Her account balance updates to what it previously was.
+     * @see <a href='../../../doc/ModifyTransactionUndoWithdraw.html'>ModifyTransactionUndoWithdraw.html</a>
      */
     @Test
     public void testModifyTransactionUndoWithdraw(){
-        setup(); //setup the environment
+        //setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
 
         double initialBalance = sal.getAccountBalance();
 
         sal.withdraw(50);               //sal withdraws $50
         sal.undoRecentTransaction();        //sal undoes the withdrawal.
 
-        assertTrue(sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
-
+        storyboard.assertTrue(" ",sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
+        storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
 
@@ -79,18 +87,21 @@ public class ModifyTransactionTests {
      * Sal successfully transfers $100 from her account to Sara's account.
      * Then she undoes this Transfer.
      * Her account balance updates to what it previously was, and so does Sara's.
+     * @see <a href='../../../doc/ModifyTransactionUndoTransfer.html'>ModifyTransactionUndoTransfer.html</a>
      */
     @Test
     public void testModifyTransactionUndoTransfer(){
-        setup(); //setup the environment
+        //setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
 
         double initialBalance = sal.getAccountBalance();
 
-        sal.transfer(100, new Account());           //Sal transfers money to sara who's account # is 1223334444
+        sal.transfer(1223334444);           //Sal transfers money to sara who's account # is 1223334444
         sal.undoRecentTransaction();        //sal undoes the transfer.
         double beforeUndo = sal.getAccountBalance();
-        assertTrue(sal.getAccountBalance() == initialBalance && beforeUndo != initialBalance);      //check if the balance has been updated to initial value.
-
+        storyboard.assertTrue(" ", sal.getAccountBalance() == initialBalance && beforeUndo != initialBalance);      //check if the balance has been updated to initial value.
+        storyboard.dumpHTML();
         //also we need to check whether sara's account was updated.
 
         destroy(); //teardown the environment

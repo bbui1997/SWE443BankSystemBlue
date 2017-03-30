@@ -8,6 +8,8 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.sdmlib.storyboards.Storyboard;
+import swe443.bluebank.Account;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,14 +35,17 @@ public class TransactionTests {
      * This method tests deposit Scenario1:
      * Sal successfully deposits $50 into her account.
      * Her initial balance is zero.
+     * @see <a href='../../../doc/DepositScenario1.html'>DepositScenario1.html</a>
      */
     @Test
     public void testDepositScenario1(){
-        setup(); //setup the environment
+        //setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
 
         sal.deposit(50); //sal deposits $50
-        assertEquals("Balance:",50,sal.getAccountBalance(),0); //check that current balance equals $50
-
+        storyboard.assertEquals("Balance:",50,sal.getAccountBalance(),0); //check that current balance equals $50
+        storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
 
@@ -49,15 +54,18 @@ public class TransactionTests {
      * Sal brings her account balance positive.
      * Sal initially has a negative balance of ($25).
      * She deposits $100 and the new balance is $75.
+     * @see <a href='../../../doc/DepositScenario2.html'>DepositScenario2.html</a>
      */
     @Test
     public void testDepositScenario2(){
-        setup(); //setup the environment
+        //setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
         sal.setAccountBalance(-25); //set initial balance to -$25
 
         sal.deposit(100); //Sal deposits $100 into her account
-        assertEquals("Balance:",75,sal.getAccountBalance(),0); //check that current balance equals $75 after deposit
-
+        storyboard.assertEquals("Balance:",75,sal.getAccountBalance(),0); //check that current balance equals $75 after deposit
+        storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
 
@@ -66,16 +74,19 @@ public class TransactionTests {
      * Sal attempts to make two deposits in one transaction.
      * She has an initial balance of $120 and makes a deposit of $80.
      * She then makes another deposit of $40.
+     * @see <a href='../../../doc/DepositScenario3.html'>DepositScenario3.html</a>
      */
     @Test
     public void testDepositScenario3(){
-        setup(); //setup the environment
+        //setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
         sal.setAccountBalance(120); //set initial balance to $120
 
         sal.deposit(80); //first deposit of $80
         sal.deposit(40); //second deposit of $40
-        assertEquals("Balance:",240,sal.getAccountBalance(),0); //check that the current balance equals $240 after both deposits
-
+        storyboard.assertEquals("Balance:",240,sal.getAccountBalance(),0); //check that the current balance equals $240 after both deposits
+        storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
 
@@ -83,16 +94,19 @@ public class TransactionTests {
      * This method tests withdraw Scenario1:
      * Sal withdraws $40 from her account.
      * She initially has a balance of $60 and after the withdrawal the balance is $20.
+     * @see <a href='../../../doc/WithdrawScenario1.html'>WithdrawScenario1.html</a>
      */
     @Test
     public void testWithdrawScenario1(){
-        setup(); //setup the environment
+        // setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
         sal.setAccountBalance(60); //Sal has an account balance of $60.
 
         double cash = sal.withdraw(40); //withdraw $40 from account
-        assertEquals("Withdrawn:",40,cash,0); //$40 is returned
-        assertEquals("Balance:",20,sal.getAccountBalance(),0); //check account balance is $20 after withdrawal
-
+        storyboard.assertEquals("Withdrawn:",40,cash,0); //$40 is returned
+        storyboard.assertEquals("Balance:",20,sal.getAccountBalance(),0); //check account balance is $20 after withdrawal
+        storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
 
@@ -101,16 +115,19 @@ public class TransactionTests {
      * Sal attempts to withdraw an incorrect denomination.
      * She currently has a balance of $75 and attempts to withrdaw $35.
      * The transaction fails and returns $0.
+     * @see <a href='../../../doc/WithdrawScenario2.html'>WithdrawScenario2.html</a>
      */
     @Test
     public void testWithdrawScenario2(){
-        setup(); //setup the environment
+        // setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
         sal.setAccountBalance(75); //Sal has an account balance of $75.
 
         double cash = sal.withdraw(35);
-        assertEquals("Withdrawn:",0,cash,0); //no money is returned
-        assertEquals("Balance:",75,sal.getAccountBalance(),0); //Sal's account balance remains the same.
-
+        storyboard.assertEquals("Withdrawn:",0,cash,0); //no money is returned
+        storyboard.assertEquals("Balance:",75,sal.getAccountBalance(),0); //Sal's account balance remains the same.
+        storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
 
@@ -119,16 +136,19 @@ public class TransactionTests {
      * Sal's account has a negative balance after withdrawal.
      * Sal has an account balance of $30. She withdraws $40
      * and now has an account balance of negative ($10).
+     * @see <a href='../../../doc/WithdrawScenario3.html'>WithdrawScenario3.html</a>
      */
     @Test
     public void testWithdrawScenario3(){
-        setup(); //setup the environment
+        //setup(); //setup the environment
+        Storyboard storyboard = new Storyboard();
+        storyboard.addObjectDiagram(sal);
         sal.setAccountBalance(30); //Sal has an account balance of $40
 
         double cash = sal.withdraw(40); //withdraw $40 from account
-        assertEquals("Withdrawn:",40,cash,0); //$40 returned
-        assertEquals("Balance:",-10,sal.getAccountBalance(),0); //account balance is negative ($10)
-
+        storyboard.assertEquals("Withdrawn:",40,cash,0); //$40 returned
+        storyboard.assertEquals("Balance:",-10,sal.getAccountBalance(),0); //account balance is negative ($10)
+        storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
 

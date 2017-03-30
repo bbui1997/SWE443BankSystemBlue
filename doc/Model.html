@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="includes/diagramstyle.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="includes/dagre.min.js"></script>
+<script src="includes/drawer.js"></script>
+<script src="includes/graph.js"></script>
+</head><body>
+<p>Storyboard <a href='.././src/main/java/Model.java' type='text/x-java'>Model</a></p>
+<p>Bank Storyboard</p>
+<script>
+   var json = {
+   "typ":"class",
+   "nodes":[
+      {
+         "typ":"node",
+         "id":"Account",
+         "attributes":[
+            "name : String",
+            "ssn : int",
+            "dob : Object",
+            "username : String",
+            "password : String",
+            "initialAmount : double",
+            "accountBalance : double"
+         ],
+         "methods":[
+            "deposit()",
+            "withdraw() double",
+            "undoRecentTransaction()",
+            "transfer()"
+         ]
+      },
+      {
+         "typ":"node",
+         "id":"Bank",
+         "attributes":[
+            "bankName : String"
+         ],
+         "methods":[
+            "mainMenu() Object",
+            "createAccount()",
+            "logIn()",
+            "makeDeposit()",
+            "makeWithdrawal()"
+         ]
+      },
+      {
+         "typ":"node",
+         "id":"User",
+         "attributes":[
+            "userName : String"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "id":"Account",
+            "cardinality":"many",
+            "property":"Account_Has"
+         },
+         "target":{
+            "id":"User",
+            "cardinality":"one",
+            "property":"User_Has"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "id":"Account",
+            "cardinality":"many",
+            "property":"Account_Has"
+         },
+         "target":{
+            "id":"Bank",
+            "cardinality":"one",
+            "property":"Bank_has"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "id":"Bank",
+            "cardinality":"one",
+            "property":"User_Has"
+         },
+         "target":{
+            "id":"User",
+            "cardinality":"many",
+            "property":"Bank_Has"
+         }
+      }
+   ]
+}   ;
+   new Graph(json, {"canvasid":"canvasModelClassDiagram1", "display":"html", fontsize:10, bar:false, propertyinfo:false}).layout(100,100);
+</script>
+
+</body>
+</html>
