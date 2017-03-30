@@ -58,13 +58,5 @@ public class Model {
         storyboard.add("Bank Storyboard");
         storyboard.addClassDiagram(model);
         storyboard.dumpHTML();
-
-
-
-
-
-
-
-
     }
 }

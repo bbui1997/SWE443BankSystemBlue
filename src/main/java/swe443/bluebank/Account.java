@@ -478,18 +478,4 @@ public  class Account implements SendableEntity
       withBank_has(value);
       return value;
    }
-
-
-   //==========================================================================
-   public void deposit(  )
-   {
-
-   }
-
-
-   //==========================================================================
-   public double withdraw(  )
-   {
-      return 0;
-   }
 }
