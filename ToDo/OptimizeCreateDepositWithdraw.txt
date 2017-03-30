@@ -2,9 +2,9 @@ Title: Optimize Create Account, Deposit, Withdraw
 
 Description:
 Now that Create, Deposit, and Withdraw are bug free, there is some optimization to be done: 
-Name: User should not be able to add nonsensical values as a name (such as numbers) 
+Name: User should not be able to add nonsensical values as a name (such as numbers)
 SSN: standardize this to the last 4 digits of user's SSN. Enforce the standard
-DOB: Enforce the MMDDYYYY format. Currently a user can input "1" 
+DOB: Enforce the MMDDYYYY format. Currently a user can input "1"
 Password: Enforce a password length. (Typically the minimum password should be 8-16 chars)
 
 Time estimate: 

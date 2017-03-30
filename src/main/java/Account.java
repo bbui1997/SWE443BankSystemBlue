@@ -2,6 +2,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Salonika on 3/25/17. Started working at 11:35 am - 12:51 pm; 1:54pm - 2:43 pm
@@ -10,7 +12,7 @@ public class Account {
     private String name;
     private int ssn;
     //Date should be an actual Date obj but just for simplicity I am keeping it a String for now
-    private Date dob;
+    private String dob;
     private String username;
     private String password;
     private double initialAmount;
@@ -36,28 +38,20 @@ public class Account {
         this.ssn = ssn;
     }
 
-    public Date getDob() { return dob; }
+    public String getDob() { return dob; }
 
     public void setDob(String dob) {
+        String regex = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-2]{1})?[0-9]{1}?[0-9]{1}?[0-9]{1}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(dob);
 
-        //check that dob is the right length
-        if (dob.matches("\\d{2}-\\d{2}-\\d{4}")) {
-            System.out.println("MATCHES");
+        if (matcher.matches()) {
+            this.dob = dob;
         }
         else
+            
             return;
 
-        //change string into Date obj
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-        Date dateOfBirth;
-        try {
-            dateOfBirth = df.parse(dob);
-            this.dob = dateOfBirth;
-            //String newDateString = df.format(startDate);
-            //System.out.println(newDateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
     }
 
     public String getUsername() {
@@ -99,6 +93,7 @@ public class Account {
         }
 
     }
+
 
     /**
      * This method is used to increase the account balance by the amount a user

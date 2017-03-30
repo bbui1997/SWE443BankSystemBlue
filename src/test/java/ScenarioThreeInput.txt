@@ -1,6 +1,7 @@
 Salonika Bose
 123456789
-01011995
+01/01/1995
 salonikab
 asdf
 -100.00
+100.00
