@@ -98,7 +98,7 @@ public class CreateAccountTest {
         storyboard.assertEquals("01011995",blueBank.getAccount_Has().getDob().toString(), "(01011995)");
         storyboard.assertEquals("the username salonikab",blueBank.getAccount_Has().getUsername().toString(), "(salonikab)");
         storyboard.assertEquals("the password is asd",blueBank.getAccount_Has().getPassword().toString(), "(asdf)");
-        storyboard.assertEquals("the initial amount is 100.00",blueBank.getAccount_Has().getInitialAmount().get(0), 0.00); //should fail since it allows the initial amount to be negative
+        storyboard.assertEquals("the initial amount is 100.00",blueBank.getAccount_Has().getInitialAmount().get(0), 100.00); //should fail since it allows the initial amount to be negative
         storyboard.dumpHTML();
 
     }
