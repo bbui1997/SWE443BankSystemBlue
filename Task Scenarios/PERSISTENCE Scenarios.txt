@@ -16,6 +16,13 @@ Scenario 2: User Sal's account is deleted.
   - Sal no longer has an account in the ATM program, and next time Sal uses
     the ATM program Sal must make a new account.
 
+Scenario 3: User Sal withdraws money from her account.
+
+  - Sal runs the ATM program.
+  - Sal logs into her existing account.
+  - Sal makes a withdrawl of $20.00.
+  - Sal logs out of her account and exits the ATM program.
+
 Author(s):
 
   - Brandon
@@ -28,3 +35,4 @@ Assigned persons (currently working on task):
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-03-30: 09:30-09:41 Sushena | Wrote scenarios and pushed to Git
+  - 2017-03-30: 09:55-10:01 Sushena | Wrote scenario 3 and pushed to Git
