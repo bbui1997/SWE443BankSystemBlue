@@ -1,15 +1,30 @@
 ﻿Title: Persistence Scenarios
 
-Scenario 1: 
+Scenario 1: User Sal makes an account and is saved.
 
-Scenario 2: 
+  - No account currently exists for Sal.
+  - Sal creates an account successfully like in Create Account Scenario 1.
+  - Sal's account is saved to the database.
+  - The next time Sal runs ATM program, Sal's account has been saved and
+    can be logged into without being created again.
+
+Scenario 2: User Sal's account is deleted.
+
+  - User Sal has an account saved in ATM program.
+  - Sal's account is deleted from the ATM program.
+  - Sal's account is removed from the datbase.
+  - Sal no longer has an account in the ATM program, and next time Sal uses
+    the ATM program Sal must make a new account.
 
 Author(s):
 
   - Brandon
+  - Sushena
 
 Assigned persons (currently working on task):
 
   - Sushena
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  - 2017-03-30: 09:30-09:41 Sushena | Wrote scenarios and pushed to Git
