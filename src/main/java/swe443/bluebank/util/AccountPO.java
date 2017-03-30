@@ -48,22 +48,22 @@ public class AccountPO extends PatternObject<AccountPO, Account>
    
    //==========================================================================
    
-   public void deposit()
+   public void deposit(double value)
    {
       if (this.getPattern().getHasMatch())
       {
-          ((Account) getCurrentMatch()).deposit();
+          ((Account) getCurrentMatch()).deposit(value);
       }
    }
 
    
    //==========================================================================
    
-   public double withdraw()
+   public double withdraw(double value)
    {
       if (this.getPattern().getHasMatch())
       {
-         return ((Account) getCurrentMatch()).withdraw();
+         return ((Account) getCurrentMatch()).withdraw(value);
       }
       return 0;
    }
