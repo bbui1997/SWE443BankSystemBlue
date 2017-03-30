@@ -6,6 +6,7 @@ Name: User should not be able to add nonsensical values as a name (such as numbe
 SSN: standardize this to the last 4 digits of user's SSN. Enforce the standard
 DOB: Enforce the MMDDYYYY format. Currently a user can input "1" 
 Password: Enforce a password length. (Typically the minimum password should be 8-16 chars)
+Do not allow negative balance for withdraw.
 
 Time estimate: 
 ~1.5 hours

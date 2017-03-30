@@ -6,8 +6,6 @@ import org.junit.*;
 import java.io.*;
 import static org.junit.Assert.*;
 
-import java.util.Scanner;
-
 
 public class LogInTest {
     User brandon;
