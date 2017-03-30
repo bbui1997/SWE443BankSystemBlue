@@ -1,0 +1,15 @@
+﻿Title: Persistence Scenarios
+
+Scenario 1: 
+
+Scenario 2: 
+
+Author(s):
+
+  - Brandon
+
+Assigned persons (currently working on task):
+
+  - Sushena
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
