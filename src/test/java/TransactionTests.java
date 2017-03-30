@@ -89,7 +89,7 @@ public class TransactionTests {
         setup(); //setup the environment
         sal.setAccountBalance(60); //Sal has an account balance of $60.
 
-        int cash = sal.withdraw(40); //withdraw $40 from account
+        double cash = sal.withdraw(40); //withdraw $40 from account
         assertEquals("Withdrawn:",40,cash,0); //$40 is returned
         assertEquals("Balance:",20,sal.getAccountBalance(),0); //check account balance is $20 after withdrawal
 
@@ -107,7 +107,7 @@ public class TransactionTests {
         setup(); //setup the environment
         sal.setAccountBalance(75); //Sal has an account balance of $75.
 
-        int cash = sal.withdraw(35);
+        double cash = sal.withdraw(35);
         assertEquals("Withdrawn:",0,cash,0); //no money is returned
         assertEquals("Balance:",75,sal.getAccountBalance(),0); //Sal's account balance remains the same.
 
@@ -125,7 +125,7 @@ public class TransactionTests {
         setup(); //setup the environment
         sal.setAccountBalance(30); //Sal has an account balance of $40
 
-        int cash = sal.withdraw(40); //withdraw $40 from account
+        double cash = sal.withdraw(40); //withdraw $40 from account
         assertEquals("Withdrawn:",40,cash,0); //$40 returned
         assertEquals("Balance:",-10,sal.getAccountBalance(),0); //account balance is negative ($10)
 

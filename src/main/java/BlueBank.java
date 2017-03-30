@@ -68,11 +68,9 @@ public class BlueBank {
 
         System.out.println("Welcome to BlueBank! Lets create an account: Please enter your first and last name.");
         acct.setName(scanStr.nextLine());
-        //acct.setName(argv[0]);
-        System.out.println("Please enter your Social Security Number.");
-        //acct.setSsn(scanInt.nextInt());
+        System.out.println("Please enter the last four (4) digits of your Social Security Number.");
         acct.setSsn(Integer.parseInt(scanStr.nextLine()));
-        System.out.println("Please enter your date of birth, in the format MMDDYYYY.");
+        System.out.println("Please enter your date of birth, in the format MM/DD/YYYY.");
         //acct.setDob(scanInt.nextInt());
         acct.setDob(scanStr.nextLine());
         //acct.setDob(Integer.parseInt(argv[2]));
@@ -94,13 +92,23 @@ public class BlueBank {
      * This method is used for when we have a persistence layer going and can log in to an existing account
      */
     static void logIn(){
-
+        Scanner scannInput = new Scanner(System.in);
+        System.out.println("Please enter a username: ");
+        String  userName= scannInput.nextLine();
     }
 
     /**
      * This method is used to deposit money into a user's account based on option chosen at menu.
      */
     static void makeDeposit(){
+        /**
+         * Check if user created an account. Call create account if not.
+         */
+        if(acct==null){
+            System.out.println("Please create an account first! You will be redirected to create account.");
+            createAccount();
+        }
+
         Scanner input = new Scanner(System.in);
         int amt;
 
@@ -117,8 +125,16 @@ public class BlueBank {
      * This method is used to withdraw money from user's account based on option chosen at menu.
      */
     static void makeWithdrawal(){
+        /**
+         * Check if user created an account. Call create account if not.
+         */
+        if(acct==null){
+            System.out.println("Please create an account first! You will be redirected to create account.");
+            createAccount();
+        }
+
         Scanner input = new Scanner(System.in);
-        int amt;
+        double amt;
 
         System.out.println("\n");
         System.out.println("Machine dispenses money in denomiations of $10, $20, or $100");
@@ -130,4 +146,5 @@ public class BlueBank {
         System.out.println();
         System.out.println("Your remaining balance: $"+acct.getAccountBalance()); //print balance
     }
+
 }

@@ -1,3 +1,8 @@
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Salonika on 3/25/17. Started working at 11:35 am - 12:51 pm; 1:54pm - 2:43 pm
  */
@@ -5,7 +10,7 @@ public class Account {
     private String name;
     private int ssn;
     //Date should be an actual Date obj but just for simplicity I am keeping it a String for now
-    private String dob;
+    private Date dob;
     private String username;
     private String password;
     private double initialAmount;
@@ -31,10 +36,28 @@ public class Account {
         this.ssn = ssn;
     }
 
-    public String getDob() { return dob; }
+    public Date getDob() { return dob; }
 
     public void setDob(String dob) {
-        this.dob = dob;
+
+        //check that dob is the right length
+        if (dob.matches("\\d{2}-\\d{2}-\\d{4}")) {
+            System.out.println("MATCHES");
+        }
+        else
+            return;
+
+        //change string into Date obj
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        Date dateOfBirth;
+        try {
+            dateOfBirth = df.parse(dob);
+            this.dob = dateOfBirth;
+            //String newDateString = df.format(startDate);
+            //System.out.println(newDateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getUsername() {
@@ -101,12 +124,12 @@ public class Account {
      * @param amt the amount that is withdrawn from the account in denominations of 10,20, or 100.
      * @return int the amount requested to be withdrawn. 0 if incorrect denomination.
      */
-    public int withdraw(int amt){
+    public double withdraw(double amt){
 
         /**
-         * Check if amount is a denomination of 10
+         * Check if amount is a denomination of 100
          */
-        if((amt%10)==0){
+        if((amt%100)==0){
             this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
             return amt; //return requested amount
         }
@@ -120,9 +143,9 @@ public class Account {
         }
 
         /**
-         * Check if amount is a denomination of 100
+         * Check if amount is a denomination of 10
          */
-        if((amt%100)==0){
+        if((amt%10)==0){
             this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
             return amt; //return requested amount
         }
