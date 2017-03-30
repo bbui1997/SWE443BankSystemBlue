@@ -84,8 +84,13 @@ public  class Bank implements SendableEntity
       acct.setPassword(scanStr.nextLine());
       //acct.setPassword(argv[4]);
       System.out.println("Please enter the initial amount you'd like to deposit, in the format 1.00.");
+      double x = Double.parseDouble(scanStr.nextLine());
+      while(x<0){
+         System.out.println("Please provide a positive value");
+         x = Double.parseDouble(scanStr.nextLine());
+      }
       //acct.setInitialAmount(scanDouble.nextDouble());
-      acct.setInitialAmount(Double.parseDouble(scanStr.nextLine()));
+      acct.setInitialAmount(x);
       //acct.setInitialAmount(Double.parseDouble(argv[5]));
       System.out.println("Thank you for the information, " + acct.getName() + " You currently have "
               + acct.getInitialAmount() + " dollars in your account.");
