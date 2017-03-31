@@ -14,7 +14,7 @@ public class Driver {
 
 
     public static void main (String[] argv) throws IOException,FileNotFoundException {
-        File data;
+        File data;                                                       //DB.txt will contain json file with data
         data = new File("src/test/java/DB.txt");               //check to see if existing DB is available
         if(!data.exists()) {
             data.createNewFile();                                        //if it is it will load up the existing data
