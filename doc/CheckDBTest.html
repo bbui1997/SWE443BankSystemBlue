@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="includes/diagramstyle.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="includes/dagre.min.js"></script>
+<script src="includes/drawer.js"></script>
+<script src="includes/graph.js"></script>
+</head><body>
+<p>Storyboard <a href='.././src/test/java/PersistenceTest.java' type='text/x-java'>CheckDBTest</a></p>
+<p>All the information was extracted from json files</p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"B1 : Bank"
+      },
+      {
+         "typ":"clazz",
+         "id":"A2 : Account",
+         "attributes":[
+            "name=Salonika Bose",
+            "ssn=123456789",
+            "dob=01011995",
+            "username=salonikab",
+            "password=asdf",
+            "initialAmount=100.0",
+            "accountBalance=0.0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"U3 : User",
+         "attributes":[
+            "userName=Salonika Bose"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A2 : Account"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"Bank_has",
+            "id":"B1 : Bank"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"Bank_Has",
+            "id":"U3 : User"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"User_Has",
+            "id":"B1 : Bank"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"User_Has",
+            "id":"U3 : User"
+         },
+         "target":{
+            "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A2 : Account"
+         }
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasCheckDBTest2", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>Check: The user is Solonika Bose (Salonika Bose) actual (Salonika Bose)</p>
+<p>Check: The ssn is 123456789 123456789 actual 123456789</p>
+<p>Check: 01011995 (01011995) actual (01011995)</p>
+<p>Check: The username salonikab (salonikab) actual (salonikab)</p>
+<p>Check: The password is asd (asdf) actual (asdf)</p>
+<p>Check: The initial amount is 100.00 100.0 actual 100.0</p>
+
+</body>
+</html>

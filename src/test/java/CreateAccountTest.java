@@ -91,6 +91,7 @@ public class CreateAccountTest {
         //System.setIn(original);
 
         Storyboard storyboard = new Storyboard();
+        storyboard.add("these information was extracted from a json file");
         storyboard.addObjectDiagram(blueBank);
 
         storyboard.assertEquals("the user is Solonika Bose",blueBank.getAccount_Has().getName().toString(),"(Salonika Bose)" );
