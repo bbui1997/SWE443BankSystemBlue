@@ -1,0 +1,16 @@
+Title: Create Check Balance Functionality
+
+Description:
+Add a menu option for checking the user's current account balance
+implement menu option
+
+Time estimate: 
+5-10 mins
+
+Author: 
+-Jess 
+
+Assigned persons (currently working on task): 
+Salonika 
+
+Log entries (who worked when and how long):
