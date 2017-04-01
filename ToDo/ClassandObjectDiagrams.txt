@@ -1,4 +1,4 @@
-Title: Create class and object diagram drafts 
+Title: Create object diagram drafts
 
 Description:
 Split into a few task forces and create object diagrams for each of the completed scenarios. 
