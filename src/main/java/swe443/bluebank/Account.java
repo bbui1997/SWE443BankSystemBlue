@@ -30,49 +30,47 @@ import swe443.bluebank.Bank;
 /**
  *
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
+ * @see <a href='../../../../../src/main/java/Model.java'>Model.java</a>
  */
-public  class Account implements SendableEntity
-{
+public  class Account implements SendableEntity {
 
 
    //==========================================================================
-   public void deposit(double amt)
-   {
+   public void deposit(double amt) {
       /**
        * check if valid amount. add amount to balance if greater than 0.
        */
-      if(amt >= 0) {
+      if (amt >= 0) {
          this.setAccountBalance(amt + getAccountBalance()); //add amount to the account balance.
-      }else{
-         throw new IllegalArgumentException(amt+" is less than or equal to 0");
+      } else {
+         throw new IllegalArgumentException(amt + " is less than or equal to 0");
       }
    }
 
 
    //==========================================================================
-   public double withdraw(double amt)
-   {
+   public double withdraw(double amt) {
       /**
        * Check if amount is a denomination of 100
        */
-      if((amt%100)==0){
-         this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
+      if ((amt % 100) == 0) {
+         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
          return amt; //return requested amount
       }
 
       /**
        * Check if amount is a denomination of 20
        */
-      if((amt%20)==0){
-         this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
+      if ((amt % 20) == 0) {
+         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
          return amt; //return requested amount
       }
 
       /**
        * Check if amount is a denomination of 10
        */
-      if((amt%10)==0){
-         this.setAccountBalance(this.getAccountBalance()-amt); //deduct amount from balance. Update balance.
+      if ((amt % 10) == 0) {
+         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
          return amt; //return requested amount
       }
       return 0; //return 0 if denominations don't match
@@ -80,15 +78,13 @@ public  class Account implements SendableEntity
 
 
    //==========================================================================
-   public void undoRecentTransaction(  )
-   {
+   public void undoRecentTransaction() {
 
    }
 
 
    //==========================================================================
-   public void transfer(double amt)
-   {
+   public void transfer(double amt) {
 
    }
 
@@ -97,8 +93,7 @@ public  class Account implements SendableEntity
 
    protected PropertyChangeSupport listeners = null;
 
-   public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue)
-   {
+   public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue) {
       if (listeners != null) {
          listeners.firePropertyChange(propertyName, oldValue, newValue);
          return true;
@@ -106,8 +101,7 @@ public  class Account implements SendableEntity
       return false;
    }
 
-   public boolean addPropertyChangeListener(PropertyChangeListener listener)
-   {
+   public boolean addPropertyChangeListener(PropertyChangeListener listener) {
       if (listeners == null) {
          listeners = new PropertyChangeSupport(this);
       }
@@ -131,7 +125,7 @@ public  class Account implements SendableEntity
       return true;
    }
 
-   public boolean removePropertyChangeListener(String propertyName,PropertyChangeListener listener) {
+   public boolean removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
       if (listeners != null) {
          listeners.removePropertyChangeListener(propertyName, listener);
       }
@@ -142,8 +136,7 @@ public  class Account implements SendableEntity
    //==========================================================================
 
 
-   public void removeYou()
-   {
+   public void removeYou() {
       setUser_Has(null);
       setBank_has(null);
       firePropertyChange("REMOVE_YOU", this, null);
@@ -156,14 +149,12 @@ public  class Account implements SendableEntity
 
    private String name;
 
-   public String getName()
-   {
+   public String getName() {
       return this.name;
    }
 
-   public void setName(String value)
-   {
-      if ( ! EntityUtil.stringEquals(this.name, value)) {
+   public void setName(String value) {
+      if (!EntityUtil.stringEquals(this.name, value)) {
 
          String oldValue = this.name;
          this.name = value;
@@ -171,16 +162,14 @@ public  class Account implements SendableEntity
       }
    }
 
-   public Account withName(String value)
-   {
+   public Account withName(String value) {
       setName(value);
       return this;
    }
 
 
    @Override
-   public String toString()
-   {
+   public String toString() {
       StringBuilder result = new StringBuilder();
 
       result.append(" ").append(this.getName());
@@ -193,20 +182,17 @@ public  class Account implements SendableEntity
    }
 
 
-
    //==========================================================================
 
    public static final String PROPERTY_SSN = "ssn";
 
    private int ssn;
 
-   public int getSsn()
-   {
+   public int getSsn() {
       return this.ssn;
    }
 
-   public void setSsn(int value)
-   {
+   public void setSsn(int value) {
       if (this.ssn != value) {
 
          int oldValue = this.ssn;
@@ -215,8 +201,7 @@ public  class Account implements SendableEntity
       }
    }
 
-   public Account withSsn(int value)
-   {
+   public Account withSsn(int value) {
       setSsn(value);
       return this;
    }
@@ -228,13 +213,11 @@ public  class Account implements SendableEntity
 
    private Object dob;
 
-   public Object getDob()
-   {
+   public Object getDob() {
       return this.dob;
    }
 
-   public void setDob(Object value)
-   {
+   public void setDob(Object value) {
       if (this.dob != value) {
 
          Object oldValue = this.dob;
@@ -243,8 +226,7 @@ public  class Account implements SendableEntity
       }
    }
 
-   public Account withDob(Object value)
-   {
+   public Account withDob(Object value) {
       setDob(value);
       return this;
    }
@@ -256,14 +238,12 @@ public  class Account implements SendableEntity
 
    private String username;
 
-   public String getUsername()
-   {
+   public String getUsername() {
       return this.username;
    }
 
-   public void setUsername(String value)
-   {
-      if ( ! EntityUtil.stringEquals(this.username, value)) {
+   public void setUsername(String value) {
+      if (!EntityUtil.stringEquals(this.username, value)) {
 
          String oldValue = this.username;
          this.username = value;
@@ -271,8 +251,7 @@ public  class Account implements SendableEntity
       }
    }
 
-   public Account withUsername(String value)
-   {
+   public Account withUsername(String value) {
       setUsername(value);
       return this;
    }
@@ -284,14 +263,12 @@ public  class Account implements SendableEntity
 
    private String password;
 
-   public String getPassword()
-   {
+   public String getPassword() {
       return this.password;
    }
 
-   public void setPassword(String value)
-   {
-      if ( ! EntityUtil.stringEquals(this.password, value)) {
+   public void setPassword(String value) {
+      if (!EntityUtil.stringEquals(this.password, value)) {
 
          String oldValue = this.password;
          this.password = value;
@@ -299,8 +276,7 @@ public  class Account implements SendableEntity
       }
    }
 
-   public Account withPassword(String value)
-   {
+   public Account withPassword(String value) {
       setPassword(value);
       return this;
    }
@@ -312,13 +288,11 @@ public  class Account implements SendableEntity
 
    private double initialAmount;
 
-   public double getInitialAmount()
-   {
+   public double getInitialAmount() {
       return this.initialAmount;
    }
 
-   public void setInitialAmount(double value)
-   {
+   public void setInitialAmount(double value) {
       if (this.initialAmount != value) {
 
          double oldValue = this.initialAmount;
@@ -327,8 +301,7 @@ public  class Account implements SendableEntity
       }
    }
 
-   public Account withInitialAmount(double value)
-   {
+   public Account withInitialAmount(double value) {
       setInitialAmount(value);
       return this;
    }
@@ -340,13 +313,11 @@ public  class Account implements SendableEntity
 
    private double accountBalance;
 
-   public double getAccountBalance()
-   {
+   public double getAccountBalance() {
       return this.accountBalance;
    }
 
-   public void setAccountBalance(double value)
-   {
+   public void setAccountBalance(double value) {
       if (this.accountBalance != value) {
 
          double oldValue = this.accountBalance;
@@ -355,8 +326,7 @@ public  class Account implements SendableEntity
       }
    }
 
-   public Account withAccountBalance(double value)
-   {
+   public Account withAccountBalance(double value) {
       setAccountBalance(value);
       return this;
    }
@@ -374,29 +344,24 @@ public  class Account implements SendableEntity
 
    private User User_Has = null;
 
-   public User getUser_Has()
-   {
+   public User getUser_Has() {
       return this.User_Has;
    }
 
-   public boolean setUser_Has(User value)
-   {
+   public boolean setUser_Has(User value) {
       boolean changed = false;
 
-      if (this.User_Has != value)
-      {
+      if (this.User_Has != value) {
          User oldValue = this.User_Has;
 
-         if (this.User_Has != null)
-         {
+         if (this.User_Has != null) {
             this.User_Has = null;
             oldValue.withoutAccount_Has(this);
          }
 
          this.User_Has = value;
 
-         if (value != null)
-         {
+         if (value != null) {
             value.withAccount_Has(this);
          }
 
@@ -407,14 +372,12 @@ public  class Account implements SendableEntity
       return changed;
    }
 
-   public Account withUser_Has(User value)
-   {
+   public Account withUser_Has(User value) {
       setUser_Has(value);
       return this;
    }
 
-   public User createUser_Has()
-   {
+   public User createUser_Has() {
       User value = new User();
       withUser_Has(value);
       return value;
@@ -433,29 +396,24 @@ public  class Account implements SendableEntity
 
    private Bank Bank_has = null;
 
-   public Bank getBank_has()
-   {
+   public Bank getBank_has() {
       return this.Bank_has;
    }
 
-   public boolean setBank_has(Bank value)
-   {
+   public boolean setBank_has(Bank value) {
       boolean changed = false;
 
-      if (this.Bank_has != value)
-      {
+      if (this.Bank_has != value) {
          Bank oldValue = this.Bank_has;
 
-         if (this.Bank_has != null)
-         {
+         if (this.Bank_has != null) {
             this.Bank_has = null;
             oldValue.withoutAccount_Has(this);
          }
 
          this.Bank_has = value;
 
-         if (value != null)
-         {
+         if (value != null) {
             value.withAccount_Has(this);
          }
 
@@ -466,14 +424,12 @@ public  class Account implements SendableEntity
       return changed;
    }
 
-   public Account withBank_has(Bank value)
-   {
+   public Account withBank_has(Bank value) {
       setBank_has(value);
       return this;
    }
 
-   public Bank createBank_has()
-   {
+   public Bank createBank_has() {
       Bank value = new Bank();
       withBank_has(value);
       return value;
@@ -483,13 +439,21 @@ public  class Account implements SendableEntity
    //==========================================================================
    public void deposit(  )
    {
-
+      //dont use, use MakeDeposit in bank
    }
 
 
    //==========================================================================
    public double withdraw(  )
    {
+      //dont use, use MakeWithdraw in bank
       return 0;
+   }
+
+
+   //==========================================================================
+   public void transfer(  )
+   {
+      //dont use, use MakeTransfer in bank
    }
 }

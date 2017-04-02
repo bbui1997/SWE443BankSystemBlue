@@ -26,8 +26,8 @@ public class Model {
                 .withAttribute("password", DataType.STRING)
                 .withAttribute("initialAmount", DataType.DOUBLE)
                 .withAttribute("accountBalance", DataType.DOUBLE)
-                .withMethod("deposit", DataType.VOID)
-                .withMethod("withdraw",DataType.DOUBLE)
+                //.withMethod("deposit", DataType.VOID)
+                //.withMethod("withdraw",DataType.DOUBLE)
                 .withMethod("undoRecentTransaction", DataType.VOID)
                 .withMethod("transfer", DataType.VOID);
 
@@ -37,7 +37,9 @@ public class Model {
                 .withMethod("createAccount", DataType.VOID)
                 .withMethod("logIn", DataType.VOID)
                 .withMethod("makeDeposit", DataType.VOID)
-                .withMethod("makeWithdrawal", DataType.VOID);
+                .withMethod("makeWithdrawal", DataType.VOID)
+                .withMethod("makeTransfer", DataType.VOID)
+                .withMethod("viewBalance", DataType.VOID);
 
         Clazz userClass = model.createClazz("User")
                 .withAttribute("userName", DataType.STRING);
@@ -58,13 +60,5 @@ public class Model {
         storyboard.add("Bank Storyboard");
         storyboard.addClassDiagram(model);
         storyboard.dumpHTML();
-
-
-
-
-
-
-
-
     }
 }

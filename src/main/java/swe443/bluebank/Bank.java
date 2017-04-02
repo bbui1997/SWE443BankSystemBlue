@@ -21,19 +21,18 @@
 
 package swe443.bluebank;
 
-import de.uniks.networkparser.interfaces.SendableEntity;
-import java.beans.PropertyChangeSupport;
-import java.beans.PropertyChangeListener;
-import java.util.Scanner;
-
 import de.uniks.networkparser.EntityUtil;
+import de.uniks.networkparser.interfaces.SendableEntity;
 import swe443.bluebank.util.AccountSet;
-import swe443.bluebank.Account;
 import swe443.bluebank.util.UserSet;
-import swe443.bluebank.User;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.Scanner;
 /**
  *
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
+ * @see <a href='../../../../../src/main/java/Model.java'>Model.java</a>
  */
 public  class Bank implements SendableEntity
 {
@@ -42,16 +41,30 @@ public  class Bank implements SendableEntity
    static Account acct = null;
    static User user = null;
 
+   public Account getAcct(){     //manually entered this(ht)
+      return this.acct;
+   }
+
+   public void resetAcct(){
+      this.acct = null;
+   }
+
 
    //==========================================================================
    public Object mainMenu(  )
    {
       StringBuilder menu = new StringBuilder();
+      menu.append("==================================");
+      if(acct != null){
+         menu.append("\n["+acct.getName().toString()+"]" + " is Logged on");
+      }
       menu.append("\n\nMain Menu:\n");
       menu.append("1. Create Account\n");
-      menu.append("2. Log In (NOT FUNCTIONING YET) \n");
+      menu.append("2. Log In\n");
       menu.append("3. Make Deposit\n");
       menu.append("4. Make Withdraw\n");
+      menu.append("5. View Balance\n");
+      menu.append("\n==================================\n");
       return menu;
    }
 
@@ -84,28 +97,66 @@ public  class Bank implements SendableEntity
       acct.setPassword(scanStr.nextLine());
       //acct.setPassword(argv[4]);
       System.out.println("Please enter the initial amount you'd like to deposit, in the format 1.00.");
-      double x = Double.parseDouble(scanStr.nextLine());
-      while(x<0){
-         System.out.println("Please provide a positive value");
-         x = Double.parseDouble(scanStr.nextLine());
-      }
       //acct.setInitialAmount(scanDouble.nextDouble());
+      double x = Double.parseDouble(scanStr.nextLine());
+      while(x < 0){
+         System.out.println("please enter a positive value");
+         x = Double.parseDouble(scanStr.nextLine());
+
+      }
       acct.setInitialAmount(x);
+      acct.setAccountBalance(x);
       //acct.setInitialAmount(Double.parseDouble(argv[5]));
-      System.out.println("Thank you for the information, " + acct.getName() + " You currently have "
-              + acct.getInitialAmount() + " dollars in your account.");
+      System.out.println("Thank you for the information, " + acct.getName() + ".\n You currently have $"
+              + doubleToMoneyFormat(acct.getInitialAmount()) + " in your account.");
 
       withAccount_Has(acct);
       withBank_Has(user);
       user.withAccount_Has(acct);
 
 
-   }
 
+   }
+   Scanner scanStr;
 
    //==========================================================================
-   public void logIn(  )
+   public void logIn()
    {
+      int tries=0;
+      scanStr = new Scanner(System.in);
+      String userName = null;
+      String password = null;
+      System.out.println("Please enter your Username");
+      userName = scanStr.nextLine();
+      while(getAccount_Has().filterUsername(userName).getUsername().toString().equals("("+userName+")")==false && tries != 5){   //searches to see if the username exist
+         if(tries == 4){                                                                                                         //if the user tries 5 times it will return to main menu
+            System.out.println("too many tries, going back to main menu");
+            return;
+         }
+         System.out.println("That username does not exist, please try again");
+         userName = scanStr.nextLine();
+         tries++;
+      }
+
+
+      tries = 0;
+      System.out.println("Please enter your Password");
+      password = scanStr.nextLine();
+      //System.out.println(getAccount_Has().filterUsername(userName).getPassword().toString());
+
+      while(getAccount_Has().filterUsername(userName).getPassword().toString().equals("("+password+")")==false && tries != 5){   //similar process to to username except this time it looks for correct password
+         if(tries == 4){
+            System.out.println("too many tries, going back to main menu");
+            return;
+         }
+         System.out.println("Wrong password, Please try again");
+         password = scanStr.nextLine();
+         tries++;
+      }
+
+      acct = getAccount_Has().filterUsername(userName).get(0);
+      System.out.println("Login success!");
+      System.out.println("You have logged in as " + acct.getName());
 
    }
 
@@ -121,16 +172,31 @@ public  class Bank implements SendableEntity
          createAccount();
       }
 
+      if(acct == null){
+         System.out.println("Please Login first!!");
+         logIn();
+         if(acct == null){
+            return;
+         }
+      }
+
       Scanner input = new Scanner(System.in);
       double amt;
 
       System.out.println("\n");
       System.out.print("Please enter the deposit amount:"); //prompt user for amount
-      amt = input.nextDouble(); //read deposit amount
+      amt = scanStr.nextDouble(); //read deposit amount
 
       acct.deposit(amt); //deposit amount into account
       System.out.println();
-      System.out.println("Your remaining balance: $"+acct.getAccountBalance()); //print balance
+
+      // Ensures the account balance is in the format 0.00
+      double num = acct.getAccountBalance();
+      num = Math.round(num*100);
+      num = num/100;
+      acct.setAccountBalance(num);
+
+      System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
    }
 
 
@@ -140,9 +206,17 @@ public  class Bank implements SendableEntity
       /**
        * Check if user created an account. Call create account if not.
        */
-      if(acct==null){
+      if(Account_Has==null){
          System.out.println("Please create an account first! You will be redirected to create account.");
          createAccount();
+      }
+
+      if(acct == null){
+         System.out.println("Please Login first!!");
+         logIn();
+         if(acct == null){
+            return;
+         }
       }
 
       Scanner input = new Scanner(System.in);
@@ -151,12 +225,19 @@ public  class Bank implements SendableEntity
       System.out.println("\n");
       System.out.println("Machine dispenses money in denomiations of $10, $20, or $100");
       System.out.print("Please enter amount to withdraw:"); //prompt for amount to withraw
-      amt  = input.nextInt(); //read withdrawal amount
+      amt  = scanStr.nextDouble(); //read withdrawal amount
 
       amt = acct.withdraw(amt); //withdraw amount from account
       if(amt==0) System.out.println("No money has been withdrawn."); //check amt to be returned
       System.out.println();
-      System.out.println("Your remaining balance: $"+acct.getAccountBalance()); //print balance
+
+      // Ensures the account balance is in the format 0.00
+      double num = acct.getAccountBalance();
+      num = Math.round(num*100);
+      num = num/100;
+      acct.setAccountBalance(num);
+
+      System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
 
    }
 
@@ -399,5 +480,40 @@ public  class Bank implements SendableEntity
       User value = new User();
       withBank_Has(value);
       return value;
+   }
+
+
+   //==========================================================================
+   public void viewBalance(  )
+   {
+      if(acct == null){
+         System.out.println("Please login first");
+         logIn();
+         if(acct == null){
+            return;
+         }
+
+         // Ensures that the account balance is in the form 1.00 instead of 1.0
+         double num = acct.getAccountBalance();
+         num = Math.round(num*100);
+         num = num/100;
+         acct.setAccountBalance(num);
+      }
+      System.out.println("Account balance: $" + doubleToMoneyFormat(acct.getAccountBalance()));
+   }
+
+   
+   //==========================================================================
+   public void makeTransfer(  )
+   {
+      
+   }
+
+   //==========================================================================
+   public String doubleToMoneyFormat(double number)
+   {
+      number = Math.round(number * 100);
+      number = number/100;
+      return String.format("%.2f", number);
    }
 }

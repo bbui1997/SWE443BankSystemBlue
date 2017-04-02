@@ -50,5 +50,5 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-03-30: 00:09-00:11 Brandon | Merged all scenarios into one file
   - 2017-03-27: 12:54-14:00 Sara | Wrote scenario and pushed to git
-  - 2017-03-27: 12:51-4:00 Sara | Wrote scenario and pushed to git
+  - 2017-03-27: 12:51-14:00 Sara | Wrote scenario and pushed to git
   - 2017-03-27: 12:44-14:00 Sara | Wrote scenario and pushed to git

@@ -242,4 +242,26 @@ public class BankPO extends PatternObject<BankPO, Bank>
       return null;
    }
 
+   
+   //==========================================================================
+   
+   public void viewBalance()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Bank) getCurrentMatch()).viewBalance();
+      }
+   }
+
+   
+   //==========================================================================
+   
+   public void makeTransfer()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Bank) getCurrentMatch()).makeTransfer();
+      }
+   }
+
 }

@@ -120,14 +120,14 @@ public class AccountSet extends SimpleSet<Account>
    
    //==========================================================================
    
-   public NumberList withdraw()
+   public NumberList withdraw(double value)
    {
       
       NumberList result = new NumberList();
       
       for (Account obj : this)
       {
-         result.add( obj.withdraw() );
+         result.add( obj.withdraw(value) );
       }
       return result;
    }
@@ -833,6 +833,21 @@ public class AccountSet extends SimpleSet<Account>
       }
       
       return this;
+   }
+
+   
+   //==========================================================================
+
+   public NumberList withdraw()
+   {
+
+      NumberList result = new NumberList();
+
+      for (Account obj : this)
+      {
+         result.add( obj.withdraw() );
+      }
+      return result;
    }
 
 }

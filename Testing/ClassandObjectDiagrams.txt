@@ -1,4 +1,4 @@
-Title: Create class and object diagram drafts 
+Title: Create object diagram drafts
 
 Description:
 Split into a few task forces and create object diagrams for each of the completed scenarios. 
@@ -18,4 +18,6 @@ Assigned persons (currently working on task):
 -development team broken into groups
 -update the groups after class tomorrow
 
-Log entries (who worked when and how long): 
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+- 2017-03-28: 7:00 pm - 10:00pm | Heymond, got sdmlib working so it auto-generate class/object diagram{FINISHED}
+

@@ -1,0 +1,19 @@
+Title: Modify and Transfer implementation
+
+Description:
+Develop the basic functionality of Modify() and Transfer() 
+Modify should allow a user to undo a transaction -use any way to do this 
+Transfer should allow a user to transfer funds between two different accounts (people)
+This should be a very minimal implementation with minimal error handling where obvious
+
+Time estimate: 
+~2 hours
+
+Author: 
+-Jess 
+
+Assigned persons (currently working on task): 
+Krishna 
+Sara
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):

@@ -11,8 +11,6 @@ import org.junit.Test;
 import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
 
-import static org.junit.Assert.assertEquals;
-
 public class TransactionTests {
     Account sal; //represents account for Sal to be used in testing.
 
@@ -144,7 +142,6 @@ public class TransactionTests {
         Storyboard storyboard = new Storyboard();
         storyboard.addObjectDiagram(sal);
         sal.setAccountBalance(30); //Sal has an account balance of $40
-
         double cash = sal.withdraw(40); //withdraw $40 from account
         storyboard.assertEquals("Withdrawn:",40,cash,0); //$40 returned
         storyboard.assertEquals("Balance:",-10,sal.getAccountBalance(),0); //account balance is negative ($10)

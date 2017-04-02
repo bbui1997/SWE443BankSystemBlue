@@ -25,7 +25,7 @@ Assigned persons (currently working on task):
 
   - Marcus
 
-Log entries (who worked when and how long on this):
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-03-26: 11:52-12:54 marcus
   - 2017-03-26: 18:30-19:25 marcus

@@ -22,7 +22,7 @@ Assigned persons (currently working on task):
 
   - ulno
 
-Log entries (who worked when and how long on this):
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-03-10: 12:00-14:00 ulno
 

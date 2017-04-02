@@ -12,8 +12,6 @@ import org.junit.Test;
 import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
 
-import static org.junit.Assert.assertTrue;
-
 public class ModifyTransactionTests {
 
     Account sal; //represents account for Sal to be used in testing.
