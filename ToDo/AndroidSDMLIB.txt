@@ -1,0 +1,15 @@
+Title: Android SDMLIB Debugging
+
+Description:
+Figure out how to get SDMLIB to play nice with Android development environment
+
+Time estimate: 
+~1 week (7 days) 
+
+Author: 
+-Jess 
+
+Assigned persons (currently working on task): 
+Ermal
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
