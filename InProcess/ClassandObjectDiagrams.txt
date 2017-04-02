@@ -19,5 +19,5 @@ Assigned persons (currently working on task):
 -update the groups after class tomorrow
 
 Log entries (who worked when and how long):
-- 2017-03-28: 7:00 pm - 10:00pm | got sdmlib working so it auto-generate class/object diagram
+- 2017-03-28: 7:00 pm - 10:00pm | got sdmlib working so it auto-generate class/object diagram{FINISHED}
 
