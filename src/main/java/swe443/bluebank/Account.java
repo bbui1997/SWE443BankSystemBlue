@@ -30,6 +30,7 @@ import swe443.bluebank.Bank;
 /**
  *
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
+ * @see <a href='../../../../../src/main/java/Model.java'>Model.java</a>
  */
 public  class Account implements SendableEntity {
 
@@ -432,5 +433,26 @@ public  class Account implements SendableEntity {
       Bank value = new Bank();
       withBank_has(value);
       return value;
+   }
+
+   
+   //==========================================================================
+   public void deposit(  )
+   {
+      
+   }
+
+   
+   //==========================================================================
+   public double withdraw(  )
+   {
+      return 0;
+   }
+
+   
+   //==========================================================================
+   public void transfer(  )
+   {
+      
    }
 }

@@ -835,4 +835,19 @@ public class AccountSet extends SimpleSet<Account>
       return this;
    }
 
+   
+   //==========================================================================
+   
+   public NumberList withdraw()
+   {
+      
+      NumberList result = new NumberList();
+      
+      for (Account obj : this)
+      {
+         result.add( obj.withdraw() );
+      }
+      return result;
+   }
+
 }

@@ -580,4 +580,38 @@ public class AccountPO extends PatternObject<AccountPO, Account>
       return null;
    }
 
+   
+   //==========================================================================
+   
+   public void deposit()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Account) getCurrentMatch()).deposit();
+      }
+   }
+
+   
+   //==========================================================================
+   
+   public double withdraw()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Account) getCurrentMatch()).withdraw();
+      }
+      return 0;
+   }
+
+   
+   //==========================================================================
+   
+   public void transfer()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Account) getCurrentMatch()).transfer();
+      }
+   }
+
 }

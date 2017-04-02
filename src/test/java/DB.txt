@@ -7,12 +7,28 @@
             {
                "class":"swe443.bluebank.Account",
                "id":"demo.A2"
+            },
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A3"
+            },
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A4"
             }
          ],
          "Bank_Has":[
             {
                "class":"swe443.bluebank.User",
-               "id":"demo.U3"
+               "id":"demo.U5"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U6"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U7"
             }
          ]
       }
@@ -29,7 +45,49 @@
          "initialAmount":100,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U3"
+            "id":"demo.U5"
+         },
+         "Bank_has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }
+      }
+   },
+   {
+      "class":"swe443.bluebank.Account",
+      "id":"demo.A3",
+      "prop":{
+         "name":"heymond",
+         "ssn":1234,
+         "dob":"05.16.1993",
+         "username":"ht93",
+         "password":"pass",
+         "initialAmount":100,
+         "accountBalance":50,
+         "User_Has":{
+            "class":"swe443.bluebank.User",
+            "id":"demo.U6"
+         },
+         "Bank_has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }
+      }
+   },
+   {
+      "class":"swe443.bluebank.Account",
+      "id":"demo.A4",
+      "prop":{
+         "name":"Joe Smo",
+         "ssn":567,
+         "dob":"054323",
+         "username":"jojo",
+         "password":"adv",
+         "initialAmount":50,
+         "accountBalance":50,
+         "User_Has":{
+            "class":"swe443.bluebank.User",
+            "id":"demo.U7"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -39,13 +97,47 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U3",
+      "id":"demo.U5",
       "prop":{
          "userName":"Salonika Bose",
          "Account_Has":[
             {
                "class":"swe443.bluebank.Account",
                "id":"demo.A2"
+            }
+         ],
+         "User_Has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }
+      }
+   },
+   {
+      "class":"swe443.bluebank.User",
+      "id":"demo.U6",
+      "prop":{
+         "userName":"heymond",
+         "Account_Has":[
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A3"
+            }
+         ],
+         "User_Has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }
+      }
+   },
+   {
+      "class":"swe443.bluebank.User",
+      "id":"demo.U7",
+      "prop":{
+         "userName":"Joe Smo",
+         "Account_Has":[
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A4"
             }
          ],
          "User_Has":{

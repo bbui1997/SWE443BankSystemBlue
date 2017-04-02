@@ -12,24 +12,29 @@ import java.util.Scanner;
  */
 public class Driver {
 
-
     public static void main (String[] argv) throws IOException,FileNotFoundException {
-        File data;                                                       //DB.txt will contain json file with data
-        data = new File("src/test/java/DB.txt");               //check to see if existing DB is available
-        if(!data.exists()) {
-            data.createNewFile();                                        //if it is it will load up the existing data
-        }
+
+        File data;
+        data = new File("src/test/java/DB.txt");
         Bank blue = new Bank();
         BufferedReader br = new BufferedReader(new FileReader("src/test/java/DB.txt"));
         if (br.readLine() == null) {
-            System.out.println("file is empty");
+            //System.out.println("file is empty");
         } else {
             //System.out.println("file is not empty");
             String jsonText = new Scanner(data).useDelimiter("\\Z").next();
+            //System.out.println(jsonText);
             IdMap readerMap = BankCreator.createIdMap("demo");
             Object rootObject = readerMap.decode(jsonText);
             blue = (Bank) rootObject;
         }
+
+        //String jsonText = new Scanner(new File("src/test/java/DB.txt")).useDelimiter("\\Z").next();
+        //System.out.println(jsonText);
+        //IdMap readerMap = BankCreator.createIdMap("demo");
+        //Object rootObject = readerMap.decode(jsonText);
+        //Bank blue = new Bank();
+        //Bank blue = (Bank) rootObject;
 
         Scanner input = new Scanner(System.in); //placeholder for user input
         int opt = -1; //placeholder for user option
@@ -52,10 +57,11 @@ public class Driver {
             //call function based on user option selected
             switch (opt) {
                 case 1:
-                    blue.createAccount();                                       //after creating a new account it will update the json file to keep
-                    IdMap idMap = BankCreator.createIdMap("demo");    //to keep track of the data.
+                    blue.createAccount();
+                    IdMap idMap = BankCreator.createIdMap("demo");
                     JsonArray jsonArray = idMap.toJsonArray(blue);
                     String jsonText = jsonArray.toString(3);
+                    //System.out.println(jsonText);
                     try {
                         File file = new File("src/test/java/DB.txt");
                         FileWriter fileWriter = new FileWriter(file);
@@ -71,10 +77,40 @@ public class Driver {
                     break;
                 case 3:
                     blue.makeDeposit();
+                    idMap = BankCreator.createIdMap("demo");
+                    jsonArray = idMap.toJsonArray(blue);
+                    jsonText = jsonArray.toString(3);
+                    //System.out.println(jsonText);
+                    try {
+                        File file = new File("src/test/java/DB.txt");
+                        FileWriter fileWriter = new FileWriter(file);
+                        fileWriter.write(jsonText);
+                        fileWriter.flush();
+                        fileWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case 4:
                     blue.makeWithdrawal();
+                    idMap = BankCreator.createIdMap("demo");
+                    jsonArray = idMap.toJsonArray(blue);
+                    jsonText = jsonArray.toString(3);
+                    //System.out.println(jsonText);
+                    try {
+                        File file = new File("src/test/java/DB.txt");
+                        FileWriter fileWriter = new FileWriter(file);
+                        fileWriter.write(jsonText);
+                        fileWriter.flush();
+                        fileWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
+                case 5:
+                    blue.viewBalance();
+                    break;
+
             }
         }
     }

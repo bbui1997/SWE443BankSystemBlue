@@ -14,3 +14,4 @@ Assigned persons (currently working on task):
 Salonika 
 
 Log entries (who worked when and how long):
+- 2017-04-02: 12:19am - 2:54 am Heymond | Finished Login, Persistence, Check Balance.

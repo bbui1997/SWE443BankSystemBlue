@@ -31,6 +31,7 @@ import swe443.bluebank.Bank;
 /**
  *
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
+ * @see <a href='../../../../../src/main/java/Model.java'>Model.java</a>
  */
 public  class User implements SendableEntity
 {

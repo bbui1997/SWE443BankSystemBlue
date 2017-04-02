@@ -37,7 +37,9 @@ public class Model {
                 .withMethod("createAccount", DataType.VOID)
                 .withMethod("logIn", DataType.VOID)
                 .withMethod("makeDeposit", DataType.VOID)
-                .withMethod("makeWithdrawal", DataType.VOID);
+                .withMethod("makeWithdrawal", DataType.VOID)
+                .withMethod("makeTransfer", DataType.VOID)
+                .withMethod("viewBalance", DataType.VOID);
 
         Clazz userClass = model.createClazz("User")
                 .withAttribute("userName", DataType.STRING);

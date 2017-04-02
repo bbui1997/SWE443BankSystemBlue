@@ -400,4 +400,20 @@ public class BankSet extends SimpleSet<Bank>
       return this;
    }
 
+   
+   //==========================================================================
+   
+   public BankSet viewBalance()
+   {
+      return BankSet.EMPTY_SET;
+   }
+
+   
+   //==========================================================================
+   
+   public BankSet makeTransfer()
+   {
+      return BankSet.EMPTY_SET;
+   }
+
 }

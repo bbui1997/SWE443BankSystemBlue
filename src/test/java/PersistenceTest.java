@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public class PersistenceTest {
     Bank blue = new Bank();
-
+    
     @Before
     public void setup() throws IOException,FileNotFoundException {
         File data;
@@ -34,14 +34,14 @@ public class PersistenceTest {
             Object rootObject = readerMap.decode(jsonText);
             blue = (Bank) rootObject;
         }
-
+        
     }
-
-      /**
-    * 
-    * @see <a href='../../../doc/CheckDBTest.html'>CheckDBTest.html</a>
- */
-   @Test
+    
+    /**
+     *
+     * @see <a href='../../../doc/CheckDBTest.html'>CheckDBTest.html</a>
+     */
+    @Test
     public void CheckDBTest(){
         Storyboard storyboard = new Storyboard();
         storyboard.add("All the information was extracted from json files");
@@ -54,34 +54,34 @@ public class PersistenceTest {
         storyboard.assertEquals("The initial amount is 100.00",blue.getAccount_Has().getInitialAmount().get(0), 100.00);
         storyboard.dumpHTML();
     }
-
-      /**
-    * 
-    * @see <a href='../../../doc/CreatingNewAccount.html'>CreatingNewAccount.html</a>
- */
-   @Test
+    
+    /**
+     *
+     * @see <a href='../../../doc/CreatingNewAccount.html'>CreatingNewAccount.html</a>
+     */
+    @Test
     public void testCreatingNewAccount(){
         Storyboard storyboard = new Storyboard();
         storyboard.add("Putting the account into DB.text");
         storyboard.addObjectDiagram(blue);
-       String user = "Anna Torres\n"
-               + "1234\n" +
-               "05/14/1990\n"+
-               "atorres\n"+
-               "12345678\n"+
-               "100";
-       System.setIn(new ByteArrayInputStream(user.getBytes()));
-       blue.createAccount();
-       System.out.println(blue.getAccount_Has().filterName("Anna Torres").getInitialAmount().get(0));
-       assertEquals("(Anna Torres)",blue.getAccount_Has().filterName("Anna Torres").getName().toString() );
-       storyboard.assertEquals("The user is Anna Torres",blue.getAccount_Has().filterName("Anna Torres").getName().toString(),"(Anna Torres)" );
-       storyboard.assertEquals("The ssn is 1234",blue.getAccount_Has().filterName("Anna Torres").getSsn().get(0),1234);
-       storyboard.assertEquals("(05/14/1990)",blue.getAccount_Has().filterName("Anna Torres").getDob().toString(), "(05/14/1990)");
-       storyboard.assertEquals("The username (atorres)",blue.getAccount_Has().filterName("Anna Torres").getUsername().toString(), "(atorres)");
-       storyboard.assertEquals("The password is 12345678",blue.getAccount_Has().filterName("Anna Torres").getPassword().toString(), "(12345678)");
-       storyboard.assertEquals("The initial amount is 100.00",blue.getAccount_Has().filterName("Anna Torres").getInitialAmount().get(0), 100.00);
-//
-      storyboard.dumpHTML();
+        String user = "Anna Torres\n"
+        + "1234\n" +
+        "05/14/1990\n"+
+        "atorres\n"+
+        "12345678\n"+
+        "100";
+        System.setIn(new ByteArrayInputStream(user.getBytes()));
+        blue.createAccount();
+        System.out.println(blue.getAccount_Has().filterName("Anna Torres").getInitialAmount().get(0));
+        assertEquals("(Anna Torres)",blue.getAccount_Has().filterName("Anna Torres").getName().toString() );
+        storyboard.assertEquals("The user is Anna Torres",blue.getAccount_Has().filterName("Anna Torres").getName().toString(),"(Anna Torres)" );
+        storyboard.assertEquals("The ssn is 1234",blue.getAccount_Has().filterName("Anna Torres").getSsn().get(0),1234);
+        storyboard.assertEquals("(05/14/1990)",blue.getAccount_Has().filterName("Anna Torres").getDob().toString(), "(05/14/1990)");
+        storyboard.assertEquals("The username (atorres)",blue.getAccount_Has().filterName("Anna Torres").getUsername().toString(), "(atorres)");
+        storyboard.assertEquals("The password is 12345678",blue.getAccount_Has().filterName("Anna Torres").getPassword().toString(), "(12345678)");
+        storyboard.assertEquals("The initial amount is 100.00",blue.getAccount_Has().filterName("Anna Torres").getInitialAmount().get(0), 100.00);
+        //
+        storyboard.dumpHTML();
     }
-
+    
 }
