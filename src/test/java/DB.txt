@@ -19,17 +19,17 @@
             {
                "class":"swe443.bluebank.Account",
                "id":"demo.A5"
+            },
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A6"
+            },
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A7"
             }
          ],
          "Bank_Has":[
-            {
-               "class":"swe443.bluebank.User",
-               "id":"demo.U6"
-            },
-            {
-               "class":"swe443.bluebank.User",
-               "id":"demo.U7"
-            },
             {
                "class":"swe443.bluebank.User",
                "id":"demo.U8"
@@ -37,6 +37,22 @@
             {
                "class":"swe443.bluebank.User",
                "id":"demo.U9"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U10"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U11"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U12"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U13"
             }
          ]
       }
@@ -53,7 +69,7 @@
          "initialAmount":100,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U6"
+            "id":"demo.U8"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -74,7 +90,7 @@
          "accountBalance":50,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U7"
+            "id":"demo.U9"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -95,7 +111,7 @@
          "accountBalance":50,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U8"
+            "id":"demo.U10"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -113,10 +129,10 @@
          "username":"bbui1997",
          "password":"randompass123",
          "initialAmount":25,
-         "accountBalance":26.2345,
+         "accountBalance":4.13,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U9"
+            "id":"demo.U11"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -125,8 +141,24 @@
       }
    },
    {
+      "class":"swe443.bluebank.Account",
+      "id":"demo.A6",
+      "prop":{"Bank_has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }}
+   },
+   {
+      "class":"swe443.bluebank.Account",
+      "id":"demo.A7",
+      "prop":{"Bank_has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }}
+   },
+   {
       "class":"swe443.bluebank.User",
-      "id":"demo.U6",
+      "id":"demo.U8",
       "prop":{
          "userName":"Salonika Bose",
          "Account_Has":[
@@ -143,7 +175,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U7",
+      "id":"demo.U9",
       "prop":{
          "userName":"heymond",
          "Account_Has":[
@@ -160,7 +192,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U8",
+      "id":"demo.U10",
       "prop":{
          "userName":"Joe Smo",
          "Account_Has":[
@@ -177,7 +209,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U9",
+      "id":"demo.U11",
       "prop":{
          "userName":"Brandon Bui",
          "Account_Has":[
@@ -191,5 +223,21 @@
             "id":"demo.B1"
          }
       }
+   },
+   {
+      "class":"swe443.bluebank.User",
+      "id":"demo.U12",
+      "prop":{"User_Has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }}
+   },
+   {
+      "class":"swe443.bluebank.User",
+      "id":"demo.U13",
+      "prop":{"User_Has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }}
    }
 ]

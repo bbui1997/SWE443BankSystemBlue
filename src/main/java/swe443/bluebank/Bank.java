@@ -60,7 +60,7 @@ public  class Bank implements SendableEntity
       }
       menu.append("\n\nMain Menu:\n");
       menu.append("1. Create Account\n");
-      menu.append("2. Log In (NOT FUNCTIONING YET) \n");
+      menu.append("2. Log In\n");
       menu.append("3. Make Deposit\n");
       menu.append("4. Make Withdraw\n");
       menu.append("5. View Balance\n");
@@ -189,6 +189,13 @@ public  class Bank implements SendableEntity
 
       acct.deposit(amt); //deposit amount into account
       System.out.println();
+
+      // Ensures the account balance is in the format 0.00
+      double num = acct.getAccountBalance();
+      num = Math.round(num*100);
+      num = num/100;
+      acct.setAccountBalance(num);
+
       System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
    }
 
@@ -223,6 +230,13 @@ public  class Bank implements SendableEntity
       amt = acct.withdraw(amt); //withdraw amount from account
       if(amt==0) System.out.println("No money has been withdrawn."); //check amt to be returned
       System.out.println();
+
+      // Ensures the account balance is in the format 0.00
+      double num = acct.getAccountBalance();
+      num = Math.round(num*100);
+      num = num/100;
+      acct.setAccountBalance(num);
+
       System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
 
    }
