@@ -26,8 +26,8 @@ public class Model {
                 .withAttribute("password", DataType.STRING)
                 .withAttribute("initialAmount", DataType.DOUBLE)
                 .withAttribute("accountBalance", DataType.DOUBLE)
-                .withMethod("deposit", DataType.VOID)
-                .withMethod("withdraw",DataType.DOUBLE)
+                //.withMethod("deposit", DataType.VOID)
+                //.withMethod("withdraw",DataType.DOUBLE)
                 .withMethod("undoRecentTransaction", DataType.VOID)
                 .withMethod("transfer", DataType.VOID);
 

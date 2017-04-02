@@ -24,7 +24,7 @@ Assigned persons (currently working on task):
 
   - Sara
 
-Log entries (who worked when and how long on this): **update this @Sara!
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes): **update this @Sara!
 
   - 2017-03-10: 12:00-14:00 ulno
 

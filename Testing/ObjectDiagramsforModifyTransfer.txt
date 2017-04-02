@@ -14,5 +14,5 @@ Author:
 Assigned persons (currently working on task): 
 Heymond
 
-Log entries (who worked when and how long):
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 - 2017-04-02: 12:19am - 2:54 am Heymond | everything should be ready for others to use.{FINISHED}

@@ -33,8 +33,8 @@ Assigned persons (currently working on task):
 
   - Heymond
 
-Log entries (who worked when and how long on this): 
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-30: 9:00 pm - 11:00pm Heymond| implementing json integration to retain information
+  - 2017-03-30: 9:00 pm - 11:00pm | implementing json integration to retain information
   - 2017-04-01: 10:00 pm - 11:00pm Ermal | Created a test case to create a account with persistence, figure out all the right calls to make for it.
-  - 2017-04-02: 11:00 pm - 12:30pm Ermal | Created 3 more test cases for persistence layer.
+  - 2017-04-02: 12:19am - 2:54 am Heymond | Finished Persistence Layer
