@@ -1,4 +1,5 @@
 import de.uniks.networkparser.IdMap;
+import de.uniks.networkparser.json.JsonArray;
 import de.uniks.networkparser.list.ObjectSet;
 import org.junit.Before;
 import org.junit.Test;
@@ -80,6 +81,12 @@ public class PersistenceTest {
         storyboard.assertEquals("The username (atorres)",blue.getAccount_Has().filterName("Anna Torres").getUsername().toString(), "(atorres)");
         storyboard.assertEquals("The password is 12345678",blue.getAccount_Has().filterName("Anna Torres").getPassword().toString(), "(12345678)");
         storyboard.assertEquals("The initial amount is 100.00",blue.getAccount_Has().filterName("Anna Torres").getInitialAmount().get(0), 100.00);
+
+        IdMap idMap = BankCreator.createIdMap("demo");
+        JsonArray jsonArray = idMap.toJsonArray(blue);
+        String jsonText = jsonArray.toString(3);
+        //System.out.println(jsonText);
+
         //
         storyboard.dumpHTML();
     }

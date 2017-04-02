@@ -435,24 +435,25 @@ public  class Account implements SendableEntity {
       return value;
    }
 
-   
+
    //==========================================================================
    public void deposit(  )
    {
-      
+      //dont use, use MakeDeposit in bank
    }
 
-   
+
    //==========================================================================
    public double withdraw(  )
    {
+      //dont use, use MakeWithdraw in bank
       return 0;
    }
 
-   
+
    //==========================================================================
    public void transfer(  )
    {
-      
+      //dont use, use MakeTransfer in bank
    }
 }
