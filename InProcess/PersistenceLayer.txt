@@ -9,7 +9,16 @@ Description:
 Related scenario(s):
 
   - Welcome_Screen Scenarios:
+
+
   - Create_Account Scenarios:
+    Scenario 1: User Sal makes an account and is saved.
+      - No account currently exists for Sal.
+      - Sal creates an account successfully like in Create Account Scenario 1.
+      - Sal's account is saved to the database.
+      - The next time Sal runs ATM program, Sal's account has been saved and
+        can be logged into without being created again.
+
   - Log_In Scenarios: 
 
 Time estimate(s):
@@ -27,3 +36,4 @@ Assigned persons (currently working on task):
 Log entries (who worked when and how long on this): 
 
   - 2017-03-30: 9:00 pm - 11:00pm | implementing json integration to retain information
+  - 2017-04-01: 10:00 pm - 11:00pm | Created a test case to create a account with persistence, figure out all the right calls to make for it.
