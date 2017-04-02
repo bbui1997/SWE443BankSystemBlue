@@ -98,10 +98,15 @@ public class TransactionTests {
     public void testWithdrawScenario1(){
         // setup(); //setup the environment
         Storyboard storyboard = new Storyboard();
-        storyboard.addObjectDiagram(sal);
+        storyboard.add("Sal's account initially has an account balance of $60");
         sal.setAccountBalance(60); //Sal has an account balance of $60.
+        storyboard.addObjectDiagram(sal);
 
+        storyboard.add("Sal attempts to withdraw $40 from her account and successfully does so.");
+        storyboard.add("The account balance is now $20.");
         double cash = sal.withdraw(40); //withdraw $40 from account
+        storyboard.addObjectDiagram(sal);
+
         storyboard.assertEquals("Withdrawn:",40,cash,0); //$40 is returned
         storyboard.assertEquals("Balance:",20,sal.getAccountBalance(),0); //check account balance is $20 after withdrawal
         storyboard.dumpHTML();
@@ -111,7 +116,7 @@ public class TransactionTests {
     /**
      * This method tests withdraw Scenario2:
      * Sal attempts to withdraw an incorrect denomination.
-     * She currently has a balance of $75 and attempts to withrdaw $35.
+     * She currently has a balance of $75 and attempts to withdraw $35.
      * The transaction fails and returns $0.
      * @see <a href='../../../doc/WithdrawScenario2.html'>WithdrawScenario2.html</a>
      */
@@ -119,10 +124,14 @@ public class TransactionTests {
     public void testWithdrawScenario2(){
         // setup(); //setup the environment
         Storyboard storyboard = new Storyboard();
-        storyboard.addObjectDiagram(sal);
+        storyboard.add("Sal's account has a balance of $75");
         sal.setAccountBalance(75); //Sal has an account balance of $75.
+        storyboard.addObjectDiagram(sal);
 
+        storyboard.add("Sal attempts to withdraw $35 but isn't successfully because $35 is an improper amount.");
         double cash = sal.withdraw(35);
+        storyboard.addObjectDiagram(sal);
+
         storyboard.assertEquals("Withdrawn:",0,cash,0); //no money is returned
         storyboard.assertEquals("Balance:",75,sal.getAccountBalance(),0); //Sal's account balance remains the same.
         storyboard.dumpHTML();
@@ -140,9 +149,15 @@ public class TransactionTests {
     public void testWithdrawScenario3(){
         //setup(); //setup the environment
         Storyboard storyboard = new Storyboard();
-        storyboard.addObjectDiagram(sal);
+        storyboard.add("Sal's account initially has a balance of $30");
         sal.setAccountBalance(30); //Sal has an account balance of $40
+        storyboard.markCodeStart();
+        storyboard.addObjectDiagram(sal);
+
+        storyboard.add("Sal attempts to withdraw $40");
         double cash = sal.withdraw(40); //withdraw $40 from account
+        storyboard.addObjectDiagram(sal);
+
         storyboard.assertEquals("Withdrawn:",40,cash,0); //$40 returned
         storyboard.assertEquals("Balance:",-10,sal.getAccountBalance(),0); //account balance is negative ($10)
         storyboard.dumpHTML();

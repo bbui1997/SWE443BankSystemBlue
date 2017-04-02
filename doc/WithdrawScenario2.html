@@ -12,6 +12,7 @@
 <script src="includes/graph.js"></script>
 </head><body>
 <p>Storyboard <a href='.././src/test/java/TransactionTests.java' type='text/x-java'>WithdrawScenario2</a></p>
+<p>Sal's account has a balance of $75</p>
 <script>
    var json = {
    "typ":"objectdiagram",
@@ -26,12 +27,35 @@
             "username=sal",
             "password=password123",
             "initialAmount=0.0",
-            "accountBalance=0.0"
+            "accountBalance=75.0"
          ]
       }
    ]
 }   ;
-   json["options"]={"canvasid":"canvasWithdrawScenario21", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   json["options"]={"canvasid":"canvasWithdrawScenario22", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>Sal attempts to withdraw $35 but isn't successfully because $35 is an improper amount.</p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"A1 : Account",
+         "attributes":[
+            "name=Sal",
+            "ssn=123568900",
+            "dob=03/28/1986",
+            "username=sal",
+            "password=password123",
+            "initialAmount=0.0",
+            "accountBalance=75.0"
+         ]
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasWithdrawScenario24", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
    g.layout(100,100);
 </script>
 <p>Check: Withdrawn: 0.0 actual 0.0</p>
