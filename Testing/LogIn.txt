@@ -27,7 +27,7 @@ Assigned persons (currently working on task):
 
   - Ermal Dedej
 
-Log entries (who worked when and how long on this): 
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-03-28: 21:00-21:13 Ermal | Created a mock LogIn class to use for testcases
   - 2017-03-28: 21:15-22:40 Ermal | Created a initial test cases for scenario 1-4, added some code to Login to make the test cases pass

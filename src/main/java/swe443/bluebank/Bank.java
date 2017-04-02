@@ -21,19 +21,14 @@
 
 package swe443.bluebank;
 
-import de.uniks.networkparser.interfaces.SendableEntity;
-import java.beans.PropertyChangeSupport;
-import java.beans.PropertyChangeListener;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
-
 import de.uniks.networkparser.EntityUtil;
+import de.uniks.networkparser.interfaces.SendableEntity;
 import swe443.bluebank.util.AccountSet;
-import swe443.bluebank.Account;
 import swe443.bluebank.util.UserSet;
-import swe443.bluebank.User;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.Scanner;
 /**
  *
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
@@ -107,12 +102,13 @@ public  class Bank implements SendableEntity
       while(x < 0){
          System.out.println("please enter a positive value");
          x = Double.parseDouble(scanStr.nextLine());
+
       }
       acct.setInitialAmount(x);
       acct.setAccountBalance(x);
       //acct.setInitialAmount(Double.parseDouble(argv[5]));
-      System.out.println("Thank you for the information, " + acct.getName() + " You currently have "
-              + acct.getInitialAmount() + " dollars in your account.");
+      System.out.println("Thank you for the information, " + acct.getName() + ".\n You currently have $"
+              + doubleToMoneyFormat(acct.getInitialAmount()) + " in your account.");
 
       withAccount_Has(acct);
       withBank_Has(user);
@@ -193,7 +189,7 @@ public  class Bank implements SendableEntity
 
       acct.deposit(amt); //deposit amount into account
       System.out.println();
-      System.out.println("Your remaining balance: $"+acct.getAccountBalance()); //print balance
+      System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
    }
 
 
@@ -227,7 +223,7 @@ public  class Bank implements SendableEntity
       amt = acct.withdraw(amt); //withdraw amount from account
       if(amt==0) System.out.println("No money has been withdrawn."); //check amt to be returned
       System.out.println();
-      System.out.println("Your remaining balance: $"+acct.getAccountBalance()); //print balance
+      System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
 
    }
 
@@ -482,8 +478,14 @@ public  class Bank implements SendableEntity
          if(acct == null){
             return;
          }
+
+         // Ensures that the account balance is in the form 1.00 instead of 1.0
+         double num = acct.getAccountBalance();
+         num = Math.round(num*100);
+         num = num/100;
+         acct.setAccountBalance(num);
       }
-      System.out.println("Account balance: " + acct.getAccountBalance());
+      System.out.println("Account balance: $" + doubleToMoneyFormat(acct.getAccountBalance()));
    }
 
    
@@ -491,5 +493,13 @@ public  class Bank implements SendableEntity
    public void makeTransfer(  )
    {
       
+   }
+
+   //==========================================================================
+   public String doubleToMoneyFormat(double number)
+   {
+      number = Math.round(number * 100);
+      number = number/100;
+      return String.format("%.2f", number);
    }
 }

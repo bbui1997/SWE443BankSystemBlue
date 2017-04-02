@@ -17,7 +17,7 @@ Related scenario(s):
 
 Time estimate(s):
 
-  1h (for now)
+  1h
 
 Author(s):
 
@@ -25,8 +25,9 @@ Author(s):
 
 Assigned persons (currently working on task):
 
-  - 
+  - Salonika
 
-Log entries (who worked when and how long on this): 
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 
+  - 2017-04-02: 12:15-12:30 Brandon | minor tweaks on the welcome screen to display money as $0.00 instead of $0.0
+  - Log by Brandon; she finished it before assigning the task sometime between Mar 24-26

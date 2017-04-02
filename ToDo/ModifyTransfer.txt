@@ -16,4 +16,4 @@ Assigned persons (currently working on task):
 Krishna 
 Sara
 
-Log entries (who worked when and how long):
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
