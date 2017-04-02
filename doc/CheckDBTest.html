@@ -36,9 +36,26 @@
       },
       {
          "typ":"clazz",
-         "id":"U3 : User",
+         "id":"A3 : Account",
          "attributes":[
-            "userName=Salonika Bose"
+            "name=Sal",
+            "ssn=1234",
+            "dob=04/14/1990",
+            "username=sals",
+            "password=12345678",
+            "initialAmount=0.0",
+            "accountBalance=0.0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"U4 : User"
+      },
+      {
+         "typ":"clazz",
+         "id":"U5 : User",
+         "attributes":[
+            "userName=Sal"
          ]
       }
    ],
@@ -60,8 +77,34 @@
          "typ":"ASSOCIATION",
          "source":{
             "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A3 : Account"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"Bank_has",
+            "id":"B1 : Bank"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
             "property":"Bank_Has",
-            "id":"U3 : User"
+            "id":"U4 : User"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"User_Has",
+            "id":"B1 : Bank"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"Bank_Has",
+            "id":"U5 : User"
          },
          "target":{
             "cardinality":"one",
@@ -74,12 +117,25 @@
          "source":{
             "cardinality":"one",
             "property":"User_Has",
-            "id":"U3 : User"
+            "id":"U4 : User"
          },
          "target":{
             "cardinality":"many",
             "property":"Account_Has",
             "id":"A2 : Account"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"User_Has",
+            "id":"U5 : User"
+         },
+         "target":{
+            "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A3 : Account"
          }
       }
    ]

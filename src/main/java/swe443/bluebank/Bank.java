@@ -121,13 +121,13 @@ public  class Bank implements SendableEntity
 
 
    }
-
+   Scanner scanStr;
 
    //==========================================================================
    public void logIn()
    {
       int tries=0;
-      Scanner scanStr = new Scanner(System.in);
+      scanStr = new Scanner(System.in);
       String userName = null;
       String password = null;
       System.out.println("Please enter your Username");
@@ -189,7 +189,7 @@ public  class Bank implements SendableEntity
 
       System.out.println("\n");
       System.out.print("Please enter the deposit amount:"); //prompt user for amount
-      amt = input.nextDouble(); //read deposit amount
+      amt = scanStr.nextDouble(); //read deposit amount
 
       acct.deposit(amt); //deposit amount into account
       System.out.println();
@@ -222,7 +222,7 @@ public  class Bank implements SendableEntity
       System.out.println("\n");
       System.out.println("Machine dispenses money in denomiations of $10, $20, or $100");
       System.out.print("Please enter amount to withdraw:"); //prompt for amount to withraw
-      amt  = input.nextDouble(); //read withdrawal amount
+      amt  = scanStr.nextDouble(); //read withdrawal amount
 
       amt = acct.withdraw(amt); //withdraw amount from account
       if(amt==0) System.out.println("No money has been withdrawn."); //check amt to be returned

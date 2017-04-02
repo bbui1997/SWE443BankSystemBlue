@@ -11,17 +11,15 @@
 <script src="includes/drawer.js"></script>
 <script src="includes/graph.js"></script>
 </head><body>
-<p>Storyboard <a href='.././src/test/java/CreateAccountTest.java' type='text/x-java'>scenarioOneTest</a></p>
+<p>Storyboard <a href='.././src/test/java/PersistenceTest.java' type='text/x-java'>salWithdrawsMoneyOnHerAccount</a></p>
+<p>Sals withdraws money into </p>
 <script>
    var json = {
    "typ":"objectdiagram",
    "nodes":[
       {
          "typ":"clazz",
-         "id":"B1 : Bank",
-         "attributes":[
-            "bankName=Blue_Bank"
-         ]
+         "id":"B1 : Bank"
       },
       {
          "typ":"clazz",
@@ -33,14 +31,31 @@
             "username=salonikab",
             "password=asdf",
             "initialAmount=100.0",
-            "accountBalance=100.0"
+            "accountBalance=0.0"
          ]
       },
       {
          "typ":"clazz",
-         "id":"U3 : User",
+         "id":"A3 : Account",
          "attributes":[
-            "userName=Salonika Bose"
+            "name=Sal",
+            "ssn=1234",
+            "dob=04/14/1990",
+            "username=sals",
+            "password=12345678",
+            "initialAmount=0.0",
+            "accountBalance=0.0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"U4 : User"
+      },
+      {
+         "typ":"clazz",
+         "id":"U5 : User",
+         "attributes":[
+            "userName=Sal"
          ]
       }
    ],
@@ -62,8 +77,34 @@
          "typ":"ASSOCIATION",
          "source":{
             "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A3 : Account"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"Bank_has",
+            "id":"B1 : Bank"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
             "property":"Bank_Has",
-            "id":"U3 : User"
+            "id":"U4 : User"
+         },
+         "target":{
+            "cardinality":"one",
+            "property":"User_Has",
+            "id":"B1 : Bank"
+         }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"many",
+            "property":"Bank_Has",
+            "id":"U5 : User"
          },
          "target":{
             "cardinality":"one",
@@ -76,25 +117,33 @@
          "source":{
             "cardinality":"one",
             "property":"User_Has",
-            "id":"U3 : User"
+            "id":"U4 : User"
          },
          "target":{
             "cardinality":"many",
             "property":"Account_Has",
             "id":"A2 : Account"
          }
+      },
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"User_Has",
+            "id":"U5 : User"
+         },
+         "target":{
+            "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A3 : Account"
+         }
       }
    ]
 }   ;
-   json["options"]={"canvasid":"canvasscenarioOneTest1", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   json["options"]={"canvasid":"canvassalWithdrawsMoneyOnHerAccount2", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
    g.layout(100,100);
 </script>
-<p>Check: the user is Salonika Bose (Salonika Bose) actual (Salonika Bose)</p>
-<p>Check: the ssn is 123456789 123456789 actual 123456789</p>
-<p>Check: the dob is 01011995 (01011995) actual (01011995)</p>
-<p>Check: the username is salonikab (salonikab) actual (salonikab)</p>
-<p>Check: the password is asdf (asdf) actual (asdf)</p>
-<p>Check: the initial anount is 100.00 100.0 actual 100.0</p>
+<p>Check: The amount in Sals account is 120.0 80.0 actual 80.0</p>
 
 </body>
 </html>

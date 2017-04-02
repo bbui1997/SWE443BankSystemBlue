@@ -35,5 +35,6 @@ Assigned persons (currently working on task):
 
 Log entries (who worked when and how long on this): 
 
-  - 2017-03-30: 9:00 pm - 11:00pm | implementing json integration to retain information
+  - 2017-03-30: 9:00 pm - 11:00pm Heymond| implementing json integration to retain information
   - 2017-04-01: 10:00 pm - 11:00pm Ermal | Created a test case to create a account with persistence, figure out all the right calls to make for it.
+  - 2017-04-02: 11:00 pm - 12:30pm Ermal | Created 3 more test cases for persistence layer.
