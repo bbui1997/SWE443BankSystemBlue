@@ -11,9 +11,6 @@ import org.junit.Test;
 import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 public class TransferTests {
     Account sal; //represents account for Sal to be used in testing.
     /**
@@ -44,14 +41,17 @@ public class TransferTests {
 
         storyboard.add("Sal's account initially has a balance of $150");
         sal.setAccountBalance(150);
-
         Account target = new Account()
                 .withAccountBalance(50)
                 .withName("Sara");
+        storyboard.addObjectDiagram(sal,target);
         storyboard.add("Sara's account initially has a balance of $50");
 
-        storyboard.add("Sal transfers $100");
+        storyboard.add("Sal transfers $100 to Sara's account");
+
+        storyboard.markCodeStart();
         sal.transfer(100, target); //sal transfers $100 to sara's account
+        storyboard.addCode();
 
         storyboard.addObjectDiagram(sal, target);
         storyboard.assertEquals("Sal's Balance:",50,sal.getAccountBalance(),0); //check that current balance equals $100
