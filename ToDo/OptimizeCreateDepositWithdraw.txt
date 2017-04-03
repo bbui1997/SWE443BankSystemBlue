@@ -19,3 +19,4 @@ Salonika
 Marcus
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+2017-04-03: 03:56-04:48 Marcus | update withdrawal function to prevent users from withdrawing negative amount

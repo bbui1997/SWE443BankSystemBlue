@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
+import swe443.bluebank.Bank;
 
 public class TransactionTests {
     Account sal; //represents account for Sal to be used in testing.
@@ -142,7 +143,7 @@ public class TransactionTests {
      * This method tests withdraw Scenario3:
      * Sal's account has a negative balance after withdrawal.
      * Sal has an account balance of $30. She withdraws $40
-     * and now has an account balance of negative ($10).
+     * and still has an account balance of $30.
      * @see <a href='../../../doc/WithdrawScenario3.html'>WithdrawScenario3.html</a>
      */
     @Test
@@ -158,8 +159,8 @@ public class TransactionTests {
         double cash = sal.withdraw(40); //withdraw $40 from account
         storyboard.addObjectDiagram(sal);
 
-        storyboard.assertEquals("Withdrawn:",40,cash,0); //$40 returned
-        storyboard.assertEquals("Balance:",-10,sal.getAccountBalance(),0); //account balance is negative ($10)
+        storyboard.assertEquals("Result:",-1,cash,0); //-1 returned for insufficient funds
+        storyboard.assertEquals("Balance:",30,sal.getAccountBalance(),0); //account balance is $30
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }

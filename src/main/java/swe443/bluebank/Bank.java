@@ -29,6 +29,8 @@ import swe443.bluebank.util.UserSet;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Scanner;
+import swe443.bluebank.Account;
+import swe443.bluebank.User;
 /**
  *
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
@@ -185,7 +187,7 @@ public  class Bank implements SendableEntity
 
       System.out.println("\n");
       System.out.print("Please enter the deposit amount:"); //prompt user for amount
-      amt = scanStr.nextDouble(); //read deposit amount
+      amt = input.nextDouble(); //read deposit amount
 
       acct.deposit(amt); //deposit amount into account
       System.out.println();
@@ -194,6 +196,7 @@ public  class Bank implements SendableEntity
       double num = acct.getAccountBalance();
       num = Math.round(num*100);
       num = num/100;
+
       acct.setAccountBalance(num);
 
       System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
@@ -225,20 +228,27 @@ public  class Bank implements SendableEntity
       System.out.println("\n");
       System.out.println("Machine dispenses money in denomiations of $10, $20, or $100");
       System.out.print("Please enter amount to withdraw:"); //prompt for amount to withraw
-      amt  = scanStr.nextDouble(); //read withdrawal amount
+      amt  = input.nextDouble(); //read withdrawal amount
 
-      amt = acct.withdraw(amt); //withdraw amount from account
-      if(amt==0) System.out.println("No money has been withdrawn."); //check amt to be returned
-      System.out.println();
+      amt = acct.withdraw(amt); //withdraw amount requested;store result
+
+      if(amt==-1){//withdraw amount exceeds balance
+         System.out.println("Insufficient funds. Exiting to main screen.");
+      }else if(amt==0){//no money withdrawn
+         System.out.println("No money has been withdrawn. Exiting to main screen.");
+      }else{//money withdrawan from account
+         System.out.println("$"+amt+" has been withrdawn."); //print amount withdrawn
+         System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
+      }
 
       // Ensures the account balance is in the format 0.00
       double num = acct.getAccountBalance();
       num = Math.round(num*100);
       num = num/100;
+
       acct.setAccountBalance(num);
 
-      System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
-
+      System.out.println();
    }
 
 

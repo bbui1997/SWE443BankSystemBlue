@@ -54,24 +54,36 @@ public  class Account implements SendableEntity {
        * Check if amount is a denomination of 100
        */
       if ((amt % 100) == 0) {
-         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-         return amt; //return requested amount
+         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
+            return -1;
+         }else{
+            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+            return amt; //return requested amount
+         }
       }
 
       /**
        * Check if amount is a denomination of 20
        */
       if ((amt % 20) == 0) {
-         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-         return amt; //return requested amount
+         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
+            return -1;
+         }else{
+            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+            return amt; //return requested amount
+         }
       }
 
       /**
        * Check if amount is a denomination of 10
        */
       if ((amt % 10) == 0) {
-         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-         return amt; //return requested amount
+         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
+            return -1;
+         }else{
+            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+            return amt; //return requested amount
+         }
       }
       return 0; //return 0 if denominations don't match
    }
