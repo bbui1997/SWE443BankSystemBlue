@@ -32,9 +32,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import swe443.bluebank.Account;
-import swe443.bluebank.User;
-
 /**
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
  * @see <a href='../../../../../src/main/java/Model.java'>Model.java</a>
@@ -89,7 +86,7 @@ public class Bank implements SendableEntity {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(name);
         while(matcher.matches()){
-            System.out.println("Please enter a name without numbers");
+            System.out.println("Please enter your name.");
             name = scanStr.nextLine();
             matcher = pattern.matcher(name);
         }
@@ -137,7 +134,7 @@ public class Bank implements SendableEntity {
         acct.setInitialAmount(x);
         acct.setAccountBalance(x);
         //acct.setInitialAmount(Double.parseDouble(argv[5]));
-        System.out.println("Thank you for the information, " + acct.getName() + ".\n You currently have $"
+        System.out.println("Thank you for the information, " + acct.getName() + ".\nYou currently have $"
                 + doubleToMoneyFormat(acct.getInitialAmount()) + " in your account.");
 
         withAccount_Has(acct);
