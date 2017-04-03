@@ -26,8 +26,13 @@ Assigned persons (currently working on task):
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes): **update this @Sara!
 
-  - 2017-03-10: 12:00-14:00 ulno
 
-  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
+  - 2017-03-27: 12:44-12:50 Sara | Wrote scenario and pushed to git
 
-  - 2017-03-13: 22:00-02:30 ulno
+  - 2017-03-27: 12:51-12:54 Sara | Wrote scenario and pushed to git
+
+  - 2017-03-27: 12:54-13:15 Sara | Wrote scenario and pushed to git
+
+  - 2017-04-03: 11:00-12:20 Sara | Implement transfer, fixed tests, and pushed to git
+
+  - 2017-04-03: 13:45-14:30 Sara | Include object diagrams and pushed to git

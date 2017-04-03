@@ -1,0 +1,90 @@
+PUT ALL BUGS/FIXES NEEDED TO BE DEALT WITH FROM CODE FROM ITERATION 1 HERE!
+FOR EVERY BUG FOUND HERE, WRITE A TEST AND THEN IMPLEMENT YOUR SOLUTION IF YOU CHOOSE TO WORK ON IT
+Create Account
+ - Name: Multiple accounts
+   Assigned:
+   When you create multiple accounts with the same username with different passwords,
+   you can no longer log in to that account. It just states you have the wrong password.
+   Priority: High
+   Potential Fix: Don't allow multiple accounts with the same username
+
+ - Name: Create Account, nonsense name
+   Assigned: Marcus/Salonika
+   A user can add nonsensical values as a name (numbers and symbols in a name). Keep it to 
+   letters and possibly -s and 's.
+   Priority: Medium
+   Potential Fix: Use regex to enforce this.
+
+ - Name: Enforce DOB Length
+   Assigned: Marcus/Salonika
+   A user can currently input "1" when inputting their DOB. Enforce the MMDDYYYY format.
+   Priority: Low
+   Potential Fix: Use regex to enforce this. This may possibly be fixed later when we implement
+                  it with Android/Web GUI since there are ways to enforce Date.
+
+ - Name: Enforce 8 len password
+   Assigned: Marcus/Salonika
+   A user can currently have a 1 char password. This isn't very safe. Enforce the minimum password
+   length to be 8 chars.
+   Priority: Medium
+   Potential Fix: Use an if-statement to check length.
+
+ - Name: Enforce 4 ints of SSN
+   Assigned: Marcus/Salonika
+   A user can input any int as their SSN. Enforce them to the last 4 ints of their SSN (or 4 ints).
+   Priority: Medium
+   Potential Fix: A method isValidSSN() would probably be a good idea, and check 1000 <= x <= 9999.
+
+Withdraw
+ - Name: Ensure double input on withdraw
+   Assigned:
+   A user can input any random value for when they are asked how much they want to withdraw (like a string).
+   This causes an error and crashes the program.
+   Priority: Medium
+   Potential Fix: Use a try/catch block to make sure they enter a double. There's a possiblity that the
+                  the UI from Android/Web will enforce this already, so we might not need to fix this yet.
+
+ - Name: Withdraw negative value, gains money
+   Assigned:
+   A user can input a negative value when they withdraw, which would make them gain money. This shouldn't
+   be possible.
+   Priority: High
+   Potential Fix: Use an if-statement to check if it's a negative value and tell them to try again.
+
+ - Name: Possibly allow more values to withdraw?
+   Assigned:
+   Currently, a user is only allowed to withdraw 100, 20, or 10. Brandon believes that they should be able
+   to withdraw more values
+   Priority: Unsure
+   Potential Fix: Use conditional statements to check the amount to be withdrawn.
+
+Deposit
+ - Name: Ensure double input on deposit
+   Assigned:
+   A user can input any random value for when they are asked how much they want to deposit (like a string).
+   This causes an error and crashes the program.
+   Priority: Medium
+   Potential Fix: Use a try/catch block to make sure they enter a double. There's a possiblity that the
+                  the UI from Android/Web will enforce this already, so we might not need to fix this yet.
+ 
+ - Name: Negative deposit
+   Assigned:
+   When a user inputs a negative value when depositing, it will throw an illegal argument exception.
+   This is the correct exception to throw, but when we are actually using the program, we probably don't
+   want it to crash.
+   Priority: High
+   Potential Fix: Use a try/catch block for the IAS. Make them try again.
+
+Welcome Screen
+ - Name: Invalid menu value
+   If a user inputs a String value on the menu screen, it will crash the program.
+   Priority: Low
+   Potential Fix: Use a try/catch block to make sure they enter a valid input. There's a possiblity that the
+                  the UI from Android/Web will enforce this later on, so we might not need to fix this.
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+ - 2017-04-02: 16:00-16:33 Brandon | fixed bug "Welcome Screen - Showed $1.0 instead of $1.00"
+ - 2017-04-03: 03:56-04:48 Marcus | fixed bug "Withdraw over current balance"
+
+
+

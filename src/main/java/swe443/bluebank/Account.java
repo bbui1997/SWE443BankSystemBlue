@@ -25,6 +25,7 @@ import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 import de.uniks.networkparser.EntityUtil;
+import java.util.*;
 import swe443.bluebank.User;
 import swe443.bluebank.Bank;
 /**
@@ -42,6 +43,7 @@ public  class Account implements SendableEntity {
        */
       if (amt >= 0) {
          this.setAccountBalance(amt + getAccountBalance()); //add amount to the account balance.
+         this.recentTransaction = "deposit "+amt;
       } else {
          throw new IllegalArgumentException(amt + " is less than or equal to 0");
       }
@@ -54,24 +56,39 @@ public  class Account implements SendableEntity {
        * Check if amount is a denomination of 100
        */
       if ((amt % 100) == 0) {
-         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-         return amt; //return requested amount
+         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
+            return -1;
+         }else{
+            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+            this.recentTransaction = "withdrawal "+amt;
+            return amt; //return requested amount
+         }
       }
 
       /**
        * Check if amount is a denomination of 20
        */
       if ((amt % 20) == 0) {
-         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-         return amt; //return requested amount
+         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
+            return -1;
+         }else{
+            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+            this.recentTransaction = "withdrawal "+amt;
+            return amt; //return requested amount
+         }
       }
 
       /**
        * Check if amount is a denomination of 10
        */
       if ((amt % 10) == 0) {
-         this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-         return amt; //return requested amount
+         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
+            return -1;
+         }else{
+            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+            this.recentTransaction = "withdrawal "+amt;
+            return amt; //return requested amount
+         }
       }
       return 0; //return 0 if denominations don't match
    }
@@ -79,15 +96,50 @@ public  class Account implements SendableEntity {
 
    //==========================================================================
    public void undoRecentTransaction() {
+      Scanner sc = new Scanner(this.getRecentTransaction());
+      if(!sc.hasNext()){
+         //If recentTransaction is null => no transaction yet.
+         System.out.println("No transaction yet !");
+         return;
+      }
+      String type = sc.next();
+      switch (type){
+         case "deposit":
+            double amount = sc.nextDouble();
+            this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
+            break;                                                 //deduct the deposited amount from balance.
+
+         case "withdrawal":
+            double wAmt = sc.nextDouble();
+            this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
+            break;                                                 //add the amount that was withdrawn to balance.
+
+         //case transfer
+
+         default:
+            System.out.println("****** MAYDAY ***** MAYDAY *******");
+
+      }
+
 
    }
 
 
    //==========================================================================
-   public void transfer(double amt) {
+   public boolean transfer(double amt, Account acct) {
+
+      // Check if amount is less than balance
+      if (amt > 0 && this.getAccountBalance() > amt) {
+         // TODO: check account validity
+         this.setAccountBalance(this.getAccountBalance() - amt); //withdraw amount from this. Update balance.
+         acct.setAccountBalance(acct.getAccountBalance() + amt); //deposit amount to the acct. Update balance.
+         return true; //return succeed flag
+      } else {
+         return false; // return failure flag
+         //throw new IllegalArgumentException("Amount should be positive and less than account balance!");
+      }
 
    }
-
 
    //==========================================================================
 
@@ -178,6 +230,7 @@ public  class Account implements SendableEntity {
       result.append(" ").append(this.getPassword());
       result.append(" ").append(this.getInitialAmount());
       result.append(" ").append(this.getAccountBalance());
+      result.append(" ").append(this.getRecentTransaction());
       return result.substring(1);
    }
 
@@ -456,4 +509,32 @@ public  class Account implements SendableEntity {
    {
       //dont use, use MakeTransfer in bank
    }
+
+   
+   //==========================================================================
+   
+   public static final String PROPERTY_RECENTTRANSACTION = "recentTransaction";
+   
+   private String recentTransaction;
+
+   public String getRecentTransaction()
+   {
+      return this.recentTransaction;
+   }
+   
+   public void setRecentTransaction(String value)
+   {
+      if ( ! EntityUtil.stringEquals(this.recentTransaction, value)) {
+      
+         String oldValue = this.recentTransaction;
+         this.recentTransaction = value;
+         this.firePropertyChange(PROPERTY_RECENTTRANSACTION, oldValue, value);
+      }
+   }
+   
+   public Account withRecentTransaction(String value)
+   {
+      setRecentTransaction(value);
+      return this;
+   } 
 }

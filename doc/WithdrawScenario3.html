@@ -12,6 +12,7 @@
 <script src="includes/graph.js"></script>
 </head><body>
 <p>Storyboard <a href='.././src/test/java/TransactionTests.java' type='text/x-java'>WithdrawScenario3</a></p>
+<p>Sal's account initially has a balance of $30</p>
 <script>
    var json = {
    "typ":"objectdiagram",
@@ -26,16 +27,39 @@
             "username=sal",
             "password=password123",
             "initialAmount=0.0",
-            "accountBalance=0.0"
+            "accountBalance=30.0"
          ]
       }
    ]
 }   ;
-   json["options"]={"canvasid":"canvasWithdrawScenario31", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   json["options"]={"canvasid":"canvasWithdrawScenario32", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
    g.layout(100,100);
 </script>
-<p>Check: Withdrawn: 40.0 actual 40.0</p>
-<p>Check: Balance: -10.0 actual -10.0</p>
+<p>Sal attempts to withdraw $40</p>
+<script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"A1 : Account",
+         "attributes":[
+            "name=Sal",
+            "ssn=123568900",
+            "dob=03/28/1986",
+            "username=sal",
+            "password=password123",
+            "initialAmount=0.0",
+            "accountBalance=30.0"
+         ]
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasWithdrawScenario34", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>Check: Result: -1.0 actual -1.0</p>
+<p>Check: Balance: 30.0 actual 30.0</p>
 
 </body>
 </html>

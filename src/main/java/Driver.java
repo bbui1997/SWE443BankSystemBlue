@@ -47,6 +47,8 @@ public class Driver {
          * 2 - log in
          * 3 - make deposit
          * 4 - make withdrawal
+         * 5 - view balance
+         * 6 - make transfer
          * 0 - to exit
          */
         while (opt != 0) {
@@ -109,6 +111,22 @@ public class Driver {
                     break;
                 case 5:
                     blue.viewBalance();
+                    break;
+                case 6:
+                    blue.makeTransfer();
+                    idMap = BankCreator.createIdMap("demo");
+                    jsonArray = idMap.toJsonArray(blue);
+                    jsonText = jsonArray.toString(3);
+                    //System.out.println(jsonText);
+                    try {
+                        File file = new File("src/test/java/DB.txt");
+                        FileWriter fileWriter = new FileWriter(file);
+                        fileWriter.write(jsonText);
+                        fileWriter.flush();
+                        fileWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
 
             }

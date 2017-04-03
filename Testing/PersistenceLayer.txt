@@ -38,4 +38,5 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
   - 2017-03-30: 9:00 pm - 11:00pm | implementing json integration to retain information
   - 2017-04-01: 10:00 pm - 11:00pm Ermal | Created a test case to create a account with persistence, figure out all the right calls to make for it.
   - 2017-04-02: 12:19am - 2:54 am Heymond | Finished Persistence Layer
+  - 2017-04-02: 10:00 am - 11:30Am Ermal | Created 3 more test cases for the persistence layer.
   - 2017-04-02: 14:27-14:30 Brandon | Added 3 more hours to estimation to incorporate testing
