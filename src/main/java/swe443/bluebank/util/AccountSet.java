@@ -850,4 +850,87 @@ public class AccountSet extends SimpleSet<Account>
       return result;
    }
 
+
+   /**
+    * Loop through the current set of Account objects and collect a list of the recentTransaction attribute values. 
+    * 
+    * @return List of String objects reachable via recentTransaction attribute
+    */
+   public ObjectSet getRecentTransaction()
+   {
+      ObjectSet result = new ObjectSet();
+      
+      for (Account obj : this)
+      {
+         result.add(obj.getRecentTransaction());
+      }
+      
+      return result;
+   }
+
+
+   /**
+    * Loop through the current set of Account objects and collect those Account objects where the recentTransaction attribute matches the parameter value. 
+    * 
+    * @param value Search value
+    * 
+    * @return Subset of Account objects that match the parameter
+    */
+   public AccountSet filterRecentTransaction(String value)
+   {
+      AccountSet result = new AccountSet();
+      
+      for (Account obj : this)
+      {
+         if (value.equals(obj.getRecentTransaction()))
+         {
+            result.add(obj);
+         }
+      }
+      
+      return result;
+   }
+
+
+   /**
+    * Loop through the current set of Account objects and collect those Account objects where the recentTransaction attribute is between lower and upper. 
+    * 
+    * @param lower Lower bound 
+    * @param upper Upper bound 
+    * 
+    * @return Subset of Account objects that match the parameter
+    */
+   public AccountSet filterRecentTransaction(String lower, String upper)
+   {
+      AccountSet result = new AccountSet();
+      
+      for (Account obj : this)
+      {
+         if (lower.compareTo(obj.getRecentTransaction()) <= 0 && obj.getRecentTransaction().compareTo(upper) <= 0)
+         {
+            result.add(obj);
+         }
+      }
+      
+      return result;
+   }
+
+
+   /**
+    * Loop through the current set of Account objects and assign value to the recentTransaction attribute of each of it. 
+    * 
+    * @param value New attribute value
+    * 
+    * @return Current set of Account objects now with new attribute values.
+    */
+   public AccountSet withRecentTransaction(String value)
+   {
+      for (Account obj : this)
+      {
+         obj.setRecentTransaction(value);
+      }
+      
+      return this;
+   }
+
 }

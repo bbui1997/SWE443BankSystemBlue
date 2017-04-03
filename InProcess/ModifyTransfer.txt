@@ -17,3 +17,6 @@ Krishna
 Sara
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+2017-04-03: Krishna | implemented a primitive undoRecentTransaction function. works only for withdraw and deposit, have to
+                      fix for transfer.

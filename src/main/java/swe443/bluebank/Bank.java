@@ -29,6 +29,8 @@ import swe443.bluebank.util.UserSet;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Scanner;
+import swe443.bluebank.Account;
+import swe443.bluebank.User;
 
 /**
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>

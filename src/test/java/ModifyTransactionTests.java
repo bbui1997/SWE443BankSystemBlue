@@ -41,13 +41,13 @@ public class ModifyTransactionTests {
      */
     @Test
     public void testModifyTransactionUndoDeposit(){
-        //setup(); //setup the environment
+        setup(); //setup the environment
         Storyboard storyboard = new Storyboard();
         storyboard.addObjectDiagram(sal);
 
         double initialBalance = sal.getAccountBalance();
 
-        sal.deposit(50);               //sal deposits $50
+        sal.deposit(50.0);               //sal deposits $50
         sal.undoRecentTransaction();        //sal undoes the deposit.
 
         storyboard.assertTrue(" ", sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
@@ -65,13 +65,15 @@ public class ModifyTransactionTests {
      */
     @Test
     public void testModifyTransactionUndoWithdraw(){
-        //setup(); //setup the environment
+        setup(); //setup the environment
         Storyboard storyboard = new Storyboard();
         storyboard.addObjectDiagram(sal);
 
+        sal.deposit(50.0);
+
         double initialBalance = sal.getAccountBalance();
 
-        sal.withdraw(50);               //sal withdraws $50
+        sal.withdraw(50.0);               //sal withdraws $50
         sal.undoRecentTransaction();        //sal undoes the withdrawal.
 
         storyboard.assertTrue(" ",sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
@@ -89,7 +91,7 @@ public class ModifyTransactionTests {
      */
     @Test
     public void testModifyTransactionUndoTransfer(){
-        //setup(); //setup the environment
+        setup(); //setup the environment
         Storyboard storyboard = new Storyboard();
         storyboard.addObjectDiagram(sal);
 

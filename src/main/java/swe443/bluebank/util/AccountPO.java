@@ -614,4 +614,65 @@ public class AccountPO extends PatternObject<AccountPO, Account>
       }
    }
 
+   public AccountPO createRecentTransactionCondition(String value)
+   {
+      new AttributeConstraint()
+      .withAttrName(Account.PROPERTY_RECENTTRANSACTION)
+      .withTgtValue(value)
+      .withSrc(this)
+      .withModifier(this.getPattern().getModifier())
+      .withPattern(this.getPattern());
+      
+      super.filterAttr();
+      
+      return this;
+   }
+   
+   public AccountPO createRecentTransactionCondition(String lower, String upper)
+   {
+      new AttributeConstraint()
+      .withAttrName(Account.PROPERTY_RECENTTRANSACTION)
+      .withTgtValue(lower)
+      .withUpperTgtValue(upper)
+      .withSrc(this)
+      .withModifier(this.getPattern().getModifier())
+      .withPattern(this.getPattern());
+      
+      super.filterAttr();
+      
+      return this;
+   }
+   
+   public AccountPO createRecentTransactionAssignment(String value)
+   {
+      new AttributeConstraint()
+      .withAttrName(Account.PROPERTY_RECENTTRANSACTION)
+      .withTgtValue(value)
+      .withSrc(this)
+      .withModifier(Pattern.CREATE)
+      .withPattern(this.getPattern());
+      
+      super.filterAttr();
+      
+      return this;
+   }
+   
+   public String getRecentTransaction()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Account) getCurrentMatch()).getRecentTransaction();
+      }
+      return null;
+   }
+   
+   public AccountPO withRecentTransaction(String value)
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         ((Account) getCurrentMatch()).setRecentTransaction(value);
+      }
+      return this;
+   }
+   
 }
