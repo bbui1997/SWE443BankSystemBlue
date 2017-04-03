@@ -10,7 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
-import swe443.bluebank.Bank;
 
 public class TransactionTests {
     Account sal; //represents account for Sal to be used in testing.
@@ -152,7 +151,6 @@ public class TransactionTests {
         Storyboard storyboard = new Storyboard();
         storyboard.add("Sal's account initially has a balance of $30");
         sal.setAccountBalance(30); //Sal has an account balance of $40
-        storyboard.markCodeStart();
         storyboard.addObjectDiagram(sal);
 
         storyboard.add("Sal attempts to withdraw $40");

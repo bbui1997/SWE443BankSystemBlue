@@ -36,14 +36,6 @@ Create Account
    Potential Fix: A method isValidSSN() would probably be a good idea, and check 1000 <= x <= 9999.
 
 Withdraw
- - Name: Withdraw over current balance
-   Assigned: Marcus/Salonika
-   A user can currently have a negative account balance when withdrawing. This shouldn't be possible.
-   Prevent this from being possible.
-   Priority: High
-   Potential Fix: Create a method canWithdraw() to check to see if the amount they are withdrawing is
-                  greater than what they currently have. Don't allow them to withdraw if it's above.
-
  - Name: Ensure double input on withdraw
    Assigned:
    A user can input any random value for when they are asked how much they want to withdraw (like a string).
@@ -92,6 +84,7 @@ Welcome Screen
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
  - 2017-04-02: 16:00-16:33 Brandon | fixed bug "Welcome Screen - Showed $1.0 instead of $1.00"
+ - 2017-04-03: 03:56-04:48 Mrcus | fixed bug "Withdraw over current balance"
 
 
 
