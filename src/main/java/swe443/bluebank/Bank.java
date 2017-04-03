@@ -86,7 +86,7 @@ public class Bank implements SendableEntity {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(name);
         while(matcher.matches()){
-            System.out.println("Please enter your name.");
+            System.out.println("Please enter your first and last name.");
             name = scanStr.nextLine();
             matcher = pattern.matcher(name);
         }
@@ -102,8 +102,8 @@ public class Bank implements SendableEntity {
         System.out.println("Please enter your date of birth, in the format MM/DD/YYYY.");
         String date = scanStr.nextLine();
         String regex2 = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-2]{1})?[0-9]{1}?[0-9]{1}?[0-9]{1}$";
-        Pattern pattern2 = Pattern.compile(regex);
-        Matcher matcher2 = pattern.matcher(date);
+        Pattern pattern2 = Pattern.compile(regex2);
+        Matcher matcher2 = pattern2.matcher(date);
         while (!matcher2.matches()) {
             System.out.println("Please enter your date of birth, in the format MM/DD/YYYY.");
             date = scanStr.nextLine();
@@ -118,7 +118,7 @@ public class Bank implements SendableEntity {
         System.out.println("Please enter a password, between 8 and 16 characters");
         String password = scanStr.nextLine();
         while(password.length()<8 || password.length()>16){
-            System.out.println("Please enter a password, between 8 and 16 characters");
+            System.out.println("Please enter a password, between 8 and 16 characters.");
             password = scanStr.nextLine();
         }
         acct.setPassword(password);
@@ -127,7 +127,7 @@ public class Bank implements SendableEntity {
         //acct.setInitialAmount(scanDouble.nextDouble());
         double x = Double.parseDouble(scanStr.nextLine());
         while (x < 0) {
-            System.out.println("please enter a positive value");
+            System.out.println("Please enter a positive value.");
             x = Double.parseDouble(scanStr.nextLine());
 
         }
