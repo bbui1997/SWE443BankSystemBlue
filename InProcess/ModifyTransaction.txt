@@ -19,6 +19,7 @@ Related scenario(s):
   - Withdraw Money Scenario 1,
   - Withdraw Money Scenario 2,
   - Withdraw Money Scenario 3,
+  - Modify Transaction Scenarios
 
 Time estimate(s):
 
@@ -26,7 +27,7 @@ Time estimate(s):
 
 Author(s):
 
-  - Krishna
+  - Jess
 
 Assigned persons (currently working on task):
 
@@ -38,8 +39,9 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-03-27: 3:00 pm - 3:10 pm ; Krishna | wrote the scenario and pushed to git. Took about 10 mins to do so.
 
-  - 2017-03-27: 03:15 pm -03:30 pm Krishna | Wrote scenario and pushed to git. Took about 15 mins to do so.
+  - 2017-03-27: 03:15 pm - 03:30 pm Krishna | Wrote scenario and pushed to git. Took about 15 mins to do so.
 
-  - 2017-03-27: 03:30 pm -04:30 pm Krishna | Wrote the test cases for Modify Transaction and pushed to git.
+  - 2017-03-27: 03:30 pm - 04:30 pm Krishna | Wrote the test cases for Modify Transaction and pushed to git.
 
-
+  - 2017-04-03: 10:30 am - 03:00 pm Krishna | implemented a primitive undoRecentTransaction function. works only for withdraw and deposit, have to
+                      fix for transfer. Took about 3 hrs.

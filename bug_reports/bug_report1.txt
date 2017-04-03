@@ -82,6 +82,21 @@ Welcome Screen
    Potential Fix: Use a try/catch block to make sure they enter a valid input. There's a possiblity that the
                   the UI from Android/Web will enforce this later on, so we might not need to fix this.
 
+FOR ALL OF THE FOLLOWING TESTS
+ - Name: Add second object diagram and format tests to create a meaningful storyboard (Example: Found in TransferTests/testTransferScenario1)
+   A single object diagram is meaningless. There's almost no reason to have only the result of the object diagram be shown in the storyboard.
+   It needs to include the initial scenario, and then at least the end result. If there are multiple steps, such as the undo tests, there should be more.
+   Fix these tests:
+     - ModifyTransactionTests/testModifyTransactionUndoDeposit
+	 - ModifyTransactionTests/testModifyTransactionUndoWithdraw
+	 - ModifyTransactionTests/testModifyTransactionUndoTransfer
+	 - TransactionTests/testDepositScenario1
+	 - TransactionTests/testDepositScenario2
+	 - TransactionTests/testDepositScenario3
+   Priority: Medium
+   Potential Fix: Have more than 1 storyboard.addObjectDiagram(...)'s. One at the very start of the test, and another storyboard for every 
+                  action that changes the state of that object we were looking at.
+				  
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
  - 2017-04-02: 16:00-16:33 Brandon | fixed bug "Welcome Screen - Showed $1.0 instead of $1.00"
  - 2017-04-03: 03:56-04:48 Marcus | fixed bug "Withdraw over current balance"
