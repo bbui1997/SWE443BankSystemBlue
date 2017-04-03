@@ -1,0 +1,35 @@
+Title: Create scenario, tests, for user to implement persistence in the system.
+
+Description:
+
+  Create Scenarios that test Sal creating an account, then saving and modifying its
+  information over multiple sessions.
+
+Related scenario(s):
+
+  - Scenario 1: User Sal makes an account and is saved.
+  - Scenario 2: User Sal logs into an account she made last time.
+  - Scenario 3: User Sal deposits money to her account.
+  - Scenario 4: User Sal withdraws money from her account.
+  - Scenario 5: User Sal makes a transfer with her account.
+  - Scenario 6: User Sal modifies her account information.
+  - Scenario 7: User Sal's account is deleted.
+
+Time estimate(s):
+
+  ?
+
+Author(s):
+
+  - Sushena
+  - Ermal
+
+Assigned persons (currently working on task):
+
+  - Sushena
+  - Ermal
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  - [Extensive work done previously by Ermal]
+  - 2017-04-03: 05:00-06:30 Sushena | Wrote further test cases.

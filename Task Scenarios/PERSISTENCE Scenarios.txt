@@ -12,6 +12,7 @@ Scenario 2: User Sal logs into an account she made last time.
 
   - Sal runs the ATM program.
   - Sal successfully logs into her old account.
+  - Sal checks her account balance.
   - Sal logs out of her account and exits the ATM program.
 
 Scenario 3: User Sal deposits money to her account.
@@ -32,7 +33,7 @@ Scenario 5: User Sal makes a transfer with her account.
 
   - Sal runs the ATM program.
   - Sal logs into her existing account.
-  - Sal transfers $20.00 from her checking to her savings account.
+  - Sal transfers $20.00 from her account to another account.
   - Sal logs out of her account and exits the ATM program.
 
 Scenario 6: User Sal modifies her account information.

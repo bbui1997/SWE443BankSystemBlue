@@ -130,7 +130,21 @@ public class PersistenceTest {
         //
         storyboard.dumpHTML();
     }
-    //Scenario 2: User Sal deposit money from her account.
+    //Scenario 2: User Sal logs into an account she made last time.
+    @Test
+    public  void salLogsIn(){
+        Storyboard storyboard = new Storyboard();
+        storyboard.add("Sal logs in ");
+        storyboard.addObjectDiagram(blue);
+        String login = "sals\n"
+                + "12345678\n";
+        System.setIn(new ByteArrayInputStream(login.getBytes()));
+        storyboard.assertEquals("The initial amount was 0.0",blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0), 0.0);
+        //
+        storyboard.dumpHTML();
+
+    }
+    //Scenario 3: User Sal deposit money from her account.
     @Test
     public  void salDepositMoneyOnHerAccount(){
         Storyboard storyboard = new Storyboard();
@@ -147,7 +161,7 @@ public class PersistenceTest {
 
     }
 
-  //  Scenario 3: User Sal withdraws money from her account.
+  //  Scenario 4: User Sal withdraws money from her account.
   @Test
   public  void salWithdrawsMoneyOnHerAccount(){
       Storyboard storyboard = new Storyboard();
@@ -161,14 +175,51 @@ public class PersistenceTest {
       blue.makeDeposit(); 
       blue.makeWithdrawal();
       System.out.println(blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0));
-      storyboard.assertEquals("The amount in Sals account is 120.0",blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0), 80.0);
+      storyboard.assertEquals("The amount in Sals account is 80.0",blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0), 80.0);
       //
       storyboard.dumpHTML();
 
   }
 
+    //  Scenario 5: User Sal makes a transfer with her account.
+    @Test
+    public  void salTransfersMoney(){
+        Storyboard storyboard = new Storyboard();
+        storyboard.add("Sal transfers money into ");
+        storyboard.addObjectDiagram(blue);
+        String withSal = "sals\n"
+                + "12345678\n"
+                + "100\n"
+                +"20\n";
+        System.setIn(new ByteArrayInputStream(withSal.getBytes()));
+        blue.makeDeposit();
+        blue.makeTransfer();
+        System.out.println(blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0));
+        storyboard.assertEquals("The amount in Sals account is 80.0",blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0), 80.0);
+        //
+        storyboard.dumpHTML();
 
-//    Scenario 4: User Sal's account is deleted.
+    }
+
+    //  Scenario 6: User Sal modifies her account information.
+    @Test
+    public  void salModifiesAccountInfo(){
+        Storyboard storyboard = new Storyboard();
+        storyboard.add("Sal changes account info into ");
+        storyboard.addObjectDiagram(blue);
+        String withSal = "sals\n"
+                + "12345678\n"
+                + "efgh\n";
+        System.setIn(new ByteArrayInputStream(withSal.getBytes()));
+        blue.getAcct().setPassword(System.in);
+        System.out.println(blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0));
+        storyboard.assertEquals("Sal's password is now efgh",blue.getAccount_Has().filterName("Sal").getPassword().toString(), " (efgh) ");
+        //
+        storyboard.dumpHTML();
+
+    }
+
+//    Scenario 7: User Sal's account is deleted.
     // NOT IMPLEMENTED YET THIS FUNCTIONALLITY
     @Test
     public  void salDeletsAccount(){
