@@ -20,3 +20,7 @@ Marcus
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 2017-04-03: 03:56-04:48 Marcus | update withdrawal function to prevent users from withdrawing negative amount
+2017-04-03: 03:24-3:50 Salonika | update SSN
+2017-04-03: 03:55-4:00 Salonika | update DOB
+2017-04-03: 04:33-4:39 Salonika | update password length
+2017-04-03: 04:40-4:48 Salonika | update name

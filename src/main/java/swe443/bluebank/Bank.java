@@ -29,6 +29,9 @@ import swe443.bluebank.util.UserSet;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import swe443.bluebank.Account;
 import swe443.bluebank.User;
 
@@ -82,19 +85,46 @@ public class Bank implements SendableEntity {
 
         System.out.println("Welcome to BlueBank! Lets create an account: Please enter your first and last name.");
         name = scanStr.nextLine();
+        String regex = ".*\\d+.*";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(name);
+        while(matcher.matches()){
+            System.out.println("Please enter a name without numbers");
+            name = scanStr.nextLine();
+            matcher = pattern.matcher(name);
+        }
         acct.setName(name);
         user.setUserName(name);
         System.out.println("Please enter the last four (4) digits of your Social Security Number.");
-        acct.setSsn(Integer.parseInt(scanStr.nextLine()));
+        String ssn = scanStr.nextLine();
+        while(ssn.length() != 4){
+            System.out.println("Please enter the last four (4) digits of your Social Security Number.");
+            ssn = scanStr.nextLine();
+        }
+        acct.setSsn(Integer.parseInt(ssn));
         System.out.println("Please enter your date of birth, in the format MM/DD/YYYY.");
+        String date = scanStr.nextLine();
+        String regex2 = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-2]{1})?[0-9]{1}?[0-9]{1}?[0-9]{1}$";
+        Pattern pattern2 = Pattern.compile(regex);
+        Matcher matcher2 = pattern.matcher(date);
+        while (!matcher2.matches()) {
+            System.out.println("Please enter your date of birth, in the format MM/DD/YYYY.");
+            date = scanStr.nextLine();
+            matcher2 = pattern.matcher(date);
+        }
         //acct.setDob(scanInt.nextInt());
-        acct.setDob(scanStr.nextLine());
+        acct.setDob(date);
         //acct.setDob(Integer.parseInt(argv[2]));
         System.out.println("Please enter a username.");
         acct.setUsername(scanStr.nextLine());
         //acct.setUsername(argv[3]);
-        System.out.println("Please enter a password");
-        acct.setPassword(scanStr.nextLine());
+        System.out.println("Please enter a password, between 8 and 16 characters");
+        String password = scanStr.nextLine();
+        while(password.length()<8 || password.length()>16){
+            System.out.println("Please enter a password, between 8 and 16 characters");
+            password = scanStr.nextLine();
+        }
+        acct.setPassword(password);
         //acct.setPassword(argv[4]);
         System.out.println("Please enter the initial amount you'd like to deposit, in the format 1.00.");
         //acct.setInitialAmount(scanDouble.nextDouble());
