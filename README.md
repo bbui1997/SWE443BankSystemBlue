@@ -1,5 +1,5 @@
-# SWE443BankSystemBlue
-SWE 443 Banking System Group Project - Team Blue <br>
+# Open Source Banking System
+#### SWE 443 Banking System Group Project - Team Blue <br>
 <b>Product Owner:</b> Jess Miers <br>
 <b>Scrum Master:</b> Brandon Bui <br>
 <b>Software Architect:</b> Ashmita Kumar <br> <br>
