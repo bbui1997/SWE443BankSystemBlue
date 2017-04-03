@@ -29,8 +29,6 @@ import swe443.bluebank.util.UserSet;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Scanner;
-import swe443.bluebank.Account;
-import swe443.bluebank.User;
 /**
  *
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
@@ -226,8 +224,8 @@ public  class Bank implements SendableEntity
       double amt;
 
       System.out.println("\n");
-      System.out.println("Machine dispenses money in denomiations of $10, $20, or $100");
-      System.out.print("Please enter amount to withdraw:"); //prompt for amount to withraw
+      System.out.println("Machine dispenses money in denominations of $10, $20, or $100");
+      System.out.print("Please enter amount to withdraw:"); //prompt for amount to withdraw
       amt  = input.nextDouble(); //read withdrawal amount
 
       amt = acct.withdraw(amt); //withdraw amount requested;store result
@@ -236,8 +234,8 @@ public  class Bank implements SendableEntity
          System.out.println("Insufficient funds. Exiting to main screen.");
       }else if(amt==0){//no money withdrawn
          System.out.println("No money has been withdrawn. Exiting to main screen.");
-      }else{//money withdrawan from account
-         System.out.println("$"+amt+" has been withrdawn."); //print amount withdrawn
+      }else{//money withdrawn from account
+         System.out.println("$"+doubleToMoneyFormat(amt)+" has been withdrawn."); //print amount withdrawn
          System.out.println("Your remaining balance: $"+doubleToMoneyFormat(acct.getAccountBalance())); //print balance
       }
 
