@@ -8,13 +8,6 @@ Create Account
    Priority: High
    Potential Fix: Don't allow multiple accounts with the same username
 
- - Name: Create Account, nonsense name
-   Assigned: Marcus/Salonika
-   A user can add nonsensical values as a name (numbers and symbols in a name). Keep it to 
-   letters and possibly -s and 's.
-   Priority: Medium
-   Potential Fix: Use regex to enforce this.
-
  - Name: Enforce DOB Length
    Assigned: Marcus/Salonika
    A user can currently input "1" when inputting their DOB. Enforce the MMDDYYYY format.
@@ -22,18 +15,17 @@ Create Account
    Potential Fix: Use regex to enforce this. This may possibly be fixed later when we implement
                   it with Android/Web GUI since there are ways to enforce Date.
 
- - Name: Enforce 8 len password
-   Assigned: Marcus/Salonika
-   A user can currently have a 1 char password. This isn't very safe. Enforce the minimum password
-   length to be 8 chars.
-   Priority: Medium
-   Potential Fix: Use an if-statement to check length.
-
  - Name: Enforce 4 ints of SSN
    Assigned: Marcus/Salonika
    A user can input any int as their SSN. Enforce them to the last 4 ints of their SSN (or 4 ints).
    Priority: Medium
    Potential Fix: A method isValidSSN() would probably be a good idea, and check 1000 <= x <= 9999.
+ 
+ - Name: Error handling for SSN
+   Assigned:
+   If a user enters a len 4 String for SSN, the program will crash. Force them to try to re-enter if this happens.
+   Priority: Medium
+   Potential Fix: A try/catch block would probably suffice.
 
 Withdraw
  - Name: Ensure double input on withdraw
@@ -100,6 +92,8 @@ FOR ALL OF THE FOLLOWING TESTS
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
  - 2017-04-02: 16:00-16:33 Brandon | fixed bug "Welcome Screen - Showed $1.0 instead of $1.00"
  - 2017-04-03: 03:56-04:48 Marcus | fixed bug "Withdraw over current balance"
+ - 2017-04-03: 15:55-16:00 Salonika | fixed bug "Enforce password len"
+ - 2017-04-03: 16:40-16:48 Salonika | fixed bug "Create account, nonsense name"
 
 
 
