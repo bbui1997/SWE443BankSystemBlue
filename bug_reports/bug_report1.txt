@@ -84,7 +84,7 @@ Welcome Screen
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
  - 2017-04-02: 16:00-16:33 Brandon | fixed bug "Welcome Screen - Showed $1.0 instead of $1.00"
- - 2017-04-03: 03:56-04:48 Mrcus | fixed bug "Withdraw over current balance"
+ - 2017-04-03: 03:56-04:48 Marcus | fixed bug "Withdraw over current balance"
 
 
 
