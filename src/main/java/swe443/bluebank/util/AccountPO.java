@@ -82,11 +82,11 @@ public class AccountPO extends PatternObject<AccountPO, Account>
    
    //==========================================================================
    
-   public void transfer(double value)
+   public void transfer(double value, Account acct)
    {
       if (this.getPattern().getHasMatch())
       {
-          ((Account) getCurrentMatch()).transfer(value);
+          ((Account) getCurrentMatch()).transfer(value, acct);
       }
    }
 

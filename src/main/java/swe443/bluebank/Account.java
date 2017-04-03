@@ -96,10 +96,20 @@ public  class Account implements SendableEntity {
 
 
    //==========================================================================
-   public void transfer(double amt) {
+   public boolean transfer(double amt, Account acct) {
+
+      // Check if amount is less than balance
+      if (amt > 0 && this.getAccountBalance() > amt) {
+         // TODO: check account validity
+         this.setAccountBalance(this.getAccountBalance() - amt); //withdraw amount from this. Update balance.
+         acct.setAccountBalance(acct.getAccountBalance() + amt); //deposit amount to the acct. Update balance.
+         return true; //return succeed flag
+      } else {
+         return false; // return failure flag
+         //throw new IllegalArgumentException("Amount should be positive and less than account balance!");
+      }
 
    }
-
 
    //==========================================================================
 
