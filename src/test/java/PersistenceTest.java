@@ -211,7 +211,7 @@ public class PersistenceTest {
                 + "12345678\n"
                 + "efgh\n";
         System.setIn(new ByteArrayInputStream(withSal.getBytes()));
-        blue.getAcct().setPassword(System.in);
+        blue.getAcct().setPassword(System.in.toString());
         System.out.println(blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0));
         storyboard.assertEquals("Sal's password is now efgh",blue.getAccount_Has().filterName("Sal").getPassword().toString(), " (efgh) ");
         //
