@@ -1,7 +1,7 @@
 Salonika Bose
-123456789
+1234
 01/01/1995
 salonikab
-asdf
+password1
 -100.00
 100.00
