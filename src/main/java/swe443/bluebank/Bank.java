@@ -522,7 +522,8 @@ public class Bank implements SendableEntity {
 
         Scanner input = new Scanner(System.in);
         double amt;
-        Account target = null;
+        // TODO: choose the real account
+        Account target = new Account().withAccountBalance(10);
 
         System.out.println("\n");
         System.out.print("Please enter the amount to transfer:"); //prompt for amount to withdraw
