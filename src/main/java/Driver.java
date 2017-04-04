@@ -7,6 +7,8 @@ import swe443.bluebank.util.BankCreator;
 import java.io.*;
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+
 /**
  * Created by Truong on 3/29/17.
  */
@@ -37,7 +39,7 @@ public class Driver {
         //Bank blue = (Bank) rootObject;
 
         Scanner input = new Scanner(System.in); //placeholder for user input
-        int opt = -1; //placeholder for user option
+        String opt = "Start"; //placeholder for user option
 
         System.out.println("Welcome to BlueBank!");
 
@@ -51,14 +53,14 @@ public class Driver {
          * 6 - make transfer
          * 0 - to exit
          */
-        while (opt != 0) {
+        while (opt != "0") {
             System.out.print(blue.mainMenu()); //print main menu
             System.out.print("Please enter option (0 to exit):"); //print line for user to enter menu option
-            opt = input.nextInt(); //scan user input
+            opt = input.next(); //scan user input
 
             //call function based on user option selected
             switch (opt) {
-                case 1:
+                case "1":
                     blue.createAccount();
                     IdMap idMap = BankCreator.createIdMap("demo");
                     JsonArray jsonArray = idMap.toJsonArray(blue);
@@ -74,10 +76,10 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
-                case 2:
+                case "2":
                     blue.logIn();
                     break;
-                case 3:
+                case "3":
                     blue.makeDeposit();
                     idMap = BankCreator.createIdMap("demo");
                     jsonArray = idMap.toJsonArray(blue);
@@ -93,7 +95,7 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
-                case 4:
+                case "4":
                     blue.makeWithdrawal();
                     idMap = BankCreator.createIdMap("demo");
                     jsonArray = idMap.toJsonArray(blue);
@@ -109,10 +111,10 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
-                case 5:
+                case "5":
                     blue.viewBalance();
                     break;
-                case 6:
+                case "6":
                     blue.makeTransfer();
                     idMap = BankCreator.createIdMap("demo");
                     jsonArray = idMap.toJsonArray(blue);
@@ -128,7 +130,25 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
+                case "0":
+                    exit(0);
 
+                default:
+                    System.out.println("Oops! Please enter a valid number.");
+                    idMap = BankCreator.createIdMap("demo");
+                    jsonArray = idMap.toJsonArray(blue);
+                    jsonText = jsonArray.toString(3);
+                    //System.out.println(jsonText);
+                    try {
+                        File file = new File("src/test/java/DB.txt");
+                        FileWriter fileWriter = new FileWriter(file);
+                        fileWriter.write(jsonText);
+                        fileWriter.flush();
+                        fileWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
             }
         }
     }
