@@ -107,16 +107,19 @@ public class TransferTests {
         sal.setAccountBalance(150); //set initial balance to $150
         Storyboard storyboard = new Storyboard();
         storyboard.add("Sal's account initially has a balance of $150");
-        storyboard.addObjectDiagram(sal);
+        storyboard.add("Her savings account has a balance of $50");
+        Account savings = new Account().withAccountBalance(50).withName("Savings");
 
+        storyboard.addObjectDiagram(sal, savings);
         storyboard.add("Sal transfer $100 to her new account");
 
         storyboard.markCodeStart();
-        sal.transfer(100, new Account().withAccountBalance(50)); // sal transfers $100 to the saving accoount
+        sal.transfer(100, savings); // sal transfers $100 to the saving accoount
         storyboard.addCode();
 
-        storyboard.addObjectDiagram(sal);
+        storyboard.addObjectDiagram(sal, savings);
         storyboard.assertEquals("Balance:", 50, sal.getAccountBalance(), 0);//check that the current balance equals $50
+        storyboard.assertEquals("Savings Balance:", 150, savings.getAccountBalance(), 0);
         //storyboard.assertEquals("Target Balance:",150,target.getAccountBalance(),0); //check that the current balance on saving equals $150
         storyboard.dumpHTML();
 

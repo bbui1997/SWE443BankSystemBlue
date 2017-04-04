@@ -67,8 +67,18 @@ Deposit
    Priority: High
    Potential Fix: Use a try/catch block for the IAS. Make them try again.
 
+Transfer
+  - Name: Need to implement it to be used in the main menu
+    Assigned:
+    As of right now, transfer is working as it should. If you put in a double and Account as parameters, it will transfer the money over to that
+	account. Currently, however, if we try to transfer from the main menu, it will throw a NullPointerException. We need to probably
+	write better scenarios or consult with the Mockups in order to get a better idea for implementation.
+	Priority: High
+	Potential Fix: We have to wait until we're sure about how to implement it...
+
 Welcome Screen
  - Name: Invalid menu value
+   Assigned:
    If a user inputs a String value on the menu screen, it will crash the program.
    Priority: Low
    Potential Fix: Use a try/catch block to make sure they enter a valid input. There's a possiblity that the
@@ -76,6 +86,7 @@ Welcome Screen
 
 FOR ALL OF THE FOLLOWING TESTS
  - Name: Add second object diagram and format tests to create a meaningful storyboard (Example: Found in TransferTests/testTransferScenario1)
+   Assigned:
    A single object diagram is meaningless. There's almost no reason to have only the result of the object diagram be shown in the storyboard.
    It needs to include the initial scenario, and then at least the end result. If there are multiple steps, such as the undo tests, there should be more.
    Fix these tests:
@@ -88,8 +99,18 @@ FOR ALL OF THE FOLLOWING TESTS
    Priority: Medium
    Potential Fix: Have more than 1 storyboard.addObjectDiagram(...)'s. One at the very start of the test, and another storyboard for every 
                   action that changes the state of that object we were looking at.
-				  
+
+Account initialAmount
+  - Name: Get rid of initialAmount and safely refactor
+    Assigned:
+    There's almost no reason to have this variable in our Account class. No one will care about the initialAmount you put in the Account.
+	They will just check the balance.
+	Priority: Low
+	Potential Fix: Get rid of it and refactor methods and tests that use it. IntelliJ has a good feature that allows you to check where it has
+	               been used in your project.
+				   
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+ - 2017-04-02: 15:50-16:00 Brandon | compiled these bugs in a list while user-testing our system
  - 2017-04-02: 16:00-16:33 Brandon | fixed bug "Welcome Screen - Showed $1.0 instead of $1.00"
  - 2017-04-03: 03:56-04:48 Marcus | fixed bug "Withdraw over current balance"
  - 2017-04-03: 15:55-16:00 Salonika | fixed bug "Enforce password len"
