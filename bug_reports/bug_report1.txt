@@ -24,7 +24,7 @@ Create Account
    Priority: Medium
    Potential Fix: A method isValidSSN() would probably be a good idea, and check 1000 <= x <= 9999.
  
- - Name: Error handling for SSN (Done)
+ - Name: Error handling for SSN (Done) **UPDATE NOT DONE!!
    Assigned:
    If a user enters a len 4 String for SSN, the program will crash. Force them to try to re-enter if this happens.
    Priority: Medium
@@ -59,7 +59,7 @@ Deposit
    A user can input any random value for when they are asked how much they want to deposit (like a string).
    This causes an error and crashes the program.
    Priority: Medium
-   Potential Fix: Use a try/catch block to make sure they enter a double. There's a possiblity that the
+   Potential Fix: Use a try/catch block to make sure they enter a double. There's a possibility that the
                   the UI from Android/Web will enforce this already, so we might not need to fix this yet.
  
  - Name: Negative deposit
@@ -78,6 +78,17 @@ Transfer
 	write better scenarios or consult with the Mockups in order to get a better idea for implementation.
 	Priority: High
 	Potential Fix: We have to wait until we're sure about how to implement it...
+
+  - Name: Implementation v2
+    Assigned:
+    Now, it doesn't throw an NPE anymore. But it doesn't really transfer like we want it to. Right now, it transfers to an arbitrary
+    account that no one can access. It is basically the equivalent of deposit right now. For transfer, I believe we will want to
+    first ask how much money is to be transferred, and check if that is possible. Then, ask for the username of the account
+    we want to transfer to. We will need to check if that username exists or not. Afterwards, if it does exist, we will
+    then transfer that money previously asked to the user to the username they stated.
+    Priority: High
+    Potential Fix: Implement it. The create account function as code that checks to see an existing user. We need to be able
+                   to now connect a username to an actual account inside our database. From there we, we can use our already written transfer code.
 
 Welcome Screen
  - Name: Invalid menu value ----- Fixed by Sara
@@ -121,6 +132,6 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
  - 2017-04-04: 09:30-10:02 Marcus | fixed bug "Ensure double input on withdraw"
  - 2017-04-04: 10:02-10:11 Marcus | fixed bug "Withdraw negative value, gains money"
  - 2017-04-04: 10:11-10:20 Marcus | fixed bugs "Ensure double input on deposit","Negative deposit"
-
+ - 2017-04-04: 12:25-12:31 Brandon | added new "item", "Transfer, Implementation v2"
 
 
