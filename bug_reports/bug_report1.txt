@@ -110,7 +110,7 @@ Account initialAmount
 	               been used in your project.
 				   
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
- - 2017-04-02: 15:50-16:00 Brandon | compiled these bugs in a list while user-testing our system
+ - 2017-04-02: 15:00-16:00 Brandon | compiled these bugs in a list while user-testing our system
  - 2017-04-02: 16:00-16:33 Brandon | fixed bug "Welcome Screen - Showed $1.0 instead of $1.00"
  - 2017-04-03: 03:56-04:48 Marcus | fixed bug "Withdraw over current balance"
  - 2017-04-03: 15:55-16:00 Salonika | fixed bug "Enforce password len"
