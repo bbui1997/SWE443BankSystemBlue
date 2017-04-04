@@ -286,7 +286,7 @@
          "username":"hello",
          "password":"jello",
          "initialAmount":100,
-         "accountBalance":75,
+         "accountBalance":50,
          "User_Has":{
             "class":"swe443.bluebank.User",
             "id":"demo.U24"
