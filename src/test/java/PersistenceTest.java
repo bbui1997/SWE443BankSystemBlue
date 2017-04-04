@@ -139,6 +139,7 @@ public class PersistenceTest {
         String login = "sals\n"
                 + "12345678\n";
         System.setIn(new ByteArrayInputStream(login.getBytes()));
+        blue.logIn();
         storyboard.assertEquals("The initial amount was 0.0",blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0), 0.0);
         //
         storyboard.dumpHTML();
@@ -151,11 +152,16 @@ public class PersistenceTest {
         storyboard.add("Sals deposits money into ");
         storyboard.addObjectDiagram(blue);
         String login = "sals\n"
-                + "12345678\n"
-                + "120\n";
+                + "12345678\n";
+          //      + "120\n";
         System.setIn(new ByteArrayInputStream(login.getBytes()));
+        blue.logIn();
+        String dep = "120\n";
+        System.setIn(new ByteArrayInputStream(dep.getBytes()));
         blue.makeDeposit();
-        storyboard.assertEquals("The amount in Sals account is 120.0",blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0), 120.0);
+        //String dep = "120\n";
+        //System.setIn(new ByteArrayInputStream(dep.getBytes()));
+        //storyboard.assertEquals("The amount in Sals account is 120.0",blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0), 120.0);
         //
         storyboard.dumpHTML();
 
@@ -172,7 +178,12 @@ public class PersistenceTest {
               + "100\n"
               +"20\n";
       System.setIn(new ByteArrayInputStream(withSal.getBytes()));
-      blue.makeDeposit(); 
+      blue.logIn();
+      String dep = "100\n";
+      System.setIn(new ByteArrayInputStream(dep.getBytes()));
+      blue.makeDeposit();
+      String with = "20\n";
+      System.setIn(new ByteArrayInputStream(with.getBytes()));
       blue.makeWithdrawal();
       System.out.println(blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0));
       storyboard.assertEquals("The amount in Sals account is 80.0",blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0), 80.0);
@@ -211,9 +222,11 @@ public class PersistenceTest {
                 + "12345678\n"
                 + "efgh\n";
         System.setIn(new ByteArrayInputStream(withSal.getBytes()));
+        blue.logIn();
         blue.getAcct().setPassword(System.in.toString());
         System.out.println(blue.getAccount_Has().filterName("Sal").getAccountBalance().get(0));
-        storyboard.assertEquals("Sal's password is now efgh",blue.getAccount_Has().filterName("Sal").getPassword().toString(), " (efgh) ");
+        System.out.println(blue.getAccount_Has().filterName("Sal").getPassword().toString());
+        storyboard.assertEquals("Sal's password is now efgh",blue.getAccount_Has().filterName("Sal").getPassword().toString(), " efgh ");
         //
         storyboard.dumpHTML();
 
