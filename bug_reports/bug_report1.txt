@@ -115,6 +115,9 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
  - 2017-04-03: 03:56-04:48 Marcus | fixed bug "Withdraw over current balance"
  - 2017-04-03: 15:55-16:00 Salonika | fixed bug "Enforce password len"
  - 2017-04-03: 16:40-16:48 Salonika | fixed bug "Create account, nonsense name"
+ - 2017-04-04: 09:30-10:02 Marcus | fixed bug "Ensure double input on withdraw"
+ - 2017-04-04: 10:02-10:11 Marcus | fixed bug "Withdraw negative value, gains money"
+ - 2017-04-04: 10:11-10:20 Marcus | fixed bugs "Ensure double input on deposit","Negative deposit"
 
 
 

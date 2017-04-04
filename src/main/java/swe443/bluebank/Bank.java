@@ -28,6 +28,7 @@ import swe443.bluebank.util.UserSet;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -206,11 +207,26 @@ public class Bank implements SendableEntity {
         }
 
         Scanner input = new Scanner(System.in);
-        double amt;
+        double amt = 0.00;
 
-        System.out.println("\n");
-        System.out.print("Please enter the deposit amount:"); //prompt user for amount
-        amt = input.nextDouble(); //read deposit amount
+        //Check user input
+        while(true){
+            System.out.println("\n");
+            System.out.print("Please enter the deposit amount:"); //prompt user for amount
+
+            try{
+                String data = input.next();
+                amt = Double.parseDouble(data); //parse input as double; throws exception
+
+                //check if input negative; throw exception if negative
+                if(amt<0){
+                    throw new InputMismatchException("Negative input");
+                }
+                break;
+            }catch (Exception e){
+                System.out.println("\nPlease enter a positve dollar amount.");
+            }
+        }
 
         acct.deposit(amt); //deposit amount into account
         System.out.println();
@@ -245,12 +261,28 @@ public class Bank implements SendableEntity {
         }
 
         Scanner input = new Scanner(System.in);
-        double amt;
+        double amt = 0.00;
 
-        System.out.println("\n");
-        System.out.println("Machine dispenses money in denominations of $10, $20, or $100");
-        System.out.print("Please enter amount to withdraw:"); //prompt for amount to withdraw
-        amt = input.nextDouble(); //read withdrawal amount
+        //Check that user input is a double
+        while(true){
+            System.out.println("\n");
+            System.out.println("Machine dispenses money in denominations of $10, $20, or $100");
+            System.out.print("Please enter amount to withdraw:"); //prompt for amount to withdraw
+
+            try{
+                String data = input.next(); //get the next input
+                amt = Double.parseDouble(data); //parse for double
+
+                //Check if input is not negative; throw exception if negative
+                if(amt < 0){
+                    throw new InputMismatchException("Negative input");
+                }
+
+                break;
+            }catch(Exception e){//catch exception for input
+                System.out.println("\nPlease enter a positive amount in dollars.");
+            }
+        }
 
         amt = acct.withdraw(amt); //withdraw amount requested;store result
 
@@ -267,7 +299,6 @@ public class Bank implements SendableEntity {
         double num = acct.getAccountBalance();
         num = Math.round(num * 100);
         num = num / 100;
-
         acct.setAccountBalance(num);
 
         System.out.println();
