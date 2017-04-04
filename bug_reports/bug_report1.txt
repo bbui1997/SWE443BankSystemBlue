@@ -77,7 +77,7 @@ Transfer
 	Potential Fix: We have to wait until we're sure about how to implement it...
 
 Welcome Screen
- - Name: Invalid menu value
+ - Name: Invalid menu value ----- Fixed by Sara
    Assigned:
    If a user inputs a String value on the menu screen, it will crash the program.
    Priority: Low
