@@ -1,27 +1,30 @@
 PUT ALL BUGS/FIXES NEEDED TO BE DEALT WITH FROM CODE FROM ITERATION 1 HERE!
 FOR EVERY BUG FOUND HERE, WRITE A TEST AND THEN IMPLEMENT YOUR SOLUTION IF YOU CHOOSE TO WORK ON IT
 Create Account
- - Name: Multiple accounts
+ - Name: Multiple accounts (Done in 15 mins)
    Assigned:
    When you create multiple accounts with the same username with different passwords,
    you can no longer log in to that account. It just states you have the wrong password.
    Priority: High
    Potential Fix: Don't allow multiple accounts with the same username
 
- - Name: Enforce DOB Length
+
+ - Name: Enforce DOB Length (Done)
    Assigned: Marcus/Salonika
    A user can currently input "1" when inputting their DOB. Enforce the MMDDYYYY format.
    Priority: Low
    Potential Fix: Use regex to enforce this. This may possibly be fixed later when we implement
                   it with Android/Web GUI since there are ways to enforce Date.
+   Actual Fix: Input month, date, and year separately and have checks that month is between
+                1 and 12, date is between 1 and 31, and year is between 1950 and 2017.
 
- - Name: Enforce 4 ints of SSN
+ - Name: Enforce 4 ints of SSN (Done)
    Assigned: Marcus/Salonika
    A user can input any int as their SSN. Enforce them to the last 4 ints of their SSN (or 4 ints).
    Priority: Medium
    Potential Fix: A method isValidSSN() would probably be a good idea, and check 1000 <= x <= 9999.
  
- - Name: Error handling for SSN
+ - Name: Error handling for SSN (Done)
    Assigned:
    If a user enters a len 4 String for SSN, the program will crash. Force them to try to re-enter if this happens.
    Priority: Medium

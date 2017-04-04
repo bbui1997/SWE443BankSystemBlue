@@ -99,22 +99,40 @@ public class Bank implements SendableEntity {
             ssn = scanStr.nextLine();
         }
         acct.setSsn(Integer.parseInt(ssn));
-        System.out.println("Please enter your date of birth, in the format MM/DD/YYYY.");
-        String date = scanStr.nextLine();
-        String regex2 = "^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-2]{1})?[0-9]{1}?[0-9]{1}?[0-9]{1}$";
-        Pattern pattern2 = Pattern.compile(regex2);
-        Matcher matcher2 = pattern2.matcher(date);
-        while (!matcher2.matches()) {
-            System.out.println("Please enter your date of birth, in the format MM/DD/YYYY.");
-            date = scanStr.nextLine();
-            matcher2 = pattern.matcher(date);
+        System.out.println("Please enter your date of birth, first enter the month:");
+        String dob = "";
+        int month = scanInt.nextInt();
+        while(month < 1 || month > 12){
+            System.out.println("Please enter your date of birth, first enter the month:");
+            month = scanInt.nextInt();
         }
-        //acct.setDob(scanInt.nextInt());
-        acct.setDob(date);
-        //acct.setDob(Integer.parseInt(argv[2]));
+        dob = dob+month;
+        System.out.println("Second, enter the date:");
+        int day = scanInt.nextInt();
+        while(day < 1 || day > 31){
+            System.out.println("Please enter the date:");
+            day = scanInt.nextInt();
+        }
+        dob = dob+day;
+        System.out.println("Last, enter the year:");
+        int year = scanInt.nextInt();
+        while(year < 1950 || year > 2017){
+            System.out.println("Please enter the year:");
+            year = scanInt.nextInt();
+        }
+        dob = dob+year;
+        System.out.println(dob);
+        acct.setDob(dob);
         System.out.println("Please enter a username.");
-        acct.setUsername(scanStr.nextLine());
-        //acct.setUsername(argv[3]);
+        String un = scanStr.nextLine();
+        String dbUn = getAccount_Has().filterUsername(un).getUsername().toString();
+        System.out.println(un + dbUn);
+        un = "(" + un +")";
+        while(un.equals(dbUn)){
+            System.out.println("Username already exists in system, please enter a username.");
+            un = scanStr.nextLine();
+        }
+        acct.setUsername(un);
         System.out.println("Please enter a password, between 8 and 16 characters");
         String password = scanStr.nextLine();
         while(password.length()<8 || password.length()>16){
@@ -122,7 +140,6 @@ public class Bank implements SendableEntity {
             password = scanStr.nextLine();
         }
         acct.setPassword(password);
-        //acct.setPassword(argv[4]);
         System.out.println("Please enter the initial amount you'd like to deposit, in the format 1.00.");
         //acct.setInitialAmount(scanDouble.nextDouble());
         double x = Double.parseDouble(scanStr.nextLine());
@@ -133,7 +150,6 @@ public class Bank implements SendableEntity {
         }
         acct.setInitialAmount(x);
         acct.setAccountBalance(x);
-        //acct.setInitialAmount(Double.parseDouble(argv[5]));
         System.out.println("Thank you for the information, " + acct.getName() + ".\nYou currently have $"
                 + doubleToMoneyFormat(acct.getInitialAmount()) + " in your account.");
 
