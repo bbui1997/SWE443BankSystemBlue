@@ -41,19 +41,19 @@ public class TransferTests {
 
         storyboard.add("Sal's account initially has a balance of $150");
         sal.setAccountBalance(150);
+        storyboard.add("Sara's account initially has a balance of $50");
         Account target = new Account()
                 .withAccountBalance(50)
                 .withName("Sara");
         storyboard.addObjectDiagram(sal,target);
-        storyboard.add("Sara's account initially has a balance of $50");
 
         storyboard.add("Sal transfers $100 to Sara's account");
 
         storyboard.markCodeStart();
         sal.transfer(100, target); //sal transfers $100 to sara's account
         storyboard.addCode();
-
         storyboard.addObjectDiagram(sal, target);
+
         storyboard.assertEquals("Sal's Balance:",50,sal.getAccountBalance(),0); //check that current balance equals $100
         storyboard.assertEquals("Target Balance:",150, target.getAccountBalance(),0); //check that the current balance
         storyboard.dumpHTML();
@@ -71,15 +71,22 @@ public class TransferTests {
     @Test
     public void testTransferScenario2(){
         setup(); //setup the environment
+
         sal.setAccountBalance(50); //set initial balance to $50
         Storyboard storyboard = new Storyboard();
-
         storyboard.add("Sal's account initially has a balance of $50");
+        storyboard.add("Sara's account initially has a balance of $50");
+        Account target = new Account()
+                .withAccountBalance(50)
+                .withName("Sara");
+        storyboard.addObjectDiagram(sal,target);
 
-        boolean expected = sal.transfer(100, new Account().withAccountBalance(50)); // sal attempts to transfer $100 to another account
-        storyboard.add("Sal attempts to transfer $100 to another account");
+        storyboard.add("Sal attempts to transfer $100 to Sara's account");
+        storyboard.markCodeStart();
+        boolean expected = sal.transfer(100, target); // sal attempts to transfer $100 to another account
+        storyboard.addCode();
 
-        storyboard.addObjectDiagram(sal);
+        storyboard.addObjectDiagram(sal, target);
         storyboard.assertFalse("Failure to transfer",expected);//check that transaction ignored
         storyboard.dumpHTML();
 
@@ -100,9 +107,13 @@ public class TransferTests {
         sal.setAccountBalance(150); //set initial balance to $150
         Storyboard storyboard = new Storyboard();
         storyboard.add("Sal's account initially has a balance of $150");
+        storyboard.addObjectDiagram(sal);
 
+        storyboard.add("Sal transfer $100 to her new account");
+
+        storyboard.markCodeStart();
         sal.transfer(100, new Account().withAccountBalance(50)); // sal transfers $100 to the saving accoount
-        storyboard.add("Sal transfer $100 from checking to saving account");
+        storyboard.addCode();
 
         storyboard.addObjectDiagram(sal);
         storyboard.assertEquals("Balance:", 50, sal.getAccountBalance(), 0);//check that the current balance equals $50

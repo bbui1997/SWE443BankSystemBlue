@@ -36,3 +36,5 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes): **upd
   - 2017-04-03: 11:00-12:20 Sara | Implement transfer, fixed tests, and pushed to git
 
   - 2017-04-03: 13:45-14:30 Sara | Include object diagrams and pushed to git
+
+  - 2017-04-03: 22:00-22:30 Sara | Change to object diagrams and pushed to git
