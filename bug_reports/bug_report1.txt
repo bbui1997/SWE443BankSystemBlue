@@ -68,7 +68,7 @@ Deposit
    Potential Fix: Use a try/catch block for the IAS. Make them try again.
 
 Transfer
-  - Name: Need to implement it to be used in the main menu
+  - Name: Need to implement it to be used in the main menu ----- Fixed by Sara
     Assigned:
     As of right now, transfer is working as it should. If you put in a double and Account as parameters, it will transfer the money over to that
 	account. Currently, however, if we try to transfer from the main menu, it will throw a NullPointerException. We need to probably
