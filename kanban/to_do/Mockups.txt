@@ -22,16 +22,11 @@ Time estimate(s):
 
 Author(s):
 
-  - TBD
+  -Ashmita
 
 Assigned persons (currently working on task):
 
-  - TBD
+  -Sushena
+  -Ermal
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
-
-  - 2017-03-10: 12:00-14:00 ulno
-
-  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
-
-  - 2017-03-13: 22:00-02:30 ulno

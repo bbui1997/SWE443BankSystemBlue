@@ -3,7 +3,8 @@ Title: Create Transaction class
 Description:
 
   Create Transaction class. Stub out methods for the purpose of making tests pass.
-  This class will not be implemented this sprint.
+  Tests will need updates/need to be written for this functionality
+  Object diagrams will need to be created based on these tests
 
 Related scenario(s):
 
@@ -11,20 +12,14 @@ Related scenario(s):
 
 Time estimate(s):
 
-  <1h
+  <2h
 
 Author(s):
-
-  - TBD
+  -Ashmita
 
 Assigned persons (currently working on task):
-
-  - TBD
+  -Marcus
+  -Heymond (object diagrams)
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-10: 12:00-14:00 ulno
-
-  - 2017-03-11: 18:00-19:00 ulno, andreas (peer programming)
-
-  - 2017-03-13: 22:00-02:30 ulno

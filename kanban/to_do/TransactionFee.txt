@@ -1,0 +1,26 @@
+Title: Transaction Fee
+
+Description:
+
+ Transaction Fee functionality should be implemented for withdraw/deposit/modify/transfer. It should take in an amount to be withdrawn/deposited/etc and a percentage of fee to be taken out. The fee percentage can be assigned arbitrarily by the developer. 
+ Tests need to be written for this functionality as well. 
+ Object diagrams will need to be created for these tests.
+
+Related scenario(s):
+-Need a scenario created for this task. 
+-Ex: Salonika withdraws $100.00 with a 1% fee. Salonika is charged, $1. 
+
+Time estimate(s):
+
+  <1hr
+
+Author(s):
+-Jess
+
+Assigned persons (currently working on task):
+-Salonika
+-Heymond (object diagrams)
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  - 2017-03-10: 12:00-14:00 Salonika (replace this with an actual log) 
