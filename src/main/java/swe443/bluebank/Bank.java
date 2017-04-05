@@ -32,6 +32,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import swe443.bluebank.Account;
+import swe443.bluebank.User;
 
 /**
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>

@@ -27,6 +27,8 @@ import de.uniks.networkparser.interfaces.SendableEntity;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Scanner;
+import swe443.bluebank.User;
+import swe443.bluebank.Bank;
 
 /**
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>

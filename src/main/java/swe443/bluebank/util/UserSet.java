@@ -30,6 +30,8 @@ import swe443.bluebank.User;
 
 import java.util.Collection;
 import java.util.Collections;
+import swe443.bluebank.util.AccountSet;
+import swe443.bluebank.util.BankSet;
 
 public class UserSet extends SimpleSet<User>
 {
