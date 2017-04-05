@@ -46,7 +46,7 @@ public class Model {
                 .withAttribute("userName", DataType.STRING);
 
         //bank has MANY user & user has ONE banks
-        bankClass.withBidirectional(userClass, "user_is_in", Cardinality.MANY, "Bank_has", Cardinality.ONE);
+        bankClass.withBidirectional(userClass, "User_In", Cardinality.MANY, "Bank_has", Cardinality.ONE);
 
         //user has MANY accounts & account has ONE user
         userClass.withBidirectional(accountClass, "Account_Has", Cardinality.MANY, "User_Has", Cardinality.ONE);

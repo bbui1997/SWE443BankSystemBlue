@@ -372,7 +372,9 @@ public class Bank implements SendableEntity {
     public void removeYou() {
         withoutAccount_Has(this.getAccount_Has().toArray(new Account[this.getAccount_Has().size()]));
         withoutBank_Has(this.getBank_Has().toArray(new User[this.getBank_Has().size()]));
-        firePropertyChange("REMOVE_YOU", this, null);
+        withoutUser_is_in(this.getUser_is_in().toArray(new User[this.getUser_is_in().size()]));
+      withoutUser_In(this.getUser_In().toArray(new User[this.getUser_In().size()]));
+      firePropertyChange("REMOVE_YOU", this, null);
     }
 
 
@@ -601,4 +603,148 @@ public class Bank implements SendableEntity {
         number = number / 100;
         return String.format("%.2f", number);
     }
+
+   
+   /********************************************************************
+    * <pre>
+    *              one                       many
+    * Bank ----------------------------------- User
+    *              Bank_has                   user_is_in
+    * </pre>
+    */
+   
+   public static final String PROPERTY_USER_IS_IN = "user_is_in";
+
+   private UserSet user_is_in = null;
+   
+   public UserSet getUser_is_in()
+   {
+      if (this.user_is_in == null)
+      {
+         return UserSet.EMPTY_SET;
+      }
+   
+      return this.user_is_in;
+   }
+
+   public Bank withUser_is_in(User... value)
+   {
+      if(value==null){
+         return this;
+      }
+      for (User item : value)
+      {
+         if (item != null)
+         {
+            if (this.user_is_in == null)
+            {
+               this.user_is_in = new UserSet();
+            }
+            
+            boolean changed = this.user_is_in.add (item);
+
+            if (changed)
+            {
+               item.withBank_has(this);
+               firePropertyChange(PROPERTY_USER_IS_IN, null, item);
+            }
+         }
+      }
+      return this;
+   } 
+
+   public Bank withoutUser_is_in(User... value)
+   {
+      for (User item : value)
+      {
+         if ((this.user_is_in != null) && (item != null))
+         {
+            if (this.user_is_in.remove(item))
+            {
+               item.setBank_has(null);
+               firePropertyChange(PROPERTY_USER_IS_IN, item, null);
+            }
+         }
+      }
+      return this;
+   }
+
+   public User createUser_is_in()
+   {
+      User value = new User();
+      withUser_is_in(value);
+      return value;
+   } 
+
+   
+   /********************************************************************
+    * <pre>
+    *              one                       many
+    * Bank ----------------------------------- User
+    *              Bank_has                   User_In
+    * </pre>
+    */
+   
+   public static final String PROPERTY_USER_IN = "User_In";
+
+   private UserSet User_In = null;
+   
+   public UserSet getUser_In()
+   {
+      if (this.User_In == null)
+      {
+         return UserSet.EMPTY_SET;
+      }
+   
+      return this.User_In;
+   }
+
+   public Bank withUser_In(User... value)
+   {
+      if(value==null){
+         return this;
+      }
+      for (User item : value)
+      {
+         if (item != null)
+         {
+            if (this.User_In == null)
+            {
+               this.User_In = new UserSet();
+            }
+            
+            boolean changed = this.User_In.add (item);
+
+            if (changed)
+            {
+               item.withBank_has(this);
+               firePropertyChange(PROPERTY_USER_IN, null, item);
+            }
+         }
+      }
+      return this;
+   } 
+
+   public Bank withoutUser_In(User... value)
+   {
+      for (User item : value)
+      {
+         if ((this.User_In != null) && (item != null))
+         {
+            if (this.User_In.remove(item))
+            {
+               item.setBank_has(null);
+               firePropertyChange(PROPERTY_USER_IN, item, null);
+            }
+         }
+      }
+      return this;
+   }
+
+   public User createUser_In()
+   {
+      User value = new User();
+      withUser_In(value);
+      return value;
+   } 
 }

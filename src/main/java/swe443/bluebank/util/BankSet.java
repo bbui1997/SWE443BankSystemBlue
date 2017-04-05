@@ -21,17 +21,16 @@
    
 package swe443.bluebank.util;
 
-import de.uniks.networkparser.list.SimpleSet;
-import swe443.bluebank.Bank;
 import de.uniks.networkparser.interfaces.Condition;
-import java.util.Collection;
-import java.util.LinkedHashSet;
 import de.uniks.networkparser.list.ObjectSet;
-import java.util.Collections;
-import swe443.bluebank.util.AccountSet;
+import de.uniks.networkparser.list.SimpleSet;
 import swe443.bluebank.Account;
-import swe443.bluebank.util.UserSet;
+import swe443.bluebank.Bank;
 import swe443.bluebank.User;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashSet;
 
 public class BankSet extends SimpleSet<Bank>
 {
@@ -414,6 +413,166 @@ public class BankSet extends SimpleSet<Bank>
    public BankSet makeTransfer()
    {
       return BankSet.EMPTY_SET;
+   }
+
+   /**
+    * Loop through the current set of Bank objects and collect a set of the User objects reached via user_is_in. 
+    * 
+    * @return Set of User objects reachable via user_is_in
+    */
+   public UserSet getUser_is_in()
+   {
+      UserSet result = new UserSet();
+      
+      for (Bank obj : this)
+      {
+         result.with(obj.getUser_is_in());
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through the current set of Bank objects and collect all contained objects with reference user_is_in pointing to the object passed as parameter. 
+    * 
+    * @param value The object required as user_is_in neighbor of the collected results. 
+    * 
+    * @return Set of User objects referring to value via user_is_in
+    */
+   public BankSet filterUser_is_in(Object value)
+   {
+      ObjectSet neighbors = new ObjectSet();
+
+      if (value instanceof Collection)
+      {
+         neighbors.addAll((Collection<?>) value);
+      }
+      else
+      {
+         neighbors.add(value);
+      }
+      
+      BankSet answer = new BankSet();
+      
+      for (Bank obj : this)
+      {
+         if ( ! Collections.disjoint(neighbors, obj.getUser_is_in()))
+         {
+            answer.add(obj);
+         }
+      }
+      
+      return answer;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and attach the Bank object passed as parameter to the User_is_in attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now with the new neighbor attached to their User_is_in attributes.
+    */
+   public BankSet withUser_is_in(User value)
+   {
+      for (Bank obj : this)
+      {
+         obj.withUser_is_in(value);
+      }
+      
+      return this;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and remove the Bank object passed as parameter from the User_is_in attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now without the old neighbor.
+    */
+   public BankSet withoutUser_is_in(User value)
+   {
+      for (Bank obj : this)
+      {
+         obj.withoutUser_is_in(value);
+      }
+      
+      return this;
+   }
+
+   /**
+    * Loop through the current set of Bank objects and collect a set of the User objects reached via User_In. 
+    * 
+    * @return Set of User objects reachable via User_In
+    */
+   public UserSet getUser_In()
+   {
+      UserSet result = new UserSet();
+      
+      for (Bank obj : this)
+      {
+         result.with(obj.getUser_In());
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through the current set of Bank objects and collect all contained objects with reference User_In pointing to the object passed as parameter. 
+    * 
+    * @param value The object required as User_In neighbor of the collected results. 
+    * 
+    * @return Set of User objects referring to value via User_In
+    */
+   public BankSet filterUser_In(Object value)
+   {
+      ObjectSet neighbors = new ObjectSet();
+
+      if (value instanceof Collection)
+      {
+         neighbors.addAll((Collection<?>) value);
+      }
+      else
+      {
+         neighbors.add(value);
+      }
+      
+      BankSet answer = new BankSet();
+      
+      for (Bank obj : this)
+      {
+         if ( ! Collections.disjoint(neighbors, obj.getUser_In()))
+         {
+            answer.add(obj);
+         }
+      }
+      
+      return answer;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and attach the Bank object passed as parameter to the User_In attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now with the new neighbor attached to their User_In attributes.
+    */
+   public BankSet withUser_In(User value)
+   {
+      for (Bank obj : this)
+      {
+         obj.withUser_In(value);
+      }
+      
+      return this;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and remove the Bank object passed as parameter from the User_In attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now without the old neighbor.
+    */
+   public BankSet withoutUser_In(User value)
+   {
+      for (Bank obj : this)
+      {
+         obj.withoutUser_In(value);
+      }
+      
+      return this;
    }
 
 }

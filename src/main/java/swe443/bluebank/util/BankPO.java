@@ -264,4 +264,82 @@ public class BankPO extends PatternObject<BankPO, Bank>
       }
    }
 
+   public UserPO createUser_is_inPO()
+   {
+      UserPO result = new UserPO(new User[]{});
+      
+      result.setModifier(this.getPattern().getModifier());
+      super.hasLink(Bank.PROPERTY_USER_IS_IN, result);
+      
+      return result;
+   }
+
+   public UserPO createUser_is_inPO(String modifier)
+   {
+      UserPO result = new UserPO(new User[]{});
+      
+      result.setModifier(modifier);
+      super.hasLink(Bank.PROPERTY_USER_IS_IN, result);
+      
+      return result;
+   }
+
+   public BankPO createUser_is_inLink(UserPO tgt)
+   {
+      return hasLinkConstraint(tgt, Bank.PROPERTY_USER_IS_IN);
+   }
+
+   public BankPO createUser_is_inLink(UserPO tgt, String modifier)
+   {
+      return hasLinkConstraint(tgt, Bank.PROPERTY_USER_IS_IN, modifier);
+   }
+
+   public UserSet getUser_is_in()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Bank) this.getCurrentMatch()).getUser_is_in();
+      }
+      return null;
+   }
+
+   public UserPO createUser_InPO()
+   {
+      UserPO result = new UserPO(new User[]{});
+      
+      result.setModifier(this.getPattern().getModifier());
+      super.hasLink(Bank.PROPERTY_USER_IN, result);
+      
+      return result;
+   }
+
+   public UserPO createUser_InPO(String modifier)
+   {
+      UserPO result = new UserPO(new User[]{});
+      
+      result.setModifier(modifier);
+      super.hasLink(Bank.PROPERTY_USER_IN, result);
+      
+      return result;
+   }
+
+   public BankPO createUser_InLink(UserPO tgt)
+   {
+      return hasLinkConstraint(tgt, Bank.PROPERTY_USER_IN);
+   }
+
+   public BankPO createUser_InLink(UserPO tgt, String modifier)
+   {
+      return hasLinkConstraint(tgt, Bank.PROPERTY_USER_IN, modifier);
+   }
+
+   public UserSet getUser_In()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Bank) this.getCurrentMatch()).getUser_In();
+      }
+      return null;
+   }
+
 }
