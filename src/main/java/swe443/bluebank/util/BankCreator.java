@@ -34,7 +34,8 @@ public class BankCreator implements SendableEntityCreator
       Bank.PROPERTY_BANKNAME,
       Bank.PROPERTY_ACCOUNT_HAS,
       Bank.PROPERTY_BANK_HAS,
-      Bank.PROPERTY_USER IS IN,
+      Bank.PROPERTY_USER_IS_IN,
+      Bank.PROPERTY_USER_IN,
    };
    
    @Override
@@ -75,9 +76,14 @@ public class BankCreator implements SendableEntityCreator
          return ((Bank) target).getBank_Has();
       }
 
-      if (Bank.PROPERTY_USER IS IN.equalsIgnoreCase(attribute))
+      if (Bank.PROPERTY_USER_IS_IN.equalsIgnoreCase(attribute))
       {
-         return ((Bank) target).getUser is in();
+         return ((Bank) target).getUser_is_in();
+      }
+
+      if (Bank.PROPERTY_USER_IN.equalsIgnoreCase(attribute))
+      {
+         return ((Bank) target).getUser_In();
       }
       
       return null;
@@ -121,15 +127,27 @@ public class BankCreator implements SendableEntityCreator
          return true;
       }
 
-      if (Bank.PROPERTY_USER IS IN.equalsIgnoreCase(attrName))
+      if (Bank.PROPERTY_USER_IS_IN.equalsIgnoreCase(attrName))
       {
-         ((Bank) target).withUser is in((User) value);
+         ((Bank) target).withUser_is_in((User) value);
          return true;
       }
       
-      if ((Bank.PROPERTY_USER IS IN + SendableEntityCreator.REMOVE).equalsIgnoreCase(attrName))
+      if ((Bank.PROPERTY_USER_IS_IN + SendableEntityCreator.REMOVE).equalsIgnoreCase(attrName))
       {
-         ((Bank) target).withoutUser is in((User) value);
+         ((Bank) target).withoutUser_is_in((User) value);
+         return true;
+      }
+
+      if (Bank.PROPERTY_USER_IN.equalsIgnoreCase(attrName))
+      {
+         ((Bank) target).withUser_In((User) value);
+         return true;
+      }
+      
+      if ((Bank.PROPERTY_USER_IN + SendableEntityCreator.REMOVE).equalsIgnoreCase(attrName))
+      {
+         ((Bank) target).withoutUser_In((User) value);
          return true;
       }
       

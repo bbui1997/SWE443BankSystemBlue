@@ -21,520 +21,514 @@
 
 package swe443.bluebank;
 
-import de.uniks.networkparser.interfaces.SendableEntity;
-import java.beans.PropertyChangeSupport;
-import java.beans.PropertyChangeListener;
 import de.uniks.networkparser.EntityUtil;
-import java.util.*;
+import de.uniks.networkparser.interfaces.SendableEntity;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.Scanner;
 import swe443.bluebank.User;
 import swe443.bluebank.Bank;
+
 /**
- *
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
  * @see <a href='../../../../../src/main/java/Model.java'>Model.java</a>
  */
-public  class Account implements SendableEntity {
-
-
-   //==========================================================================
-   public void deposit(double amt) {
-      /**
-       * check if valid amount. add amount to balance if greater than 0.
-       */
-      if (amt >= 0) {
-         this.setAccountBalance(amt + getAccountBalance()); //add amount to the account balance.
-         this.recentTransaction = "deposit "+amt;
-      } else {
-         throw new IllegalArgumentException(amt + " is less than or equal to 0");
-      }
-   }
-
-
-   //==========================================================================
-   public double withdraw(double amt) {
-      /**
-       * Check if amount is a denomination of 100
-       */
-      if ((amt % 100) == 0) {
-         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
-            return -1;
-         }else{
-            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-            this.recentTransaction = "withdrawal "+amt;
-            return amt; //return requested amount
-         }
-      }
-
-      /**
-       * Check if amount is a denomination of 20
-       */
-      if ((amt % 20) == 0) {
-         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
-            return -1;
-         }else{
-            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-            this.recentTransaction = "withdrawal "+amt;
-            return amt; //return requested amount
-         }
-      }
-
-      /**
-       * Check if amount is a denomination of 10
-       */
-      if ((amt % 10) == 0) {
-         if((this.getAccountBalance()-amt)<0){//check if withdrawal amount greater than balance
-            return -1;
-         }else{
-            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-            this.recentTransaction = "withdrawal "+amt;
-            return amt; //return requested amount
-         }
-      }
-      return 0; //return 0 if denominations don't match
-   }
-
-
-   //==========================================================================
-   public void undoRecentTransaction() {
-      Scanner sc = new Scanner(this.getRecentTransaction());
-      if(!sc.hasNext()){
-         //If recentTransaction is null => no transaction yet.
-         System.out.println("No transaction yet !");
-         return;
-      }
-      String type = sc.next();
-      switch (type){
-         case "deposit":
-            double amount = sc.nextDouble();
-            this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
-            break;                                                 //deduct the deposited amount from balance.
-
-         case "withdrawal":
-            double wAmt = sc.nextDouble();
-            this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
-            break;                                                 //add the amount that was withdrawn to balance.
-
-         //case transfer
-
-         default:
-            System.out.println("****** MAYDAY ***** MAYDAY *******");
-
-      }
-
-
-   }
-
-
-   //==========================================================================
-   public boolean transfer(double amt, Account acct) {
-
-      // Check if amount is less than balance
-      if (amt > 0 && this.getAccountBalance() > amt) {
-         // TODO: check account validity
-         this.setAccountBalance(this.getAccountBalance() - amt); //withdraw amount from this. Update balance.
-         acct.setAccountBalance(acct.getAccountBalance() + amt); //deposit amount to the acct. Update balance.
-         return true; //return succeed flag
-      } else {
-         return false; // return failure flag
-         //throw new IllegalArgumentException("Amount should be positive and less than account balance!");
-      }
-
-   }
+public class Account implements SendableEntity {
+
+
+    //==========================================================================
+    public void deposit(double amt) {
+        /**
+         * check if valid amount. add amount to balance if greater than 0.
+         */
+        if (amt >= 0) {
+            this.setAccountBalance(amt + getAccountBalance()); //add amount to the account balance.
+            this.recentTransaction = "deposit " + amt;
+        } else {
+            throw new IllegalArgumentException(amt + " is less than or equal to 0");
+        }
+    }
+
+
+    //==========================================================================
+    public double withdraw(double amt) {
+        /**
+         * Check if amount is a denomination of 100
+         */
+        if ((amt % 100) == 0) {
+            if ((this.getAccountBalance() - amt) < 0) {//check if withdrawal amount greater than balance
+                return -1;
+            } else {
+                this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+                this.recentTransaction = "withdrawal " + amt;
+                return amt; //return requested amount
+            }
+        }
+
+        /**
+         * Check if amount is a denomination of 20
+         */
+        if ((amt % 20) == 0) {
+            if ((this.getAccountBalance() - amt) < 0) {//check if withdrawal amount greater than balance
+                return -1;
+            } else {
+                this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+                this.recentTransaction = "withdrawal " + amt;
+                return amt; //return requested amount
+            }
+        }
+
+        /**
+         * Check if amount is a denomination of 10
+         */
+        if ((amt % 10) == 0) {
+            if ((this.getAccountBalance() - amt) < 0) {//check if withdrawal amount greater than balance
+                return -1;
+            } else {
+                this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+                this.recentTransaction = "withdrawal " + amt;
+                return amt; //return requested amount
+            }
+        }
+        return 0; //return 0 if denominations don't match
+    }
+
+
+    //==========================================================================
+    public void undoRecentTransaction() {
+        Scanner sc = new Scanner(this.getRecentTransaction());
+        if (!sc.hasNext()) {
+            //If recentTransaction is null => no transaction yet.
+            System.out.println("No transaction yet !");
+            return;
+        }
+        String type = sc.next();
+        switch (type) {
+            case "deposit":
+                double amount = sc.nextDouble();
+                this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
+                break;                                                 //deduct the deposited amount from balance.
+
+            case "withdrawal":
+                double wAmt = sc.nextDouble();
+                this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
+                break;                                                 //add the amount that was withdrawn to balance.
+
+            //case transfer
+
+            default:
+                System.out.println("****** MAYDAY ***** MAYDAY *******");
+                break;
+        }
+        return;
+    }
+
+
+    //==========================================================================
+    public boolean transfer(double amt, Account acct) {
+
+        // Check if amount is less than balance
+        if (amt > 0 && this.getAccountBalance() > amt) {
+            // TODO: check account validity
+            this.setAccountBalance(this.getAccountBalance() - amt); //withdraw amount from this. Update balance.
+            acct.setAccountBalance(acct.getAccountBalance() + amt); //deposit amount to the acct. Update balance.
+            return true; //return succeed flag
+        } else {
+            return false; // return failure flag
+            //throw new IllegalArgumentException("Amount should be positive and less than account balance!");
+        }
 
-   //==========================================================================
+    }
 
-   protected PropertyChangeSupport listeners = null;
+    //==========================================================================
 
-   public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue) {
-      if (listeners != null) {
-         listeners.firePropertyChange(propertyName, oldValue, newValue);
-         return true;
-      }
-      return false;
-   }
+    protected PropertyChangeSupport listeners = null;
 
-   public boolean addPropertyChangeListener(PropertyChangeListener listener) {
-      if (listeners == null) {
-         listeners = new PropertyChangeSupport(this);
-      }
-      listeners.addPropertyChangeListener(listener);
-      return true;
-   }
+    public boolean firePropertyChange(String propertyName, Object oldValue, Object newValue) {
+        if (listeners != null) {
+            listeners.firePropertyChange(propertyName, oldValue, newValue);
+            return true;
+        }
+        return false;
+    }
 
-   public boolean addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
-      if (listeners == null) {
-         listeners = new PropertyChangeSupport(this);
-      }
-      listeners.addPropertyChangeListener(propertyName, listener);
-      return true;
-   }
+    public boolean addPropertyChangeListener(PropertyChangeListener listener) {
+        if (listeners == null) {
+            listeners = new PropertyChangeSupport(this);
+        }
+        listeners.addPropertyChangeListener(listener);
+        return true;
+    }
 
-   public boolean removePropertyChangeListener(PropertyChangeListener listener) {
-      if (listeners == null) {
-         listeners.removePropertyChangeListener(listener);
-      }
-      listeners.removePropertyChangeListener(listener);
-      return true;
-   }
+    public boolean addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        if (listeners == null) {
+            listeners = new PropertyChangeSupport(this);
+        }
+        listeners.addPropertyChangeListener(propertyName, listener);
+        return true;
+    }
 
-   public boolean removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
-      if (listeners != null) {
-         listeners.removePropertyChangeListener(propertyName, listener);
-      }
-      return true;
-   }
+    public boolean removePropertyChangeListener(PropertyChangeListener listener) {
+        if (listeners == null) {
+            listeners.removePropertyChangeListener(listener);
+        }
+        listeners.removePropertyChangeListener(listener);
+        return true;
+    }
 
+    public boolean removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        if (listeners != null) {
+            listeners.removePropertyChangeListener(propertyName, listener);
+        }
+        return true;
+    }
 
-   //==========================================================================
 
+    //==========================================================================
 
-   public void removeYou() {
-      setUser_Has(null);
-      setBank_has(null);
-      firePropertyChange("REMOVE_YOU", this, null);
-   }
 
+    public void removeYou() {
+        setUser_Has(null);
+        setBank_has(null);
+        firePropertyChange("REMOVE_YOU", this, null);
+    }
 
-   //==========================================================================
 
-   public static final String PROPERTY_NAME = "name";
+    //==========================================================================
 
-   private String name;
+    public static final String PROPERTY_NAME = "name";
 
-   public String getName() {
-      return this.name;
-   }
+    private String name;
 
-   public void setName(String value) {
-      if (!EntityUtil.stringEquals(this.name, value)) {
+    public String getName() {
+        return this.name;
+    }
 
-         String oldValue = this.name;
-         this.name = value;
-         this.firePropertyChange(PROPERTY_NAME, oldValue, value);
-      }
-   }
+    public void setName(String value) {
+        if (!EntityUtil.stringEquals(this.name, value)) {
 
-   public Account withName(String value) {
-      setName(value);
-      return this;
-   }
+            String oldValue = this.name;
+            this.name = value;
+            this.firePropertyChange(PROPERTY_NAME, oldValue, value);
+        }
+    }
 
+    public Account withName(String value) {
+        setName(value);
+        return this;
+    }
 
-   @Override
-   public String toString() {
-      StringBuilder result = new StringBuilder();
 
-      result.append(" ").append(this.getName());
-      result.append(" ").append(this.getSsn());
-      result.append(" ").append(this.getUsername());
-      result.append(" ").append(this.getPassword());
-      result.append(" ").append(this.getInitialAmount());
-      result.append(" ").append(this.getAccountBalance());
-      result.append(" ").append(this.getRecentTransaction());
-      return result.substring(1);
-   }
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
 
+        result.append(" ").append(this.getName());
+        result.append(" ").append(this.getSsn());
+        result.append(" ").append(this.getUsername());
+        result.append(" ").append(this.getPassword());
+        result.append(" ").append(this.getInitialAmount());
+        result.append(" ").append(this.getAccountBalance());
+        result.append(" ").append(this.getRecentTransaction());
+        return result.substring(1);
+    }
 
-   //==========================================================================
 
-   public static final String PROPERTY_SSN = "ssn";
+    //==========================================================================
 
-   private int ssn;
+    public static final String PROPERTY_SSN = "ssn";
 
-   public int getSsn() {
-      return this.ssn;
-   }
+    private int ssn;
 
-   public void setSsn(int value) {
-      if (this.ssn != value) {
+    public int getSsn() {
+        return this.ssn;
+    }
 
-         int oldValue = this.ssn;
-         this.ssn = value;
-         this.firePropertyChange(PROPERTY_SSN, oldValue, value);
-      }
-   }
+    public void setSsn(int value) {
+        if (this.ssn != value) {
 
-   public Account withSsn(int value) {
-      setSsn(value);
-      return this;
-   }
+            int oldValue = this.ssn;
+            this.ssn = value;
+            this.firePropertyChange(PROPERTY_SSN, oldValue, value);
+        }
+    }
 
+    public Account withSsn(int value) {
+        setSsn(value);
+        return this;
+    }
 
-   //==========================================================================
 
-   public static final String PROPERTY_DOB = "dob";
+    //==========================================================================
 
-   private Object dob;
+    public static final String PROPERTY_DOB = "dob";
 
-   public Object getDob() {
-      return this.dob;
-   }
+    private Object dob;
 
-   public void setDob(Object value) {
-      if (this.dob != value) {
+    public Object getDob() {
+        return this.dob;
+    }
 
-         Object oldValue = this.dob;
-         this.dob = value;
-         this.firePropertyChange(PROPERTY_DOB, oldValue, value);
-      }
-   }
+    public void setDob(Object value) {
+        if (this.dob != value) {
 
-   public Account withDob(Object value) {
-      setDob(value);
-      return this;
-   }
+            Object oldValue = this.dob;
+            this.dob = value;
+            this.firePropertyChange(PROPERTY_DOB, oldValue, value);
+        }
+    }
 
+    public Account withDob(Object value) {
+        setDob(value);
+        return this;
+    }
 
-   //==========================================================================
 
-   public static final String PROPERTY_USERNAME = "username";
+    //==========================================================================
 
-   private String username;
+    public static final String PROPERTY_USERNAME = "username";
 
-   public String getUsername() {
-      return this.username;
-   }
+    private String username;
 
-   public void setUsername(String value) {
-      if (!EntityUtil.stringEquals(this.username, value)) {
+    public String getUsername() {
+        return this.username;
+    }
 
-         String oldValue = this.username;
-         this.username = value;
-         this.firePropertyChange(PROPERTY_USERNAME, oldValue, value);
-      }
-   }
+    public void setUsername(String value) {
+        if (!EntityUtil.stringEquals(this.username, value)) {
 
-   public Account withUsername(String value) {
-      setUsername(value);
-      return this;
-   }
+            String oldValue = this.username;
+            this.username = value;
+            this.firePropertyChange(PROPERTY_USERNAME, oldValue, value);
+        }
+    }
 
+    public Account withUsername(String value) {
+        setUsername(value);
+        return this;
+    }
 
-   //==========================================================================
 
-   public static final String PROPERTY_PASSWORD = "password";
+    //==========================================================================
 
-   private String password;
+    public static final String PROPERTY_PASSWORD = "password";
 
-   public String getPassword() {
-      return this.password;
-   }
+    private String password;
 
-   public void setPassword(String value) {
-      if (!EntityUtil.stringEquals(this.password, value)) {
+    public String getPassword() {
+        return this.password;
+    }
 
-         String oldValue = this.password;
-         this.password = value;
-         this.firePropertyChange(PROPERTY_PASSWORD, oldValue, value);
-      }
-   }
+    public void setPassword(String value) {
+        if (!EntityUtil.stringEquals(this.password, value)) {
 
-   public Account withPassword(String value) {
-      setPassword(value);
-      return this;
-   }
+            String oldValue = this.password;
+            this.password = value;
+            this.firePropertyChange(PROPERTY_PASSWORD, oldValue, value);
+        }
+    }
 
+    public Account withPassword(String value) {
+        setPassword(value);
+        return this;
+    }
 
-   //==========================================================================
 
-   public static final String PROPERTY_INITIALAMOUNT = "initialAmount";
+    //==========================================================================
 
-   private double initialAmount;
+    public static final String PROPERTY_INITIALAMOUNT = "initialAmount";
 
-   public double getInitialAmount() {
-      return this.initialAmount;
-   }
+    private double initialAmount;
 
-   public void setInitialAmount(double value) {
-      if (this.initialAmount != value) {
+    public double getInitialAmount() {
+        return this.initialAmount;
+    }
 
-         double oldValue = this.initialAmount;
-         this.initialAmount = value;
-         this.firePropertyChange(PROPERTY_INITIALAMOUNT, oldValue, value);
-      }
-   }
+    public void setInitialAmount(double value) {
+        if (this.initialAmount != value) {
 
-   public Account withInitialAmount(double value) {
-      setInitialAmount(value);
-      return this;
-   }
+            double oldValue = this.initialAmount;
+            this.initialAmount = value;
+            this.firePropertyChange(PROPERTY_INITIALAMOUNT, oldValue, value);
+        }
+    }
 
+    public Account withInitialAmount(double value) {
+        setInitialAmount(value);
+        return this;
+    }
 
-   //==========================================================================
 
-   public static final String PROPERTY_ACCOUNTBALANCE = "accountBalance";
+    //==========================================================================
 
-   private double accountBalance;
+    public static final String PROPERTY_ACCOUNTBALANCE = "accountBalance";
 
-   public double getAccountBalance() {
-      return this.accountBalance;
-   }
+    private double accountBalance;
 
-   public void setAccountBalance(double value) {
-      if (this.accountBalance != value) {
+    public double getAccountBalance() {
+        return this.accountBalance;
+    }
 
-         double oldValue = this.accountBalance;
-         this.accountBalance = value;
-         this.firePropertyChange(PROPERTY_ACCOUNTBALANCE, oldValue, value);
-      }
-   }
+    public void setAccountBalance(double value) {
+        if (this.accountBalance != value) {
 
-   public Account withAccountBalance(double value) {
-      setAccountBalance(value);
-      return this;
-   }
+            double oldValue = this.accountBalance;
+            this.accountBalance = value;
+            this.firePropertyChange(PROPERTY_ACCOUNTBALANCE, oldValue, value);
+        }
+    }
 
+    public Account withAccountBalance(double value) {
+        setAccountBalance(value);
+        return this;
+    }
 
-   /********************************************************************
-    * <pre>
-    *              many                       one
-    * Account ----------------------------------- User
-    *              Account_Has                   User_Has
-    * </pre>
-    */
 
-   public static final String PROPERTY_USER_HAS = "User_Has";
+    /********************************************************************
+     * <pre>
+     *              many                       one
+     * Account ----------------------------------- User
+     *              Account_Has                   User_Has
+     * </pre>
+     */
 
-   private User User_Has = null;
+    public static final String PROPERTY_USER_HAS = "User_Has";
 
-   public User getUser_Has() {
-      return this.User_Has;
-   }
+    private User User_Has = null;
 
-   public boolean setUser_Has(User value) {
-      boolean changed = false;
+    public User getUser_Has() {
+        return this.User_Has;
+    }
 
-      if (this.User_Has != value) {
-         User oldValue = this.User_Has;
+    public boolean setUser_Has(User value) {
+        boolean changed = false;
 
-         if (this.User_Has != null) {
-            this.User_Has = null;
-            oldValue.withoutAccount_Has(this);
-         }
+        if (this.User_Has != value) {
+            User oldValue = this.User_Has;
 
-         this.User_Has = value;
+            if (this.User_Has != null) {
+                this.User_Has = null;
+                oldValue.withoutAccount_Has(this);
+            }
 
-         if (value != null) {
-            value.withAccount_Has(this);
-         }
+            this.User_Has = value;
 
-         firePropertyChange(PROPERTY_USER_HAS, oldValue, value);
-         changed = true;
-      }
+            if (value != null) {
+                value.withAccount_Has(this);
+            }
 
-      return changed;
-   }
+            firePropertyChange(PROPERTY_USER_HAS, oldValue, value);
+            changed = true;
+        }
 
-   public Account withUser_Has(User value) {
-      setUser_Has(value);
-      return this;
-   }
+        return changed;
+    }
 
-   public User createUser_Has() {
-      User value = new User();
-      withUser_Has(value);
-      return value;
-   }
+    public Account withUser_Has(User value) {
+        setUser_Has(value);
+        return this;
+    }
 
+    public User createUser_Has() {
+        User value = new User();
+        withUser_Has(value);
+        return value;
+    }
 
-   /********************************************************************
-    * <pre>
-    *              many                       one
-    * Account ----------------------------------- Bank
-    *              Account_Has                   Bank_has
-    * </pre>
-    */
 
-   public static final String PROPERTY_BANK_HAS = "Bank_has";
+    /********************************************************************
+     * <pre>
+     *              many                       one
+     * Account ----------------------------------- Bank
+     *              Account_Has                   Bank_has
+     * </pre>
+     */
 
-   private Bank Bank_has = null;
+    public static final String PROPERTY_BANK_HAS = "Bank_has";
 
-   public Bank getBank_has() {
-      return this.Bank_has;
-   }
+    private Bank Bank_has = null;
 
-   public boolean setBank_has(Bank value) {
-      boolean changed = false;
+    public Bank getBank_has() {
+        return this.Bank_has;
+    }
 
-      if (this.Bank_has != value) {
-         Bank oldValue = this.Bank_has;
+    public boolean setBank_has(Bank value) {
+        boolean changed = false;
 
-         if (this.Bank_has != null) {
-            this.Bank_has = null;
-            oldValue.withoutAccount_Has(this);
-         }
+        if (this.Bank_has != value) {
+            Bank oldValue = this.Bank_has;
 
-         this.Bank_has = value;
+            if (this.Bank_has != null) {
+                this.Bank_has = null;
+                oldValue.withoutAccount_Has(this);
+            }
 
-         if (value != null) {
-            value.withAccount_Has(this);
-         }
+            this.Bank_has = value;
 
-         firePropertyChange(PROPERTY_BANK_HAS, oldValue, value);
-         changed = true;
-      }
+            if (value != null) {
+                value.withAccount_Has(this);
+            }
 
-      return changed;
-   }
+            firePropertyChange(PROPERTY_BANK_HAS, oldValue, value);
+            changed = true;
+        }
 
-   public Account withBank_has(Bank value) {
-      setBank_has(value);
-      return this;
-   }
+        return changed;
+    }
 
-   public Bank createBank_has() {
-      Bank value = new Bank();
-      withBank_has(value);
-      return value;
-   }
+    public Account withBank_has(Bank value) {
+        setBank_has(value);
+        return this;
+    }
 
+    public Bank createBank_has() {
+        Bank value = new Bank();
+        withBank_has(value);
+        return value;
+    }
 
-   //==========================================================================
-   public void deposit(  )
-   {
-      //dont use, use MakeDeposit in bank
-   }
 
+    //==========================================================================
+    public void deposit() {
+        //dont use, use MakeDeposit in bank
+    }
 
-   //==========================================================================
-   public double withdraw(  )
-   {
-      //dont use, use MakeWithdraw in bank
-      return 0;
-   }
 
+    //==========================================================================
+    public double withdraw() {
+        //dont use, use MakeWithdraw in bank
+        return 0;
+    }
 
-   //==========================================================================
-   public void transfer(  )
-   {
-      //dont use, use MakeTransfer in bank
-   }
 
-   
-   //==========================================================================
-   
-   public static final String PROPERTY_RECENTTRANSACTION = "recentTransaction";
-   
-   private String recentTransaction;
+    //==========================================================================
+    public void transfer() {
+        //dont use, use MakeTransfer in bank
+    }
 
-   public String getRecentTransaction()
-   {
-      return this.recentTransaction;
-   }
-   
-   public void setRecentTransaction(String value)
-   {
-      if ( ! EntityUtil.stringEquals(this.recentTransaction, value)) {
-      
-         String oldValue = this.recentTransaction;
-         this.recentTransaction = value;
-         this.firePropertyChange(PROPERTY_RECENTTRANSACTION, oldValue, value);
-      }
-   }
-   
-   public Account withRecentTransaction(String value)
-   {
-      setRecentTransaction(value);
-      return this;
-   } 
+
+    //==========================================================================
+
+    public static final String PROPERTY_RECENTTRANSACTION = "recentTransaction";
+
+    private String recentTransaction;
+
+    public String getRecentTransaction() {
+        return this.recentTransaction;
+    }
+
+    public void setRecentTransaction(String value) {
+        if (!EntityUtil.stringEquals(this.recentTransaction, value)) {
+
+            String oldValue = this.recentTransaction;
+            this.recentTransaction = value;
+            this.firePropertyChange(PROPERTY_RECENTTRANSACTION, oldValue, value);
+        }
+    }
+
+    public Account withRecentTransaction(String value) {
+        setRecentTransaction(value);
+        return this;
+    }
 }

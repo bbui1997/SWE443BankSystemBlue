@@ -374,7 +374,8 @@ public class Bank implements SendableEntity {
     public void removeYou() {
         withoutAccount_Has(this.getAccount_Has().toArray(new Account[this.getAccount_Has().size()]));
         withoutBank_Has(this.getBank_Has().toArray(new User[this.getBank_Has().size()]));
-        withoutUser is in(this.getUser is in().toArray(new User[this.getUser is in().size()]));
+        withoutUser_is_in(this.getUser_is_in().toArray(new User[this.getUser_is_in().size()]));
+      withoutUser_In(this.getUser_In().toArray(new User[this.getUser_In().size()]));
       firePropertyChange("REMOVE_YOU", this, null);
     }
 
@@ -610,25 +611,25 @@ public class Bank implements SendableEntity {
     * <pre>
     *              one                       many
     * Bank ----------------------------------- User
-    *              Bank_has                   user is in
+    *              Bank_has                   user_is_in
     * </pre>
     */
    
-   public static final String PROPERTY_USER IS IN = "user is in";
+   public static final String PROPERTY_USER_IS_IN = "user_is_in";
 
-   private UserSet user is in = null;
+   private UserSet user_is_in = null;
    
-   public UserSet getUser is in()
+   public UserSet getUser_is_in()
    {
-      if (this.user is in == null)
+      if (this.user_is_in == null)
       {
          return UserSet.EMPTY_SET;
       }
    
-      return this.user is in;
+      return this.user_is_in;
    }
 
-   public Bank withUser is in(User... value)
+   public Bank withUser_is_in(User... value)
    {
       if(value==null){
          return this;
@@ -637,43 +638,115 @@ public class Bank implements SendableEntity {
       {
          if (item != null)
          {
-            if (this.user is in == null)
+            if (this.user_is_in == null)
             {
-               this.user is in = new UserSet();
+               this.user_is_in = new UserSet();
             }
             
-            boolean changed = this.user is in.add (item);
+            boolean changed = this.user_is_in.add (item);
 
             if (changed)
             {
                item.withBank_has(this);
-               firePropertyChange(PROPERTY_USER IS IN, null, item);
+               firePropertyChange(PROPERTY_USER_IS_IN, null, item);
             }
          }
       }
       return this;
    } 
 
-   public Bank withoutUser is in(User... value)
+   public Bank withoutUser_is_in(User... value)
    {
       for (User item : value)
       {
-         if ((this.user is in != null) && (item != null))
+         if ((this.user_is_in != null) && (item != null))
          {
-            if (this.user is in.remove(item))
+            if (this.user_is_in.remove(item))
             {
                item.setBank_has(null);
-               firePropertyChange(PROPERTY_USER IS IN, item, null);
+               firePropertyChange(PROPERTY_USER_IS_IN, item, null);
             }
          }
       }
       return this;
    }
 
-   public User createUser is in()
+   public User createUser_is_in()
    {
       User value = new User();
-      withUser is in(value);
+      withUser_is_in(value);
+      return value;
+   } 
+
+   
+   /********************************************************************
+    * <pre>
+    *              one                       many
+    * Bank ----------------------------------- User
+    *              Bank_has                   User_In
+    * </pre>
+    */
+   
+   public static final String PROPERTY_USER_IN = "User_In";
+
+   private UserSet User_In = null;
+   
+   public UserSet getUser_In()
+   {
+      if (this.User_In == null)
+      {
+         return UserSet.EMPTY_SET;
+      }
+   
+      return this.User_In;
+   }
+
+   public Bank withUser_In(User... value)
+   {
+      if(value==null){
+         return this;
+      }
+      for (User item : value)
+      {
+         if (item != null)
+         {
+            if (this.User_In == null)
+            {
+               this.User_In = new UserSet();
+            }
+            
+            boolean changed = this.User_In.add (item);
+
+            if (changed)
+            {
+               item.withBank_has(this);
+               firePropertyChange(PROPERTY_USER_IN, null, item);
+            }
+         }
+      }
+      return this;
+   } 
+
+   public Bank withoutUser_In(User... value)
+   {
+      for (User item : value)
+      {
+         if ((this.User_In != null) && (item != null))
+         {
+            if (this.User_In.remove(item))
+            {
+               item.setBank_has(null);
+               firePropertyChange(PROPERTY_USER_IN, item, null);
+            }
+         }
+      }
+      return this;
+   }
+
+   public User createUser_In()
+   {
+      User value = new User();
+      withUser_In(value);
       return value;
    } 
 }

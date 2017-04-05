@@ -21,16 +21,17 @@
    
 package swe443.bluebank.util;
 
-import de.uniks.networkparser.list.SimpleSet;
-import swe443.bluebank.User;
 import de.uniks.networkparser.interfaces.Condition;
-import java.util.Collection;
 import de.uniks.networkparser.list.ObjectSet;
+import de.uniks.networkparser.list.SimpleSet;
+import swe443.bluebank.Account;
+import swe443.bluebank.Bank;
+import swe443.bluebank.User;
+
+import java.util.Collection;
 import java.util.Collections;
 import swe443.bluebank.util.AccountSet;
-import swe443.bluebank.Account;
 import swe443.bluebank.util.BankSet;
-import swe443.bluebank.Bank;
 
 public class UserSet extends SimpleSet<User>
 {

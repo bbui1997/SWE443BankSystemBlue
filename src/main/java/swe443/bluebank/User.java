@@ -21,11 +21,12 @@
 
 package swe443.bluebank;
 
-import de.uniks.networkparser.interfaces.SendableEntity;
-import java.beans.PropertyChangeSupport;
-import java.beans.PropertyChangeListener;
 import de.uniks.networkparser.EntityUtil;
+import de.uniks.networkparser.interfaces.SendableEntity;
 import swe443.bluebank.util.AccountSet;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import swe443.bluebank.Account;
 import swe443.bluebank.Bank;
 /**
@@ -270,7 +271,7 @@ public  class User implements SendableEntity
     * <pre>
     *              many                       one
     * User ----------------------------------- Bank
-    *              user is in                   Bank_has
+    *              user_is_in                   Bank_has
     * </pre>
     */
    
@@ -294,14 +295,14 @@ public  class User implements SendableEntity
          if (this.Bank_has != null)
          {
             this.Bank_has = null;
-            oldValue.withoutUser is in(this);
+            oldValue.withoutUser_is_in(this);
          }
          
          this.Bank_has = value;
          
          if (value != null)
          {
-            value.withUser is in(this);
+            value.withUser_is_in(this);
          }
          
          firePropertyChange(PROPERTY_BANK_HAS, oldValue, value);
