@@ -185,4 +185,43 @@ public class UserPO extends PatternObject<UserPO, User>
       return null;
    }
 
+   public BankPO createBank_hasPO()
+   {
+      BankPO result = new BankPO(new Bank[]{});
+      
+      result.setModifier(this.getPattern().getModifier());
+      super.hasLink(User.PROPERTY_BANK_HAS, result);
+      
+      return result;
+   }
+
+   public BankPO createBank_hasPO(String modifier)
+   {
+      BankPO result = new BankPO(new Bank[]{});
+      
+      result.setModifier(modifier);
+      super.hasLink(User.PROPERTY_BANK_HAS, result);
+      
+      return result;
+   }
+
+   public UserPO createBank_hasLink(BankPO tgt)
+   {
+      return hasLinkConstraint(tgt, User.PROPERTY_BANK_HAS);
+   }
+
+   public UserPO createBank_hasLink(BankPO tgt, String modifier)
+   {
+      return hasLinkConstraint(tgt, User.PROPERTY_BANK_HAS, modifier);
+   }
+
+   public Bank getBank_has()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((User) this.getCurrentMatch()).getBank_has();
+      }
+      return null;
+   }
+
 }

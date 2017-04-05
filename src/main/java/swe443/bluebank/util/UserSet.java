@@ -337,4 +337,69 @@ public class UserSet extends SimpleSet<User>
       return this;
    }
 
+   /**
+    * Loop through the current set of User objects and collect a set of the Bank objects reached via Bank_has. 
+    * 
+    * @return Set of Bank objects reachable via Bank_has
+    */
+   public BankSet getBank_has()
+   {
+      BankSet result = new BankSet();
+      
+      for (User obj : this)
+      {
+         result.with(obj.getBank_has());
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through the current set of User objects and collect all contained objects with reference Bank_has pointing to the object passed as parameter. 
+    * 
+    * @param value The object required as Bank_has neighbor of the collected results. 
+    * 
+    * @return Set of Bank objects referring to value via Bank_has
+    */
+   public UserSet filterBank_has(Object value)
+   {
+      ObjectSet neighbors = new ObjectSet();
+
+      if (value instanceof Collection)
+      {
+         neighbors.addAll((Collection<?>) value);
+      }
+      else
+      {
+         neighbors.add(value);
+      }
+      
+      UserSet answer = new UserSet();
+      
+      for (User obj : this)
+      {
+         if (neighbors.contains(obj.getBank_has()) || (neighbors.isEmpty() && obj.getBank_has() == null))
+         {
+            answer.add(obj);
+         }
+      }
+      
+      return answer;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and attach the User object passed as parameter to the Bank_has attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now with the new neighbor attached to their Bank_has attributes.
+    */
+   public UserSet withBank_has(Bank value)
+   {
+      for (User obj : this)
+      {
+         obj.withBank_has(value);
+      }
+      
+      return this;
+   }
+
 }

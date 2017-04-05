@@ -90,6 +90,7 @@ public  class User implements SendableEntity
    {
       withoutAccount_Has(this.getAccount_Has().toArray(new Account[this.getAccount_Has().size()]));
       setUser_Has(null);
+      setBank_has(null);
       firePropertyChange("REMOVE_YOU", this, null);
    }
 
@@ -263,4 +264,63 @@ public  class User implements SendableEntity
       return value;
    }
 
+
+   
+   /********************************************************************
+    * <pre>
+    *              many                       one
+    * User ----------------------------------- Bank
+    *              user is in                   Bank_has
+    * </pre>
+    */
+   
+   public static final String PROPERTY_BANK_HAS = "Bank_has";
+
+   private Bank Bank_has = null;
+
+   public Bank getBank_has()
+   {
+      return this.Bank_has;
+   }
+
+   public boolean setBank_has(Bank value)
+   {
+      boolean changed = false;
+      
+      if (this.Bank_has != value)
+      {
+         Bank oldValue = this.Bank_has;
+         
+         if (this.Bank_has != null)
+         {
+            this.Bank_has = null;
+            oldValue.withoutUser is in(this);
+         }
+         
+         this.Bank_has = value;
+         
+         if (value != null)
+         {
+            value.withUser is in(this);
+         }
+         
+         firePropertyChange(PROPERTY_BANK_HAS, oldValue, value);
+         changed = true;
+      }
+      
+      return changed;
+   }
+
+   public User withBank_has(Bank value)
+   {
+      setBank_has(value);
+      return this;
+   } 
+
+   public Bank createBank_has()
+   {
+      Bank value = new Bank();
+      withBank_has(value);
+      return value;
+   } 
 }

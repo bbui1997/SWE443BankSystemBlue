@@ -34,6 +34,7 @@ public class BankCreator implements SendableEntityCreator
       Bank.PROPERTY_BANKNAME,
       Bank.PROPERTY_ACCOUNT_HAS,
       Bank.PROPERTY_BANK_HAS,
+      Bank.PROPERTY_USER IS IN,
    };
    
    @Override
@@ -72,6 +73,11 @@ public class BankCreator implements SendableEntityCreator
       if (Bank.PROPERTY_BANK_HAS.equalsIgnoreCase(attribute))
       {
          return ((Bank) target).getBank_Has();
+      }
+
+      if (Bank.PROPERTY_USER IS IN.equalsIgnoreCase(attribute))
+      {
+         return ((Bank) target).getUser is in();
       }
       
       return null;
@@ -112,6 +118,18 @@ public class BankCreator implements SendableEntityCreator
       if ((Bank.PROPERTY_BANK_HAS + SendableEntityCreator.REMOVE).equalsIgnoreCase(attrName))
       {
          ((Bank) target).withoutBank_Has((User) value);
+         return true;
+      }
+
+      if (Bank.PROPERTY_USER IS IN.equalsIgnoreCase(attrName))
+      {
+         ((Bank) target).withUser is in((User) value);
+         return true;
+      }
+      
+      if ((Bank.PROPERTY_USER IS IN + SendableEntityCreator.REMOVE).equalsIgnoreCase(attrName))
+      {
+         ((Bank) target).withoutUser is in((User) value);
          return true;
       }
       

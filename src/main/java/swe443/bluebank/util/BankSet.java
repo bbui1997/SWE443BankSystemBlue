@@ -416,4 +416,84 @@ public class BankSet extends SimpleSet<Bank>
       return BankSet.EMPTY_SET;
    }
 
+   /**
+    * Loop through the current set of Bank objects and collect a set of the User objects reached via user is in. 
+    * 
+    * @return Set of User objects reachable via user is in
+    */
+   public UserSet getUser is in()
+   {
+      UserSet result = new UserSet();
+      
+      for (Bank obj : this)
+      {
+         result.with(obj.getUser is in());
+      }
+      
+      return result;
+   }
+
+   /**
+    * Loop through the current set of Bank objects and collect all contained objects with reference user is in pointing to the object passed as parameter. 
+    * 
+    * @param value The object required as user is in neighbor of the collected results. 
+    * 
+    * @return Set of User objects referring to value via user is in
+    */
+   public BankSet filterUser is in(Object value)
+   {
+      ObjectSet neighbors = new ObjectSet();
+
+      if (value instanceof Collection)
+      {
+         neighbors.addAll((Collection<?>) value);
+      }
+      else
+      {
+         neighbors.add(value);
+      }
+      
+      BankSet answer = new BankSet();
+      
+      for (Bank obj : this)
+      {
+         if ( ! Collections.disjoint(neighbors, obj.getUser is in()))
+         {
+            answer.add(obj);
+         }
+      }
+      
+      return answer;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and attach the Bank object passed as parameter to the User is in attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now with the new neighbor attached to their User is in attributes.
+    */
+   public BankSet withUser is in(User value)
+   {
+      for (Bank obj : this)
+      {
+         obj.withUser is in(value);
+      }
+      
+      return this;
+   }
+
+   /**
+    * Loop through current set of ModelType objects and remove the Bank object passed as parameter from the User is in attribute of each of it. 
+    * 
+    * @return The original set of ModelType objects now without the old neighbor.
+    */
+   public BankSet withoutUser is in(User value)
+   {
+      for (Bank obj : this)
+      {
+         obj.withoutUser is in(value);
+      }
+      
+      return this;
+   }
+
 }

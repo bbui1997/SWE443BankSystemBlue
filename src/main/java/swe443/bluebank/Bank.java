@@ -32,6 +32,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import swe443.bluebank.Account;
+import swe443.bluebank.User;
 
 /**
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
@@ -372,7 +374,8 @@ public class Bank implements SendableEntity {
     public void removeYou() {
         withoutAccount_Has(this.getAccount_Has().toArray(new Account[this.getAccount_Has().size()]));
         withoutBank_Has(this.getBank_Has().toArray(new User[this.getBank_Has().size()]));
-        firePropertyChange("REMOVE_YOU", this, null);
+        withoutUser is in(this.getUser is in().toArray(new User[this.getUser is in().size()]));
+      firePropertyChange("REMOVE_YOU", this, null);
     }
 
 
@@ -601,4 +604,76 @@ public class Bank implements SendableEntity {
         number = number / 100;
         return String.format("%.2f", number);
     }
+
+   
+   /********************************************************************
+    * <pre>
+    *              one                       many
+    * Bank ----------------------------------- User
+    *              Bank_has                   user is in
+    * </pre>
+    */
+   
+   public static final String PROPERTY_USER IS IN = "user is in";
+
+   private UserSet user is in = null;
+   
+   public UserSet getUser is in()
+   {
+      if (this.user is in == null)
+      {
+         return UserSet.EMPTY_SET;
+      }
+   
+      return this.user is in;
+   }
+
+   public Bank withUser is in(User... value)
+   {
+      if(value==null){
+         return this;
+      }
+      for (User item : value)
+      {
+         if (item != null)
+         {
+            if (this.user is in == null)
+            {
+               this.user is in = new UserSet();
+            }
+            
+            boolean changed = this.user is in.add (item);
+
+            if (changed)
+            {
+               item.withBank_has(this);
+               firePropertyChange(PROPERTY_USER IS IN, null, item);
+            }
+         }
+      }
+      return this;
+   } 
+
+   public Bank withoutUser is in(User... value)
+   {
+      for (User item : value)
+      {
+         if ((this.user is in != null) && (item != null))
+         {
+            if (this.user is in.remove(item))
+            {
+               item.setBank_has(null);
+               firePropertyChange(PROPERTY_USER IS IN, item, null);
+            }
+         }
+      }
+      return this;
+   }
+
+   public User createUser is in()
+   {
+      User value = new User();
+      withUser is in(value);
+      return value;
+   } 
 }
