@@ -34,7 +34,6 @@ public class UserCreator implements SendableEntityCreator
       User.PROPERTY_USERNAME,
       User.PROPERTY_ACCOUNT_HAS,
       User.PROPERTY_USER_HAS,
-      User.PROPERTY_BANK_HAS,
    };
    
    @Override
@@ -74,11 +73,6 @@ public class UserCreator implements SendableEntityCreator
       {
          return ((User) target).getUser_Has();
       }
-
-      if (User.PROPERTY_BANK_HAS.equalsIgnoreCase(attribute))
-      {
-         return ((User) target).getBank_has();
-      }
       
       return null;
    }
@@ -112,12 +106,6 @@ public class UserCreator implements SendableEntityCreator
       if (User.PROPERTY_USER_HAS.equalsIgnoreCase(attrName))
       {
          ((User) target).setUser_Has((Bank) value);
-         return true;
-      }
-
-      if (User.PROPERTY_BANK_HAS.equalsIgnoreCase(attrName))
-      {
-         ((User) target).setBank_has((Bank) value);
          return true;
       }
       

@@ -264,43 +264,4 @@ public class BankPO extends PatternObject<BankPO, Bank>
       }
    }
 
-   public UserPO createUser is inPO()
-   {
-      UserPO result = new UserPO(new User[]{});
-      
-      result.setModifier(this.getPattern().getModifier());
-      super.hasLink(Bank.PROPERTY_USER IS IN, result);
-      
-      return result;
-   }
-
-   public UserPO createUser is inPO(String modifier)
-   {
-      UserPO result = new UserPO(new User[]{});
-      
-      result.setModifier(modifier);
-      super.hasLink(Bank.PROPERTY_USER IS IN, result);
-      
-      return result;
-   }
-
-   public BankPO createUser is inLink(UserPO tgt)
-   {
-      return hasLinkConstraint(tgt, Bank.PROPERTY_USER IS IN);
-   }
-
-   public BankPO createUser is inLink(UserPO tgt, String modifier)
-   {
-      return hasLinkConstraint(tgt, Bank.PROPERTY_USER IS IN, modifier);
-   }
-
-   public UserSet getUser is in()
-   {
-      if (this.getPattern().getHasMatch())
-      {
-         return ((Bank) this.getCurrentMatch()).getUser is in();
-      }
-      return null;
-   }
-
 }
