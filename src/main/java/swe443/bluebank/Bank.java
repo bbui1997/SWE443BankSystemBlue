@@ -282,7 +282,7 @@ public class Bank implements SendableEntity {
         //Check that user input is a double
         while(true){
             System.out.println("\n");
-            System.out.println("Machine dispenses money in denominations of $10, $20, or $100");
+            //System.out.println("Machine dispenses money in denominations of $10, $20, or $100");
             System.out.print("Please enter amount to withdraw:"); //prompt for amount to withdraw
 
             try{

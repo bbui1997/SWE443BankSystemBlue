@@ -116,8 +116,8 @@ public class TransactionTests {
     /**
      * This method tests withdraw Scenario2:
      * Sal attempts to withdraw an incorrect denomination.
-     * She currently has a balance of $75 and attempts to withdraw $35.
-     * The transaction fails and returns $0.
+     * She currently has a balance of $75 and attempts to withdraw $35.50.
+     * The transaction succeeds and returns 35.50. New balance is 39.50
      * @see <a href='../../../doc/WithdrawScenario2.html'>WithdrawScenario2.html</a>
      */
     @Test
@@ -129,11 +129,11 @@ public class TransactionTests {
         storyboard.addObjectDiagram(sal);
 
         storyboard.add("Sal attempts to withdraw $35 but isn't successfully because $35 is an improper amount.");
-        double cash = sal.withdraw(35);
+        double cash = sal.withdraw(35.50);
         storyboard.addObjectDiagram(sal);
 
-        storyboard.assertEquals("Withdrawn:",0,cash,0); //no money is returned
-        storyboard.assertEquals("Balance:",75,sal.getAccountBalance(),0); //Sal's account balance remains the same.
+        storyboard.assertEquals("Withdrawn:",35.50,cash,0); //no money is returned
+        storyboard.assertEquals("Balance:",39.50,sal.getAccountBalance(),0); //Sal's account balance remains the same.
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }

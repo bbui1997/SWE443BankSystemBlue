@@ -53,45 +53,21 @@ public class Account implements SendableEntity {
 
     //==========================================================================
     public double withdraw(double amt) {
-        /**
-         * Check if amount is a denomination of 100
-         */
-        if ((amt % 100) == 0) {
-            if ((this.getAccountBalance() - amt) < 0) {//check if withdrawal amount greater than balance
-                return -1;
-            } else {
-                this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-                this.recentTransaction = "withdrawal " + amt;
-                return amt; //return requested amount
-            }
+        double withdraw_amt=0;
+
+        //Check if amount to withdraw results in a negative balance
+        if ((this.getAccountBalance() - amt) < 0) {
+            withdraw_amt =  -1; //return -1; do not do withdrawal
         }
 
-        /**
-         * Check if amount is a denomination of 20
-         */
-        if ((amt % 20) == 0) {
-            if ((this.getAccountBalance() - amt) < 0) {//check if withdrawal amount greater than balance
-                return -1;
-            } else {
-                this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-                this.recentTransaction = "withdrawal " + amt;
-                return amt; //return requested amount
-            }
+        //Check if amount to withdraw results in a positive balance
+        if((this.getAccountBalance() - amt) > 0){
+            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+            this.recentTransaction = "withdrawal " + amt;
+            withdraw_amt =  amt; //return requested amount
         }
 
-        /**
-         * Check if amount is a denomination of 10
-         */
-        if ((amt % 10) == 0) {
-            if ((this.getAccountBalance() - amt) < 0) {//check if withdrawal amount greater than balance
-                return -1;
-            } else {
-                this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
-                this.recentTransaction = "withdrawal " + amt;
-                return amt; //return requested amount
-            }
-        }
-        return 0; //return 0 if denominations don't match
+        return withdraw_amt;
     }
 
 
