@@ -133,5 +133,6 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
  - 2017-04-04: 10:02-10:11 Marcus | fixed bug "Withdraw negative value, gains money"
  - 2017-04-04: 10:11-10:20 Marcus | fixed bugs "Ensure double input on deposit","Negative deposit"
  - 2017-04-04: 12:25-12:31 Brandon | added new "item", "Transfer, Implementation v2"
+ - 2017-04-06: 09:15-09:28 Marcus | fixed bug "allow more values to withdraw"
 
 

@@ -95,13 +95,25 @@ public class Bank implements SendableEntity {
         }
         acct.setName(name);
         user.setUserName(name);
+
         System.out.println("Please enter the last four (4) digits of your Social Security Number.");
         String ssn = scanStr.nextLine();
         while(ssn.length() != 4){
             System.out.println("Please enter the last four (4) digits of your Social Security Number.");
             ssn = scanStr.nextLine();
         }
+        boolean check = false;
+        do {
+            try{
+                int test = Integer.parseInt(ssn);
+                check = true;
+            }catch (NumberFormatException e){
+                System.out.println("Please enter the last four (4) digits of your Social Security Number.");
+                ssn = scanStr.nextLine();
+            }
+        }while (!check);
         acct.setSsn(Integer.parseInt(ssn));
+
         System.out.println("Please enter your date of birth, first enter the month:");
         String dob = "";
         int month = scanInt.nextInt();
@@ -282,7 +294,7 @@ public class Bank implements SendableEntity {
         //Check that user input is a double
         while(true){
             System.out.println("\n");
-            System.out.println("Machine dispenses money in denominations of $10, $20, or $100");
+            //System.out.println("Machine dispenses money in denominations of $10, $20, or $100");
             System.out.print("Please enter amount to withdraw:"); //prompt for amount to withdraw
 
             try{
