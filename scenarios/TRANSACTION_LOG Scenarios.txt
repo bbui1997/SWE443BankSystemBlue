@@ -1,0 +1,36 @@
+Title: Transaction Log Scenarios
+
+Scenario 1: Transaction log created after Joey deposits $100 into account
+  1) Joey receives a check from his job for $100.
+  2) He goes to the BlueBank to deposit the check into his account.
+  3) Joey deposits the check for $100 into his account.
+  4) A log entry is entered into his account stating "Joey - deposit 100.00"
+  5) Joey leaves the BlueBank.
+
+Scenario 2: Transaction log created after Joey withdraws $25 from his account
+  1) Joey needs money to put gas into his car.
+  2) He goes to the Blue Bank to withdraw $25 from his account for gas and spending money.
+  3) Joey requests to withdraw $25 from the bank.
+  4) He receives the money and a transaction log is generated stating "Joey - withdraw 25.00"
+  5) Joey leaves the bank.
+
+Scenario 3: Transaction log created after Joey transfers money to Diane
+  1) Diane asked Joey to borrow $15.
+  2) Joey says yes and logs into his Blue Bank account.
+  3) He chooses the option to Transfer money and enters Diane's account information.
+  4) Joey enters $15 to transfer to Diane.
+  5) He okays the transaction and $15 is transferred to Diane's account.
+  6) A transaction log is generated stating "Joey - transfer 15.00 Diane"
+  7) Joey logs out of his account.
+
+Author(s):
+
+  - Marcus
+
+Assigned persons (currently working on task):
+
+  - Marcus
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  - 2017-04-06: 09:40-10:10 Marcus | Wrote scenarios for transaction log

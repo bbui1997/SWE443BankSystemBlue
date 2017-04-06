@@ -31,7 +31,7 @@ Create Account
    Potential Fix: A try/catch block would probably suffice.
 
 Withdraw
- - Name: Ensure double input on withdraw
+ - Name: Ensure double input on withdraw (done)
    Assigned:
    A user can input any random value for when they are asked how much they want to withdraw (like a string).
    This causes an error and crashes the program.
@@ -39,14 +39,14 @@ Withdraw
    Potential Fix: Use a try/catch block to make sure they enter a double. There's a possiblity that the
                   the UI from Android/Web will enforce this already, so we might not need to fix this yet.
 
- - Name: Withdraw negative value, gains money
+ - Name: Withdraw negative value, gains money (done)
    Assigned:
    A user can input a negative value when they withdraw, which would make them gain money. This shouldn't
    be possible.
    Priority: High
    Potential Fix: Use an if-statement to check if it's a negative value and tell them to try again.
 
- - Name: Possibly allow more values to withdraw?
+ - Name: Possibly allow more values to withdraw? (done)
    Assigned:
    Currently, a user is only allowed to withdraw 100, 20, or 10. Brandon believes that they should be able
    to withdraw more values
@@ -54,7 +54,7 @@ Withdraw
    Potential Fix: Use conditional statements to check the amount to be withdrawn.
 
 Deposit
- - Name: Ensure double input on deposit
+ - Name: Ensure double input on deposit (done)
    Assigned:
    A user can input any random value for when they are asked how much they want to deposit (like a string).
    This causes an error and crashes the program.
@@ -62,7 +62,7 @@ Deposit
    Potential Fix: Use a try/catch block to make sure they enter a double. There's a possibility that the
                   the UI from Android/Web will enforce this already, so we might not need to fix this yet.
  
- - Name: Negative deposit
+ - Name: Negative deposit (done)
    Assigned:
    When a user inputs a negative value when depositing, it will throw an illegal argument exception.
    This is the correct exception to throw, but when we are actually using the program, we probably don't
