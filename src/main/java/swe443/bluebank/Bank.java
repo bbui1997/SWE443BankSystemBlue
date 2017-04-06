@@ -571,18 +571,39 @@ public class Bank implements SendableEntity {
 
         Scanner input = new Scanner(System.in);
         double amt;
-        // TODO: choose the real account
-        Account target = new Account().withAccountBalance(10);
 
         System.out.println("\n");
         System.out.print("Please enter the account holder's name to transfer:"); //prompt for target to transfer
         String user = input.next();
+        String target = getAccount_Has().filterUsername(user).getUsername().toString();
+        System.out.println("Target exist: " + target);
+        while(target.equals("()")){
+            System.out.println("User not found, Please try again.");
+            user=input.next();
+            target = getAccount_Has().filterUsername(user).getUsername().toString();
+        }
+        Account accTo = getAccount_Has().filterUsername(user).get(0);
+        //System.out.println("acc target exist: " + acc.getUsername());
 
+        System.out.println("\n");
+        System.out.print("Please enter the amount to transfer:"); //prompt for amount to withdraw
+        amt = input.nextDouble(); //read withdrawal amount
+
+        //transfer
+        acct.withdraw(amt);
+        accTo.deposit(amt);
+
+
+
+
+/*
         // TODO:
         // Account target = find(user)
         System.out.println("\n");
         System.out.print("Please enter the amount to transfer:"); //prompt for amount to withdraw
         amt = input.nextDouble(); //read withdrawal amount
+
+
 
         // TODO: check if target exists
         //money transfer from account to target
@@ -600,7 +621,7 @@ public class Bank implements SendableEntity {
 
         acct.setAccountBalance(num);
 
-        System.out.println();
+        System.out.println();*/
     }
 
     //==========================================================================

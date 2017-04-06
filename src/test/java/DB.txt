@@ -151,7 +151,7 @@
          "username":"ht93",
          "password":"pass",
          "initialAmount":100,
-         "accountBalance":50,
+         "accountBalance":75,
          "User_Has":{
             "class":"swe443.bluebank.User",
             "id":"demo.U17"
@@ -159,7 +159,8 @@
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
             "id":"demo.B1"
-         }
+         },
+         "recentTransaction":"deposit 25.0"
       }
    },
    {
@@ -294,7 +295,7 @@
          "username":"hello",
          "password":"jello",
          "initialAmount":100,
-         "accountBalance":50,
+         "accountBalance":100,
          "User_Has":{
             "class":"swe443.bluebank.User",
             "id":"demo.U25"
@@ -302,7 +303,8 @@
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
             "id":"demo.B1"
-         }
+         },
+         "recentTransaction":"deposit 25.0"
       }
    },
    {
