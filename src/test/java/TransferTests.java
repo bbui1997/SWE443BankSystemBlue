@@ -1,9 +1,8 @@
 /**
  * Created by Spade on 3/26/17.
- * The test of this class tests the 3 scenarios for depositing money and
- * and the 3 scenarios for withdrawing money.
+ * The test of this class tests the 3 scenarios for transferring money.
  *
- * @Author: Marcus Yarbrough
+ * @Author: Sara Borghei
  */
 import org.junit.After;
 import org.junit.Before;

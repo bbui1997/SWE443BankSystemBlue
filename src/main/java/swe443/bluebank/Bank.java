@@ -159,8 +159,6 @@ public class Bank implements SendableEntity {
         withAccount_Has(acct);
         withBank_Has(user);
         user.withAccount_Has(acct);
-
-
     }
 
     Scanner scanStr;
@@ -577,11 +575,17 @@ public class Bank implements SendableEntity {
         Account target = new Account().withAccountBalance(10);
 
         System.out.println("\n");
+        System.out.print("Please enter the account holder's name to transfer:"); //prompt for target to transfer
+        String user = input.next();
+
+        // TODO:
+        // Account target = find(user)
+        System.out.println("\n");
         System.out.print("Please enter the amount to transfer:"); //prompt for amount to withdraw
         amt = input.nextDouble(); //read withdrawal amount
 
         // TODO: check if target exists
-        //money transfer from account
+        //money transfer from account to target
         if (acct.transfer(amt, target)) {
             System.out.println("$" + doubleToMoneyFormat(amt) + " has been successfully transferred."); //print amount transferred
             System.out.println("Your remaining balance: $" + doubleToMoneyFormat(acct.getAccountBalance())); //print balance
