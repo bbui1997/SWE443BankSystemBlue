@@ -467,7 +467,7 @@ public class Account implements SendableEntity {
 
     //==========================================================================
     public void deposit() {
-        //dont use, use MakeDeposit in bank
+        //dont use, use MakeDeposit;
     }
 
 
