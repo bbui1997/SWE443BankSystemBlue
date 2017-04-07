@@ -42,6 +42,7 @@ public class Model {
                 .withMethod("makeTransfer", DataType.VOID)
                 .withMethod("viewBalance", DataType.VOID);
 
+
         Clazz userClass = model.createClazz("User")
                 .withAttribute("userName", DataType.STRING);
 

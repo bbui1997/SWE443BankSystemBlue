@@ -380,7 +380,7 @@
          "username":"test",
          "password":"asdasdasd",
          "initialAmount":25,
-         "accountBalance":5,
+         "accountBalance":142.5,
          "User_Has":{
             "class":"swe443.bluebank.User",
             "id":"demo.U29"
@@ -388,7 +388,8 @@
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
             "id":"demo.B1"
-         }
+         },
+         "recentTransaction":"withdrawal 50.0"
       }
    },
    {

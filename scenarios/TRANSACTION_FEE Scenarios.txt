@@ -8,7 +8,8 @@ Scenario 1: Jess makes a deposit into her account at BlueBank
   -Jess logs into her account and selects "Deposit" on the welcome screen 
   -Jess types $100 into the terminal to add to the account 
   -BlueBank has decided to start charging a transaction fee of %5 for the deposit
-  -After the transaction is made Jess decides to "View account balance" 
+  -After the transaction is made Jess decides to "View account balance"
+  -Her current balance will be $1095
   -Jess sees that she lost $5 off of the $100 she just deposited
   -Jess thinks this is silly but assumes that's just how banks are
   

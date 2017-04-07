@@ -53,7 +53,7 @@ public class TransferTests {
         storyboard.addCode();
         storyboard.addObjectDiagram(sal, target);
 
-        storyboard.assertEquals("Sal's Balance:",50,sal.getAccountBalance(),0); //check that current balance equals $100
+        storyboard.assertEquals("Sal's Balance:",45,sal.getAccountBalance(),0); //check that current balance equals $100
         storyboard.assertEquals("Target Balance:",150, target.getAccountBalance(),0); //check that the current balance
         storyboard.dumpHTML();
 
@@ -117,7 +117,7 @@ public class TransferTests {
         storyboard.addCode();
 
         storyboard.addObjectDiagram(sal, savings);
-        storyboard.assertEquals("Balance:", 50, sal.getAccountBalance(), 0);//check that the current balance equals $50
+        storyboard.assertEquals("Balance:", 45, sal.getAccountBalance(), 0);//check that the current balance equals $50
         storyboard.assertEquals("Savings Balance:", 150, savings.getAccountBalance(), 0);
         //storyboard.assertEquals("Target Balance:",150,target.getAccountBalance(),0); //check that the current balance on saving equals $150
         storyboard.dumpHTML();

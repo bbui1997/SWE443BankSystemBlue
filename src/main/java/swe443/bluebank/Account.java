@@ -42,8 +42,10 @@ public class Account implements SendableEntity {
         /**
          * check if valid amount. add amount to balance if greater than 0.
          */
-        if (amt >= 0) {
-            this.setAccountBalance(amt + getAccountBalance()); //add amount to the account balance.
+        double fee = 0.05;
+        if (amt >= 0 ) {
+            double amount = amt - (amt*fee);
+            this.setAccountBalance(amount + getAccountBalance()); //add amount to the account balance.
             this.recentTransaction = "deposit " + amt;
         } else {
             throw new IllegalArgumentException(amt + " is less than or equal to 0");
@@ -54,15 +56,16 @@ public class Account implements SendableEntity {
     //==========================================================================
     public double withdraw(double amt) {
         double withdraw_amt=0;
-
+        double fee = 0.05;
+        double amtandfee = amt + (amt*fee);
         //Check if amount to withdraw results in a negative balance
-        if ((this.getAccountBalance() - amt) < 0) {
+        if ((this.getAccountBalance() - amtandfee) < 0) {
             withdraw_amt =  -1; //return -1; do not do withdrawal
         }
 
         //Check if amount to withdraw results in a positive balance
-        if((this.getAccountBalance() - amt) > 0){
-            this.setAccountBalance(this.getAccountBalance() - amt); //deduct amount from balance. Update balance.
+        if((this.getAccountBalance() - amtandfee) > 0){
+            this.setAccountBalance(this.getAccountBalance() - amtandfee); //deduct amount from balance. Update balance.
             this.recentTransaction = "withdrawal " + amt;
             withdraw_amt =  amt; //return requested amount
         }
@@ -80,15 +83,20 @@ public class Account implements SendableEntity {
             return;
         }
         String type = sc.next();
+        double fee = 0.05;
         switch (type) {
             case "deposit":
                 double amount = sc.nextDouble();
-                this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
+                double amtandfee = amount + (amount*fee);
+                withdraw(amtandfee);
+                //this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
                 break;                                                 //deduct the deposited amount from balance.
 
             case "withdrawal":
                 double wAmt = sc.nextDouble();
-                this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
+                double wAmtandfee = wAmt - (wAmt*fee);
+                deposit(wAmtandfee);
+                //this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
                 break;                                                 //add the amount that was withdrawn to balance.
 
             //case transfer
@@ -104,10 +112,12 @@ public class Account implements SendableEntity {
     //==========================================================================
     public boolean transfer(double amt, Account acct) {
 
+        double fee = 0.05;
         // Check if amount is less than balance
         if (amt > 0 && this.getAccountBalance() > amt) {
             // TODO: check account validity
-            this.setAccountBalance(this.getAccountBalance() - amt); //withdraw amount from this. Update balance.
+            double amtandfee = amt + (amt*fee);
+            this.setAccountBalance(this.getAccountBalance() - amtandfee); //withdraw amount from this. Update balance.
             acct.setAccountBalance(acct.getAccountBalance() + amt); //deposit amount to the acct. Update balance.
             return true; //return succeed flag
         } else {

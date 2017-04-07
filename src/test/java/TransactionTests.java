@@ -42,7 +42,7 @@ public class TransactionTests {
         storyboard.addObjectDiagram(sal);
 
         sal.deposit(50); //sal deposits $50
-        storyboard.assertEquals("Balance:",50,sal.getAccountBalance(),0); //check that current balance equals $50
+        storyboard.assertEquals("Balance:",47.50,sal.getAccountBalance(),0); //check that current balance equals $50
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
@@ -62,7 +62,7 @@ public class TransactionTests {
         sal.setAccountBalance(-25); //set initial balance to -$25
 
         sal.deposit(100); //Sal deposits $100 into her account
-        storyboard.assertEquals("Balance:",75,sal.getAccountBalance(),0); //check that current balance equals $75 after deposit
+        storyboard.assertEquals("Balance:",70,sal.getAccountBalance(),0); //check that current balance equals $75 after deposit
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
@@ -81,9 +81,9 @@ public class TransactionTests {
         storyboard.addObjectDiagram(sal);
         sal.setAccountBalance(120); //set initial balance to $120
 
-        sal.deposit(80); //first deposit of $80
-        sal.deposit(40); //second deposit of $40
-        storyboard.assertEquals("Balance:",240,sal.getAccountBalance(),0); //check that the current balance equals $240 after both deposits
+        sal.deposit(80); //first deposit of $76
+        sal.deposit(40); //second deposit of $38
+        storyboard.assertEquals("Balance:",234,sal.getAccountBalance(),0); //check that the current balance equals $234 after both deposits
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
@@ -108,7 +108,7 @@ public class TransactionTests {
         storyboard.addObjectDiagram(sal);
 
         storyboard.assertEquals("Withdrawn:",40,cash,0); //$40 is returned
-        storyboard.assertEquals("Balance:",20,sal.getAccountBalance(),0); //check account balance is $20 after withdrawal
+        storyboard.assertEquals("Balance:",18,sal.getAccountBalance(),0); //check account balance is $18 after withdrawal
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
@@ -133,7 +133,7 @@ public class TransactionTests {
         storyboard.addObjectDiagram(sal);
 
         storyboard.assertEquals("Withdrawn:",35.50,cash,0); //no money is returned
-        storyboard.assertEquals("Balance:",39.50,sal.getAccountBalance(),0); //Sal's account balance remains the same.
+        storyboard.assertEquals("Balance:",37.73,sal.getAccountBalance(),0.01); //Sal's account balance remains the same.
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }

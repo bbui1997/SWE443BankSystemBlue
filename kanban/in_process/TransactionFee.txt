@@ -6,9 +6,13 @@ Description:
  Tests need to be written for this functionality as well. 
  Object diagrams will need to be created for these tests.
 
+ Update: Did not change method signatures, just added a variable called fee within the methods and used that to
+ calculate the amount that will be withdrawn/deposited/modified/transferred. Also, currently the fee collected is not
+ being stored anywhere: that needs to be changed.
+
 Related scenario(s):
 -Need a scenario created for this task. 
--Ex: Salonika withdraws $100.00 with a 1% fee. Salonika is charged, $1. 
+-Ex: Salonika withdraws $100.00 with a 5% fee. Salonika is charged, $5.
 
 Time estimate(s):
 
@@ -20,7 +24,9 @@ Author(s):
 Assigned persons (currently working on task):
 -Salonika
 -Heymond (object diagrams)
+-Krishna
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-03-10: 12:00-14:00 Salonika (replace this with an actual log) 
+  - 2017-04-07: 13:20-14:23 Salonika | updated deposit, withdraw, transfer and checked tests
+  - 2017-04-07: 17:53-18:03 Salonika | updated modify, and checked tests

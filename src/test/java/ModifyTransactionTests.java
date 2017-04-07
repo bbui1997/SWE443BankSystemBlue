@@ -47,10 +47,13 @@ public class ModifyTransactionTests {
 
         double initialBalance = sal.getAccountBalance();
 
+        sal.setAccountBalance(50.00);
+
         sal.deposit(50.0);               //sal deposits $50
         sal.undoRecentTransaction();        //sal undoes the deposit.
 
-        storyboard.assertTrue(" ", sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
+        //storyboard.assertTrue(" ", sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
+        storyboard.assertEquals("Balance:",42.38,sal.getAccountBalance(),0.01); //check that current balance equals $48
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
@@ -69,14 +72,15 @@ public class ModifyTransactionTests {
         Storyboard storyboard = new Storyboard();
         storyboard.addObjectDiagram(sal);
 
-        sal.deposit(50.0);
+        sal.setAccountBalance(50.00);
 
         double initialBalance = sal.getAccountBalance();
 
-        sal.withdraw(50.0);               //sal withdraws $50
+        sal.withdraw(40.0);               //sal withdraws $50
         sal.undoRecentTransaction();        //sal undoes the withdrawal.
 
-        storyboard.assertTrue(" ",sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
+        //storyboard.assertTrue(" ",sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
+        storyboard.assertEquals("Balance:",44.10,sal.getAccountBalance(),0); //check that current balance equals $44.10
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }
