@@ -933,4 +933,87 @@ public class AccountSet extends SimpleSet<Account>
       return this;
    }
 
+
+   /**
+    * Loop through the current set of Account objects and collect a list of the iOweTheBank attribute values. 
+    * 
+    * @return List of double objects reachable via iOweTheBank attribute
+    */
+   public NumberList getIOweTheBank()
+   {
+      NumberList result = new NumberList();
+      
+      for (Account obj : this)
+      {
+         result.add(obj.getIOweTheBank());
+      }
+      
+      return result;
+   }
+
+
+   /**
+    * Loop through the current set of Account objects and collect those Account objects where the iOweTheBank attribute matches the parameter value. 
+    * 
+    * @param value Search value
+    * 
+    * @return Subset of Account objects that match the parameter
+    */
+   public AccountSet filterIOweTheBank(double value)
+   {
+      AccountSet result = new AccountSet();
+      
+      for (Account obj : this)
+      {
+         if (value == obj.getIOweTheBank())
+         {
+            result.add(obj);
+         }
+      }
+      
+      return result;
+   }
+
+
+   /**
+    * Loop through the current set of Account objects and collect those Account objects where the iOweTheBank attribute is between lower and upper. 
+    * 
+    * @param lower Lower bound 
+    * @param upper Upper bound 
+    * 
+    * @return Subset of Account objects that match the parameter
+    */
+   public AccountSet filterIOweTheBank(double lower, double upper)
+   {
+      AccountSet result = new AccountSet();
+      
+      for (Account obj : this)
+      {
+         if (lower <= obj.getIOweTheBank() && obj.getIOweTheBank() <= upper)
+         {
+            result.add(obj);
+         }
+      }
+      
+      return result;
+   }
+
+
+   /**
+    * Loop through the current set of Account objects and assign value to the iOweTheBank attribute of each of it. 
+    * 
+    * @param value New attribute value
+    * 
+    * @return Current set of Account objects now with new attribute values.
+    */
+   public AccountSet withIOweTheBank(double value)
+   {
+      for (Account obj : this)
+      {
+         obj.setIOweTheBank(value);
+      }
+      
+      return this;
+   }
+
 }

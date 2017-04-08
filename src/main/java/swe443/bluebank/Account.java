@@ -42,9 +42,10 @@ public class Account implements SendableEntity {
         /**
          * check if valid amount. add amount to balance if greater than 0.
          */
-        double fee = 0.05;
+        double fee = amt*0.05;
         if (amt >= 0 ) {
-            double amount = amt - (amt*fee);
+            double amount = amt - fee;
+            this.iOweTheBank += fee;
             this.setAccountBalance(amount + getAccountBalance()); //add amount to the account balance.
             this.recentTransaction = "deposit " + amt;
         } else {
@@ -56,18 +57,21 @@ public class Account implements SendableEntity {
     //==========================================================================
     public double withdraw(double amt) {
         double withdraw_amt=0;
-        double fee = 0.05;
-        double amtandfee = amt + (amt*fee);
+        double fee = amt*0.05;
+        double amtandfee = amt + fee;
         //Check if amount to withdraw results in a negative balance
         if ((this.getAccountBalance() - amtandfee) < 0) {
             withdraw_amt =  -1; //return -1; do not do withdrawal
-        }
+        }else{
 
         //Check if amount to withdraw results in a positive balance
         if((this.getAccountBalance() - amtandfee) > 0){
+
             this.setAccountBalance(this.getAccountBalance() - amtandfee); //deduct amount from balance. Update balance.
+            this.iOweTheBank += fee;
             this.recentTransaction = "withdrawal " + amt;
             withdraw_amt =  amt; //return requested amount
+        }
         }
 
         return withdraw_amt;
@@ -112,12 +116,13 @@ public class Account implements SendableEntity {
     //==========================================================================
     public boolean transfer(double amt, Account acct) {
 
-        double fee = 0.05;
+        double fee = amt*0.05;
         // Check if amount is less than balance
         if (amt > 0 && this.getAccountBalance() > amt) {
             // TODO: check account validity
-            double amtandfee = amt + (amt*fee);
+            double amtandfee = amt + fee;
             this.setAccountBalance(this.getAccountBalance() - amtandfee); //withdraw amount from this. Update balance.
+            this.iOweTheBank += fee;
             acct.setAccountBalance(acct.getAccountBalance() + amt); //deposit amount to the acct. Update balance.
             return true; //return succeed flag
         } else {
@@ -217,7 +222,8 @@ public class Account implements SendableEntity {
         result.append(" ").append(this.getInitialAmount());
         result.append(" ").append(this.getAccountBalance());
         result.append(" ").append(this.getRecentTransaction());
-        return result.substring(1);
+        result.append(" ").append(this.getIOweTheBank());
+      return result.substring(1);
     }
 
 
@@ -517,4 +523,32 @@ public class Account implements SendableEntity {
         setRecentTransaction(value);
         return this;
     }
+
+   
+   //==========================================================================
+   
+   public static final String PROPERTY_IOWETHEBANK = "iOweTheBank";
+   
+   private double iOweTheBank;
+
+   public double getIOweTheBank()
+   {
+      return this.iOweTheBank;
+   }
+   
+   public void setIOweTheBank(double value)
+   {
+      if (this.iOweTheBank != value) {
+      
+         double oldValue = this.iOweTheBank;
+         this.iOweTheBank = value;
+         this.firePropertyChange(PROPERTY_IOWETHEBANK, oldValue, value);
+      }
+   }
+   
+   public Account withIOweTheBank(double value)
+   {
+      setIOweTheBank(value);
+      return this;
+   } 
 }

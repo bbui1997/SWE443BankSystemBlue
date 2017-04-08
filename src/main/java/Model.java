@@ -27,6 +27,7 @@ public class Model {
                 .withAttribute("initialAmount", DataType.DOUBLE)
                 .withAttribute("accountBalance", DataType.DOUBLE)
                 .withAttribute("recentTransaction",DataType.STRING)
+                .withAttribute("iOweTheBank",DataType.DOUBLE)
                 //.withMethod("deposit", DataType.VOID)
                 //.withMethod("withdraw",DataType.DOUBLE)
                 .withMethod("undoRecentTransaction", DataType.VOID)

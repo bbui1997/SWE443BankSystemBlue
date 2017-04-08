@@ -41,6 +41,7 @@ public class AccountCreator implements SendableEntityCreator
       Account.PROPERTY_USER_HAS,
       Account.PROPERTY_BANK_HAS,
       Account.PROPERTY_RECENTTRANSACTION,
+      Account.PROPERTY_IOWETHEBANK,
    };
    
    @Override
@@ -115,6 +116,11 @@ public class AccountCreator implements SendableEntityCreator
       {
          return ((Account) target).getRecentTransaction();
       }
+
+      if (Account.PROPERTY_IOWETHEBANK.equalsIgnoreCase(attribute))
+      {
+         return ((Account) target).getIOweTheBank();
+      }
       
       return null;
    }
@@ -122,6 +128,12 @@ public class AccountCreator implements SendableEntityCreator
    @Override
    public boolean setValue(Object target, String attrName, Object value, String type)
    {
+      if (Account.PROPERTY_IOWETHEBANK.equalsIgnoreCase(attrName))
+      {
+         ((Account) target).setIOweTheBank(Double.parseDouble(value.toString()));
+         return true;
+      }
+
       if (Account.PROPERTY_RECENTTRANSACTION.equalsIgnoreCase(attrName))
       {
          ((Account) target).setRecentTransaction((String) value);

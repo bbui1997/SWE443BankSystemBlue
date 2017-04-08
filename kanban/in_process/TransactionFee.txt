@@ -2,13 +2,18 @@ Title: Transaction Fee
 
 Description:
 
- Transaction Fee functionality should be implemented for withdraw/deposit/modify/transfer. It should take in an amount to be withdrawn/deposited/etc and a percentage of fee to be taken out. The fee percentage can be assigned arbitrarily by the developer. 
+ Transaction Fee functionality should be implemented for withdraw/deposit/modify/transfer.
+ It should take in an amount to be withdrawn/deposited/etc and a percentage of fee to be taken out.
+ The fee percentage can be assigned arbitrarily by the developer.
  Tests need to be written for this functionality as well. 
  Object diagrams will need to be created for these tests.
 
  Update: Did not change method signatures, just added a variable called fee within the methods and used that to
  calculate the amount that will be withdrawn/deposited/modified/transferred. Also, currently the fee collected is not
  being stored anywhere: that needs to be changed.
+
+ Update: Added a new attribute in account: double iOweTheBank,
+ the fee from every transaction made from this account is added up here.
 
 Related scenario(s):
 -Need a scenario created for this task. 
@@ -28,5 +33,7 @@ Assigned persons (currently working on task):
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-  - 2017-04-07: 13:20-14:23 Salonika | updated deposit, withdraw, transfer and checked tests
-  - 2017-04-07: 17:53-18:03 Salonika | updated modify, and checked tests
+  - 2017-04-07: 13:20-14:23 : Salonika | updated deposit, withdraw, transfer and checked tests
+  - 2017-04-07: 17:53-18:03 : Salonika | updated modify, and checked tests
+  - 2017-04-08: 4:45 pm - 5:45 pm : Krishna | Added an attribute to account, to store the charged fee, everytime a
+                                              transaction is made.

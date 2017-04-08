@@ -675,4 +675,65 @@ public class AccountPO extends PatternObject<AccountPO, Account>
       return this;
    }
    
+   public AccountPO createIOweTheBankCondition(double value)
+   {
+      new AttributeConstraint()
+      .withAttrName(Account.PROPERTY_IOWETHEBANK)
+      .withTgtValue(value)
+      .withSrc(this)
+      .withModifier(this.getPattern().getModifier())
+      .withPattern(this.getPattern());
+      
+      super.filterAttr();
+      
+      return this;
+   }
+   
+   public AccountPO createIOweTheBankCondition(double lower, double upper)
+   {
+      new AttributeConstraint()
+      .withAttrName(Account.PROPERTY_IOWETHEBANK)
+      .withTgtValue(lower)
+      .withUpperTgtValue(upper)
+      .withSrc(this)
+      .withModifier(this.getPattern().getModifier())
+      .withPattern(this.getPattern());
+      
+      super.filterAttr();
+      
+      return this;
+   }
+   
+   public AccountPO createIOweTheBankAssignment(double value)
+   {
+      new AttributeConstraint()
+      .withAttrName(Account.PROPERTY_IOWETHEBANK)
+      .withTgtValue(value)
+      .withSrc(this)
+      .withModifier(Pattern.CREATE)
+      .withPattern(this.getPattern());
+      
+      super.filterAttr();
+      
+      return this;
+   }
+   
+   public double getIOweTheBank()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         return ((Account) getCurrentMatch()).getIOweTheBank();
+      }
+      return 0;
+   }
+   
+   public AccountPO withIOweTheBank(double value)
+   {
+      if (this.getPattern().getHasMatch())
+      {
+         ((Account) getCurrentMatch()).setIOweTheBank(value);
+      }
+      return this;
+   }
+   
 }
