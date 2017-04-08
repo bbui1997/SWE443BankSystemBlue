@@ -35,5 +35,5 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-04-07: 13:20-14:23 : Salonika | updated deposit, withdraw, transfer and checked tests
   - 2017-04-07: 17:53-18:03 : Salonika | updated modify, and checked tests
-  - 2017-04-08: 4:45 pm - 5:45 pm : Krishna | Added an attribute to account, to store the charged fee, everytime a
+  - 2017-04-08: 4:45 pm - 5:00 pm : Krishna | Added an attribute to account, to store the charged fee, everytime a
                                               transaction is made.
