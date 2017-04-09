@@ -1,6 +1,6 @@
 Title: Basic Android Gui
 
-Description: Using the mockups created last week, begin an basic implementation of an Android GUI for the BlueBank System. 
+Description: Using the mockups created last week, begin a basic implementation of an Android GUI for the BlueBank System.
 The app only needs to be functional. Usability and clean up will come in later weeks. The app needs to: 
 -login (if possible with persistence) 
 -create an account
