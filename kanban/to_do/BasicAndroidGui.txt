@@ -1,0 +1,21 @@
+Title: Basic Android Gui
+
+Description: Using the mockups created last week, begin an basic implementation of an Android GUI for the BlueBank System. 
+The app only needs to be functional. Usability and clean up will come in later weeks. The app needs to: 
+-login (if possible with persistence) 
+-create an account
+-deposit money
+-withdraw money
+-transfer money
+-modify a transaction
+
+Time estimate(s):
+2-3h
+
+Author(s):
+  -Jess
+Assigned persons (currently working on task):
+  -Ermal
+  -Sushena
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):

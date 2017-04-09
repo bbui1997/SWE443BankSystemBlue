@@ -1,0 +1,17 @@
+Title: Sales Pitch Presentation
+
+Description: This task is for the leads only. Create a presentation (sales pitch) to demo the midway point of the 
+BlueBank project. Create an interesting scenario to be acted out and demonstrated via the application. 
+
+Time estimate(s):
+1-2h
+
+Author(s):
+  -Jess
+  
+Assigned persons (currently working on task):
+  -Jess (presentation/overall pitch) 
+  -Ashmita (scenario) 
+  -Brandon (scenario and prepare to demo app live) 
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
