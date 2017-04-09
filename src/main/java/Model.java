@@ -30,7 +30,7 @@ public class Model {
                 .withAttribute("iOweTheBank",DataType.DOUBLE)
                 //.withMethod("deposit", DataType.VOID)
                 //.withMethod("withdraw",DataType.DOUBLE)
-                .withMethod("undoRecentTransaction", DataType.VOID)
+                //.withMethod("undoRecentTransaction", DataType.VOID)
                 .withMethod("transfer", DataType.VOID);
 
         Clazz bankClass = model.createClazz("Bank")
@@ -41,6 +41,7 @@ public class Model {
                 .withMethod("makeDeposit", DataType.VOID)
                 .withMethod("makeWithdrawal", DataType.VOID)
                 .withMethod("makeTransfer", DataType.VOID)
+                .withMethod("undoMostRecentTransaction",DataType.VOID)
                 .withMethod("viewBalance", DataType.VOID);
 
 

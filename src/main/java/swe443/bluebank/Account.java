@@ -79,42 +79,46 @@ public class Account implements SendableEntity {
 
 
     //==========================================================================
+    //***MOVED TO BANK** use undoRecentTransaction in bank
     public void undoRecentTransaction() {
-        Scanner sc = new Scanner(this.getRecentTransaction());
-        if (!sc.hasNext()) {
-            //If recentTransaction is null => no transaction yet.
-            System.out.println("No transaction yet !");
-            return;
-        }
-        String type = sc.next();
-        double fee = 0.05;
-        switch (type) {
-            case "deposit":
-                double amount = sc.nextDouble();
-                double amtandfee = amount + (amount*fee);
-                withdraw(amtandfee);
-                //this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
-                break;                                                 //deduct the deposited amount from balance.
-
-            case "withdrawal":
-                double wAmt = sc.nextDouble();
-                double wAmtandfee = wAmt - (wAmt*fee);
-                deposit(wAmtandfee);
-                //this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
-                break;                                                 //add the amount that was withdrawn to balance.
-
-            //case transfer
-
-            default:
-                System.out.println("****** MAYDAY ***** MAYDAY *******");
-                break;
-        }
-        return;
+//        Scanner sc = new Scanner(this.getRecentTransaction());
+//        if (!sc.hasNext()) {
+//            //If recentTransaction is null => no transaction yet.
+//            System.out.println("No transaction yet !");
+//            return;
+//        }
+//        String type = sc.next();
+//        double fee = 0.05;
+//        switch (type) {
+//            case "deposit":
+//                double amount = sc.nextDouble();
+//                //double amtandfee = amount + (amount*fee); I don't we need this, because,
+//                //withdraw calculates and accounts the fee.
+//                withdraw(amount);
+//                //this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
+//                break;                                                 //deduct the deposited amount from balance.
+//
+//            case "withdrawal":
+//                double wAmt = sc.nextDouble();
+//                //double wAmtandfee = wAmt - (wAmt*fee);
+//                deposit(wAmt);
+//                //this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
+//                break;                                                 //add the amount that was withdrawn to balance.
+//
+//            case "transfer":
+//                double tAmt = sc.nextDouble();
+//                Account accTo = getAccount_Has().filterUsername(user).get(0);
+//
+//            default:
+//                System.out.println("****** MAYDAY ***** MAYDAY *******");
+//                break;
+//        }
+//        return;
     }
 
 
     //==========================================================================
-    public boolean transfer(double amt, Account acct) {
+    public boolean transfer(double amt, Account acct, String user) {
 
         double fee = amt*0.05;
         // Check if amount is less than balance
@@ -124,6 +128,7 @@ public class Account implements SendableEntity {
             this.setAccountBalance(this.getAccountBalance() - amtandfee); //withdraw amount from this. Update balance.
             this.iOweTheBank += fee;
             acct.setAccountBalance(acct.getAccountBalance() + amt); //deposit amount to the acct. Update balance.
+            this.recentTransaction = "transfer "+user+" "+amt;
             return true; //return succeed flag
         } else {
             return false; // return failure flag
@@ -497,6 +502,10 @@ public class Account implements SendableEntity {
     //==========================================================================
     public void transfer() {
         //dont use, use MakeTransfer in bank
+    }
+
+    public void transfer(double i, Account act){
+        //dont use !!!!!!
     }
 
 

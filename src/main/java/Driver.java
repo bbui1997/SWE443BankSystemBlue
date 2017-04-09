@@ -130,6 +130,24 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
+
+                case "7":
+                    blue.undoMostRecentTransaction();
+                    idMap = BankCreator.createIdMap("demo");
+                    jsonArray = idMap.toJsonArray(blue);
+                    jsonText = jsonArray.toString(3);
+                    //System.out.println(jsonText);
+                    try {
+                        File file = new File("src/test/java/DB.txt");
+                        FileWriter fileWriter = new FileWriter(file);
+                        fileWriter.write(jsonText);
+                        fileWriter.flush();
+                        fileWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+
                 case "0":
                     exit(0);
 

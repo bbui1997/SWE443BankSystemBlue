@@ -577,4 +577,12 @@ public class BankSet extends SimpleSet<Bank>
       return this;
    }
 
+   
+   //==========================================================================
+   
+   public BankSet undoMostRecentTransaction()
+   {
+      return BankSet.EMPTY_SET;
+   }
+
 }

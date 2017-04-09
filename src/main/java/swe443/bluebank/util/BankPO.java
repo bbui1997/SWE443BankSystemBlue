@@ -342,4 +342,15 @@ public class BankPO extends PatternObject<BankPO, Bank>
       return null;
    }
 
+   
+   //==========================================================================
+   
+   public void undoMostRecentTransaction()
+   {
+      if (this.getPattern().getHasMatch())
+      {
+          ((Bank) getCurrentMatch()).undoMostRecentTransaction();
+      }
+   }
+
 }

@@ -59,13 +59,13 @@
             {
                "class":"swe443.bluebank.Account",
                "id":"demo.A15"
+            },
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A16"
             }
          ],
          "Bank_Has":[
-            {
-               "class":"swe443.bluebank.User",
-               "id":"demo.U16"
-            },
             {
                "class":"swe443.bluebank.User",
                "id":"demo.U17"
@@ -117,6 +117,14 @@
             {
                "class":"swe443.bluebank.User",
                "id":"demo.U29"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U30"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U31"
             }
          ]
       }
@@ -133,7 +141,7 @@
          "initialAmount":100,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U16"
+            "id":"demo.U17"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -154,7 +162,7 @@
          "accountBalance":75,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U17"
+            "id":"demo.U18"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -176,7 +184,7 @@
          "accountBalance":50,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U18"
+            "id":"demo.U19"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -197,7 +205,7 @@
          "accountBalance":25,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U19"
+            "id":"demo.U20"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -235,7 +243,7 @@
          "accountBalance":6,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U22"
+            "id":"demo.U23"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -256,7 +264,7 @@
          "accountBalance":6,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U23"
+            "id":"demo.U24"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -277,7 +285,7 @@
          "accountBalance":202.5,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U24"
+            "id":"demo.U25"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -295,16 +303,17 @@
          "username":"hello",
          "password":"jello",
          "initialAmount":100,
-         "accountBalance":100,
+         "accountBalance":99.45,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U25"
+            "id":"demo.U26"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
             "id":"demo.B1"
          },
-         "recentTransaction":"deposit 25.0"
+         "recentTransaction":"transfer world 100.0",
+         "iOweTheBank":51.1285
       }
    },
    {
@@ -320,7 +329,7 @@
          "accountBalance":12,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U26"
+            "id":"demo.U27"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -341,7 +350,7 @@
          "accountBalance":25,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U27"
+            "id":"demo.U28"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -362,7 +371,7 @@
          "accountBalance":100,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U28"
+            "id":"demo.U29"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -383,7 +392,7 @@
          "accountBalance":142.5,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U29"
+            "id":"demo.U30"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
@@ -393,8 +402,31 @@
       }
    },
    {
+      "class":"swe443.bluebank.Account",
+      "id":"demo.A16",
+      "prop":{
+         "name":"hello world",
+         "ssn":8080,
+         "dob":"4191990",
+         "username":"world",
+         "password":"helloworld",
+         "initialAmount":105.27,
+         "accountBalance":189.01999999999998,
+         "User_Has":{
+            "class":"swe443.bluebank.User",
+            "id":"demo.U31"
+         },
+         "Bank_has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         },
+         "recentTransaction":"withdrawal 100.0",
+         "iOweTheBank":21.25
+      }
+   },
+   {
       "class":"swe443.bluebank.User",
-      "id":"demo.U16",
+      "id":"demo.U17",
       "prop":{
          "userName":"Salonika Bose",
          "Account_Has":[
@@ -411,7 +443,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U17",
+      "id":"demo.U18",
       "prop":{
          "userName":"heymond",
          "Account_Has":[
@@ -428,7 +460,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U18",
+      "id":"demo.U19",
       "prop":{
          "userName":"Joe Smo",
          "Account_Has":[
@@ -445,7 +477,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U19",
+      "id":"demo.U20",
       "prop":{
          "userName":"Brandon Bui",
          "Account_Has":[
@@ -462,14 +494,6 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U20",
-      "prop":{"User_Has":{
-            "class":"swe443.bluebank.Bank",
-            "id":"demo.B1"
-         }}
-   },
-   {
-      "class":"swe443.bluebank.User",
       "id":"demo.U21",
       "prop":{"User_Has":{
             "class":"swe443.bluebank.Bank",
@@ -479,6 +503,14 @@
    {
       "class":"swe443.bluebank.User",
       "id":"demo.U22",
+      "prop":{"User_Has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }}
+   },
+   {
+      "class":"swe443.bluebank.User",
+      "id":"demo.U23",
       "prop":{
          "userName":"1",
          "Account_Has":[
@@ -495,7 +527,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U23",
+      "id":"demo.U24",
       "prop":{
          "userName":"1",
          "Account_Has":[
@@ -512,7 +544,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U24",
+      "id":"demo.U25",
       "prop":{
          "userName":"testacct",
          "Account_Has":[
@@ -529,7 +561,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U25",
+      "id":"demo.U26",
       "prop":{
          "userName":"Thing one",
          "Account_Has":[
@@ -546,7 +578,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U26",
+      "id":"demo.U27",
       "prop":{
          "userName":"as",
          "Account_Has":[
@@ -563,7 +595,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U27",
+      "id":"demo.U28",
       "prop":{
          "userName":"qwerty",
          "Account_Has":[
@@ -580,7 +612,7 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U28",
+      "id":"demo.U29",
       "prop":{
          "userName":"zxzx zzx",
          "Account_Has":[
@@ -597,13 +629,30 @@
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U29",
+      "id":"demo.U30",
       "prop":{
          "userName":"Brandon",
          "Account_Has":[
             {
                "class":"swe443.bluebank.Account",
                "id":"demo.A15"
+            }
+         ],
+         "User_Has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }
+      }
+   },
+   {
+      "class":"swe443.bluebank.User",
+      "id":"demo.U31",
+      "prop":{
+         "userName":"hello world",
+         "Account_Has":[
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A16"
             }
          ],
          "User_Has":{

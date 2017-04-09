@@ -68,6 +68,7 @@ public class Bank implements SendableEntity {
         menu.append("4. Make Withdraw\n");
         menu.append("5. View Balance\n");
         menu.append("6. Make Transfer\n");
+        menu.append("7. Undo most recent Transaction\n");
         menu.append("\n==================================\n");
         return menu;
     }
@@ -585,7 +586,7 @@ public class Bank implements SendableEntity {
         double amt;
 
         System.out.println("\n");
-        System.out.print("Please enter the account holder's name to transfer:"); //prompt for target to transfer
+        System.out.print("Please enter the account holder's user name to transfer:"); //prompt for target to transfer
         String user = input.next();
         String target = getAccount_Has().filterUsername(user).getUsername().toString();
         System.out.println("Target exist: " + target);
@@ -602,9 +603,11 @@ public class Bank implements SendableEntity {
         amt = input.nextDouble(); //read withdrawal amount
 
         //transfer
-        acct.withdraw(amt);
-        accTo.deposit(amt);
+        //acct.withdraw(amt);       //this cannot happen, since we have to incorporate fees.
+        //accTo.deposit(amt);
         //
+
+        acct.transfer(amt,accTo,user);
 
 
 
@@ -787,4 +790,64 @@ public class Bank implements SendableEntity {
       withUser_In(value);
       return value;
    } 
+
+   
+   //==========================================================================
+   public void undoMostRecentTransaction(  )
+   {
+       if (Account_Has == null) {
+           System.out.println("Please create an account first! You will be redirected to create account.");
+           createAccount();
+       }
+
+       if (acct == null) {
+           System.out.println("Please Login first!!");
+           logIn();
+           if (acct == null) {
+               return;
+           }
+       }
+
+       Scanner sc = new Scanner(acct.getRecentTransaction());
+       if (!sc.hasNext()) {
+           //If recentTransaction is null => no transaction yet.
+           System.out.println("No transaction yet !");
+           return;
+       }
+       String type = sc.next();
+       //double fee = 0.05;
+       switch (type) {
+           case "deposit":
+               double amount = sc.nextDouble();
+               //double amtandfee = amount + (amount*fee); I don't we need this, because,
+               //withdraw calculates and accounts the fee.
+               acct.withdraw(amount);
+               //this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
+               break;                                                 //deduct the deposited amount from balance.
+
+           case "withdrawal":
+               double wAmt = sc.nextDouble();
+               //double wAmtandfee = wAmt - (wAmt*fee);
+               acct.deposit(wAmt);
+               //this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
+               break;                                                 //add the amount that was withdrawn to balance.
+
+           case "transfer":
+               String user = sc.next();
+               double tAmt = sc.nextDouble();
+               Account accTo = getAccount_Has().filterUsername(user).get(0);
+               accTo.setAccountBalance(accTo.getAccountBalance() - tAmt);
+               double fee = tAmt*0.05;
+               acct.setAccountBalance(acct.getAccountBalance() + (tAmt - fee));
+               acct.setIOweTheBank(acct.getIOweTheBank() + fee);
+               break;
+
+           default:
+               System.out.println("****** MAYDAY ***** MAYDAY *******");
+               break;
+       }
+       return;
+
+
+   }
 }
