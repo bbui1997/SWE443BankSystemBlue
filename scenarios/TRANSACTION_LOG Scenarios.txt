@@ -51,6 +51,38 @@ Scenario 4: Chris creates an Account with Blue Bank
   - The first log entered is for the initial amount and states "Chris - initial deposit 10.00"
   - Chris logs out of his new account.
 
+ Scenario 5: Chris undoes a deposit withdrawal
+  - Chris decides to go to Blue Bank to withdraw $20.
+  - He currently has $25 in his account.
+  - He goes to the Bank and requests to to withdraw $20.
+  - Blue Bank assess a 5% fee to withdraw.
+  - A log is entered into Chris's account stating "Chris - 5% withdraw fee"
+  - He receives $20 from his account.
+  - Another log is entered into his account stating "Chris - withdraw 20.00".
+  - His account now has a balance of $4.
+  - He notices the fee and decides to undo the transaction.
+  - A log is entered stating "Chris - undo withdraw 20.00".
+  - The 20.00 and 5% is now returned back to his account.
+  - Chris's balance is back to the original $25.
+  - Chris exits the bank with no money.
+
+ Scenario 6: Chris decides to change his intial deposit of $75 to $50
+  - Chris has received $75 owed to him from a friend and decides to deposit this money into his account.
+  - Chris goes to Blue Bank with the intention fo depositing $75 into his account.
+  - His current account balance is $10.
+  - He chooses the option to deposit and enters the amount of $75.00.
+  - The bank assess a %5 fee to deposit the money.
+  - Two logs are entered. The first stating "Chris - 5% deposit fee" and
+    the second stating "Chris - deposit 75.00".
+  - He notices the fee and decides to change his amount.
+  - Chris changes the deposit amount to $50 to keep more of his money
+  - A new log is generated stating "Chris - change deposit 50.00"
+  - A new 5% fee is assessed and logged stating "Chris - 5% deposit fee".
+  - A deposit log is also entered stating "Chris - deposit 50.00".
+  - $47.50 is deposited into Chris's account.
+  - His new account balance is $57.50.
+  - Chris exits the bank.
+
 Author(s):
 
   - Marcus
@@ -63,3 +95,5 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
   - 2017-04-06: 09:40-10:10 Marcus | Wrote scenarios for transaction log (deposit, withdraw, transfer)
   - 2017-04-09: 20:30-21:11 Marcus | Modified scenarios
+  - 2017-04-10: 01:25-01:29 Marcus | add undo transaction scenario.
+  - 2017-04-10: 01:30-01:39 Marcus | add modify tranasaction scenario.
