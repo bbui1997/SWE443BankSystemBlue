@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
+import swe443.bluebank.Bank;
 
 public class TransactionTests {
     Account sal; //represents account for Sal to be used in testing.
@@ -27,6 +28,7 @@ public class TransactionTests {
         sal.setDob("03/28/1986"); //set date of birth
         sal.setSsn(123568900); //set social security number
         sal.setInitialAmount(0); //set inital balance to 0
+        Bank.setAllFees(0.05);
     }
 
     /**

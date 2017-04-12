@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
+import swe443.bluebank.Bank;
 
 public class TransferTests {
     Account sal; //represents account for Sal to be used in testing.
@@ -25,6 +26,7 @@ public class TransferTests {
         sal.setDob("03/28/1986"); //set date of birth
         sal.setSsn(123568900); //set social security number
         sal.setInitialAmount(0); //set inital balance to 0
+        Bank.setAllFees(0.05);
     }
 
     /**
@@ -49,7 +51,7 @@ public class TransferTests {
         storyboard.add("Sal transfers $100 to Sara's account");
 
         storyboard.markCodeStart();
-        sal.transfer(100, target); //sal transfers $100 to sara's account
+        sal.transfer(100, target,"sal"); //sal transfers $100 to sara's account
         storyboard.addCode();
         storyboard.addObjectDiagram(sal, target);
 
@@ -114,7 +116,7 @@ public class TransferTests {
         storyboard.add("Sal transfer $100 to her new account");
 
         storyboard.markCodeStart();
-        sal.transfer(100, savings); // sal transfers $100 to the saving accoount
+        sal.transfer(100, savings, "sal"); // sal transfers $100 to the saving accoount
         storyboard.addCode();
 
         storyboard.addObjectDiagram(sal, savings);

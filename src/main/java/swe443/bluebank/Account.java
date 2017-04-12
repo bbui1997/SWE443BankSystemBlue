@@ -42,7 +42,8 @@ public class Account implements SendableEntity {
         /**
          * check if valid amount. add amount to balance if greater than 0.
          */
-        double fee = amt*0.05;
+        //Bank.setDepositFee(0.05);
+        double fee = amt*Bank.getDepositFee();
         if (amt >= 0 ) {
             double amount = amt - fee;
             this.iOweTheBank += fee;
@@ -57,7 +58,8 @@ public class Account implements SendableEntity {
     //==========================================================================
     public double withdraw(double amt) {
         double withdraw_amt=0;
-        double fee = amt*0.05;
+        //Bank.setWithdrawFee(0.05);
+        double fee = amt*Bank.getWithdrawFee();
         double amtandfee = amt + fee;
         //Check if amount to withdraw results in a negative balance
         if ((this.getAccountBalance() - amtandfee) < 0) {
@@ -120,7 +122,8 @@ public class Account implements SendableEntity {
     //==========================================================================
     public boolean transfer(double amt, Account acct, String user) {
 
-        double fee = amt*0.05;
+       // Bank.setTransferFee(0.05);
+        double fee = amt*Bank.getTransferFee();
         // Check if amount is less than balance
         if (amt > 0 && this.getAccountBalance() > amt) {
             // TODO: check account validity

@@ -44,6 +44,10 @@ public class Bank implements SendableEntity {
 
     static Account acct = null;
     static User user = null;
+    static double withdrawFee = 0.00;
+    static double depositFee = 0.00;
+    static double transferFee = 0.00;
+    static double undoFee = 0.00;
 
     public Account getAcct() {     //manually entered this(ht)
         return this.acct;
@@ -52,6 +56,47 @@ public class Bank implements SendableEntity {
     public void resetAcct() {
         this.acct = null;
     }
+
+    public static double getWithdrawFee() {
+        return withdrawFee;
+    }
+
+    public static void setWithdrawFee(double withdrawFee) {
+        Bank.withdrawFee = withdrawFee;
+    }
+
+    public static double getDepositFee() {
+        return depositFee;
+    }
+
+    public static void setDepositFee(double depositFee) {
+        Bank.depositFee = depositFee;
+    }
+
+    public static double getTransferFee() {
+        return transferFee;
+    }
+
+    public static void setTransferFee(double transferFee) {
+        Bank.transferFee = transferFee;
+    }
+
+    public static double getUndoFee() {
+        return undoFee;
+    }
+
+    public static void setUndoFee(double undoFee) {
+        Bank.undoFee = undoFee;
+    }
+
+    public static void setAllFees(double fee) {
+        Bank.withdrawFee = fee;
+        Bank.depositFee = fee;
+        Bank.transferFee = fee;
+        Bank.undoFee = fee;
+    }
+
+
 
 
     //==========================================================================
@@ -848,7 +893,7 @@ public class Bank implements SendableEntity {
                break;
        }
        return;
-
-
    }
+    //==========================================================================
+
 }

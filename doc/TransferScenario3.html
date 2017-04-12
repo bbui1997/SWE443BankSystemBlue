@@ -49,7 +49,7 @@
    g.layout(100,100);
 </script>
 <p>Sal transfer $100 to her new account</p>
-<pre>        sal.transfer(100, savings); &#x2F;&#x2F; sal transfers $100 to the saving accoount
+<pre>        sal.transfer(100, savings, &quot;sal&quot;); &#x2F;&#x2F; sal transfers $100 to the saving accoount
 </pre><script>
    var json = {
    "typ":"objectdiagram",
@@ -64,8 +64,9 @@
             "username=sal",
             "password=password123",
             "initialAmount=0.0",
-            "accountBalance=150.0",
-            "iOweTheBank=0.0"
+            "accountBalance=45.0",
+            "recentTransaction=transfer sal 100.0",
+            "iOweTheBank=5.0"
          ]
       },
       {
@@ -75,7 +76,7 @@
             "name=Savings",
             "ssn=0",
             "initialAmount=0.0",
-            "accountBalance=50.0",
+            "accountBalance=150.0",
             "iOweTheBank=0.0"
          ]
       }
@@ -84,7 +85,8 @@
    json["options"]={"canvasid":"canvasTransferScenario36", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
    g.layout(100,100);
 </script>
-<p>Check: Balance: 45.0 actual 150.0</p>
+<p>Check: Balance: 45.0 actual 45.0</p>
+<p>Check: Savings Balance: 150.0 actual 150.0</p>
 
 </body>
 </html>

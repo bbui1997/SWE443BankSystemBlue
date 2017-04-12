@@ -51,6 +51,7 @@ public class Driver {
          * 4 - make withdrawal
          * 5 - view balance
          * 6 - make transfer
+         * 7 - undo recent transaction
          * 0 - to exit
          */
         while (opt != "0") {
