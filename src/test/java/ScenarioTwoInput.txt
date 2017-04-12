@@ -2,8 +2,9 @@ Sal0nika B0se
 Salonika Bose
 12345
 1234
-01011995
-01/01/1995
+01
+01
+1995
 salonikab
 pass
 password1

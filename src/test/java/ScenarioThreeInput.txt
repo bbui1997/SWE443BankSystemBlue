@@ -1,6 +1,8 @@
 Salonika Bose
 1234
-01/01/1995
+01
+01
+1995
 salonikab
 password1
 -100.00
