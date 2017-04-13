@@ -1,17 +1,15 @@
 import de.uniks.networkparser.IdMap;
 import de.uniks.networkparser.json.JsonArray;
-import de.uniks.networkparser.list.ObjectSet;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.sdmlib.storyboards.Storyboard;
-import swe443.bluebank.Account;
 import swe443.bluebank.Bank;
-import swe443.bluebank.util.AccountSet;
 import swe443.bluebank.util.BankCreator;
 
 import java.io.*;
 import java.util.Scanner;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Truong on 3/30/17.
@@ -22,11 +20,11 @@ public class PersistenceTest {
     @Before
     public void setup() throws IOException,FileNotFoundException {
         File data;
-        data = new File("src/test/java/DBPersitenceTest.txt");               //check to see if existing DB is available
+        data = new File("src/test/java/DBPersistenceTest.txt");               //check to see if existing DB is available
         if(!data.exists()) {
             data.createNewFile();                                        //if it is it will load up the existing data
         }
-        BufferedReader br = new BufferedReader(new FileReader("src/test/java/DBPersitenceTest.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("src/test/java/DBPersistenceTest.txt"));
         if (br.readLine() == null) {
             //System.out.println("file is empty");
         } else {
@@ -116,7 +114,7 @@ public class PersistenceTest {
         System.out.println(blue.getAccount_Has().filterName("Sal").getName().toString().equals("(Sal)"));
         if(!blue.getAccount_Has().filterName("Sal").getName().toString().equals("(Sal)") ) {
             try {
-                File file = new File("src/test/java/DBPersitenceTest.txt");
+                File file = new File("src/test/java/DBPersistenceTest.txt");
                 FileWriter fileWriter = new FileWriter(file);
                 fileWriter.write(jsonText);
                 fileWriter.flush();

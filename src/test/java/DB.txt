@@ -211,7 +211,7 @@
          "username":"bbui1997",
          "password":"randompass123",
          "initialAmount":25,
-         "accountBalance":25,
+         "accountBalance":191,
          "User_Has":{
             "class":"swe443.bluebank.User",
             "id":"demo.U21"
@@ -220,7 +220,8 @@
             "class":"swe443.bluebank.Bank",
             "id":"demo.B1"
          },
-         "recentTransaction":"deposit 25.0"
+         "recentTransaction":"transfer test 10.0",
+         "iOweTheBank":14
       }
    },
    {
@@ -398,7 +399,7 @@
          "username":"test",
          "password":"asdasdasd",
          "initialAmount":25,
-         "accountBalance":142.5,
+         "accountBalance":152.5,
          "User_Has":{
             "class":"swe443.bluebank.User",
             "id":"demo.U31"
