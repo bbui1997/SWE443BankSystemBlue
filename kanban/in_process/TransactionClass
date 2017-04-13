@@ -47,7 +47,8 @@ Assigned persons (currently working on task):
   -Heymond (object diagrams)
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
-- 2016-04-06: 10:13-10:14 Marcus | creat folder "log" to store transaction logs
+- 2016-04-06: 10:13-10:14 Marcus | create folder "log" to store transaction logs
 - 2017-04-06: 09:40-10:10 Marcus | Wrote scenarios for transaction log
 - 2017-04-09: 20:30-21:11 Marcus | Modified scenarios
-- 2017-04-09: 01:25:01:39 Marcus | Add undo and modify scenarios
+- 2017-04-09: 01:25-01:39 Marcus | Add undo and modify scenarios
+- 2017-04-13: 00:00-02:22 Marcus | create sequence diagrams
