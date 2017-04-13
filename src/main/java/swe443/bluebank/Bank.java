@@ -57,6 +57,10 @@ public class Bank implements SendableEntity {
         this.acct = null;
     }
 
+    public void setAcct(Account a) {
+        this.acct = a;
+    }
+
     public static double getWithdrawFee() {
         return withdrawFee;
     }
@@ -841,6 +845,7 @@ public class Bank implements SendableEntity {
    //==========================================================================
    public void undoMostRecentTransaction(  )
    {
+
        if (Account_Has == null) {
            System.out.println("Please create an account first! You will be redirected to create account.");
            createAccount();
@@ -861,31 +866,38 @@ public class Bank implements SendableEntity {
            return;
        }
        String type = sc.next();
-       //double fee = 0.05;
+
+
        switch (type) {
            case "deposit":
                double amount = sc.nextDouble();
-               //double amtandfee = amount + (amount*fee); I don't we need this, because,
-               //withdraw calculates and accounts the fee.
-               acct.withdraw(amount);
-               //this.setAccountBalance(getAccountBalance() - amount);  //since the last transaction was a deposit,
+               double fee = amount*getUndoFee();
+               double amtandfee = amount + fee;
+               acct.setInitialAmount(acct.getIOweTheBank()+fee);
+               //acct.withdraw(amount);
+               acct.setAccountBalance(acct.getAccountBalance() - amtandfee);  //since the last transaction was a deposit,
                break;                                                 //deduct the deposited amount from balance.
 
            case "withdrawal":
+
                double wAmt = sc.nextDouble();
-               //double wAmtandfee = wAmt - (wAmt*fee);
-               acct.deposit(wAmt);
-               //this.setAccountBalance(getAccountBalance() + wAmt);    //since the last transaction was a withdrawal,
+
+               double wFee = wAmt*getUndoFee();
+               double wAmtandfee = wAmt - wFee;
+               System.out.println(wAmtandfee);
+               //acct.deposit(wAmtandfee);
+               acct.setAccountBalance(acct.getAccountBalance() + wAmtandfee);    //since the last transaction was a withdrawal,
                break;                                                 //add the amount that was withdrawn to balance.
 
            case "transfer":
-               String user = sc.next();
-               double tAmt = sc.nextDouble();
-               Account accTo = getAccount_Has().filterUsername(user).get(0);
-               accTo.setAccountBalance(accTo.getAccountBalance() - tAmt);
-               double fee = tAmt*0.05;
-               acct.setAccountBalance(acct.getAccountBalance() + (tAmt - fee));
-               acct.setIOweTheBank(acct.getIOweTheBank() + fee);
+               System.out.println("No undo transfer!!!");
+//               String user = sc.next();
+//               double tAmt = sc.nextDouble();
+//               Account accTo = getAccount_Has().filterUsername(user).get(0);
+//               accTo.setAccountBalance(accTo.getAccountBalance() - tAmt);
+//               double tFee = tAmt*getUndoFee();
+//               acct.setAccountBalance(acct.getAccountBalance() + (tAmt - tFee));
+//               acct.setIOweTheBank(acct.getIOweTheBank() + tFee);
                break;
 
            default:

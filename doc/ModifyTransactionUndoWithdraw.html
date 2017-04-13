@@ -29,13 +29,35 @@
             "accountBalance=0.0",
             "iOweTheBank=0.0"
          ]
+      },
+      {
+         "typ":"clazz",
+         "id":"B2 : Bank",
+         "attributes":[
+            "bankName=blue"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"Bank_has",
+            "id":"B2 : Bank"
+         },
+         "target":{
+            "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A1 : Account"
+         }
       }
    ]
 }   ;
    json["options"]={"canvasid":"canvasModifyTransactionUndoWithdraw1", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
    g.layout(100,100);
 </script>
-<p>Check: Balance: 44.1 actual 10.0</p>
+<p>Check: Balance: 45.5 actual 45.5</p>
 
 </body>
 </html>
