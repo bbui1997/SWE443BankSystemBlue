@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SWE443BankSystemBlue.iml" filepath="$PROJECT_DIR$/.idea/modules/SWE443BankSystemBlue.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/blue.iml" filepath="$PROJECT_DIR$/.idea/modules/blue.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/blue_main.iml" filepath="$PROJECT_DIR$/.idea/modules/blue_main.iml" group="blue" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/blue_test.iml" filepath="$PROJECT_DIR$/.idea/modules/blue_test.iml" group="blue" />
