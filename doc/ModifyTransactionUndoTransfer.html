@@ -12,6 +12,8 @@
 <script src="includes/graph.js"></script>
 </head><body>
 <p>Storyboard <a href='.././src/test/java/ModifyTransactionTests.java' type='text/x-java'>ModifyTransactionUndoTransfer</a></p>
+<p>Sal's account initially has a balance of $150</p>
+<p>Sara's account initially has a balance of $50</p>
 <script>
    var json = {
    "typ":"objectdiagram",
@@ -26,16 +28,109 @@
             "username=sal",
             "password=password123",
             "initialAmount=0.0",
-            "accountBalance=0.0",
+            "accountBalance=150.0",
+            "iOweTheBank=0.0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"B3 : Bank",
+         "attributes":[
+            "bankName=blue"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"A2 : Account",
+         "attributes":[
+            "name=Sara",
+            "ssn=0",
+            "initialAmount=0.0",
+            "accountBalance=50.0",
             "iOweTheBank=0.0"
          ]
       }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"Bank_has",
+            "id":"B3 : Bank"
+         },
+         "target":{
+            "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A1 : Account"
+         }
+      }
    ]
 }   ;
-   json["options"]={"canvasid":"canvasModifyTransactionUndoTransfer1", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   json["options"]={"canvasid":"canvasModifyTransactionUndoTransfer3", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
    g.layout(100,100);
 </script>
-<p>Check:   false</p>
+<p>Sal transfers $100 to Sara's account</p>
+<pre>        sal.transfer(100, target,&quot;sal&quot;); &#x2F;&#x2F;sal transfers $100 to sara&#x27;s account
+</pre><script>
+   var json = {
+   "typ":"objectdiagram",
+   "nodes":[
+      {
+         "typ":"clazz",
+         "id":"A1 : Account",
+         "attributes":[
+            "name=Sal",
+            "ssn=123568900",
+            "dob=03/28/1986",
+            "username=sal",
+            "password=password123",
+            "initialAmount=0.0",
+            "accountBalance=45.0",
+            "recentTransaction=transfer sal 100.0",
+            "iOweTheBank=5.0"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"B3 : Bank",
+         "attributes":[
+            "bankName=blue"
+         ]
+      },
+      {
+         "typ":"clazz",
+         "id":"A2 : Account",
+         "attributes":[
+            "name=Sara",
+            "ssn=0",
+            "initialAmount=0.0",
+            "accountBalance=150.0",
+            "iOweTheBank=0.0"
+         ]
+      }
+   ],
+   "edges":[
+      {
+         "typ":"ASSOCIATION",
+         "source":{
+            "cardinality":"one",
+            "property":"Bank_has",
+            "id":"B3 : Bank"
+         },
+         "target":{
+            "cardinality":"many",
+            "property":"Account_Has",
+            "id":"A1 : Account"
+         }
+      }
+   ]
+}   ;
+   json["options"]={"canvasid":"canvasModifyTransactionUndoTransfer6", "display":"svg", "fontsize":10,"bar":true};   var g = new Graph(json);
+   g.layout(100,100);
+</script>
+<p>Check: Sal's Balance: 45.0 actual 45.0</p>
+<p>Check: Target Balance: 150.0 actual 150.0</p>
 
 </body>
 </html>

@@ -109,15 +109,40 @@ public class ModifyTransactionTests {
     public void testModifyTransactionUndoTransfer(){
         setup(); //setup the environment
         Storyboard storyboard = new Storyboard();
-        storyboard.addObjectDiagram(sal);
+        storyboard.add("Sal's account initially has a balance of $150");
+        sal.setAccountBalance(150);
+        storyboard.add("Sara's account initially has a balance of $50");
+        Account target = new Account()
+                .withAccountBalance(50)
+                .withName("Sara");
+        storyboard.addObjectDiagram(sal,target);
 
-        double initialBalance = sal.getAccountBalance();
+        storyboard.add("Sal transfers $100 to Sara's account");
+
+        storyboard.markCodeStart();
+        sal.transfer(100, target,"sal"); //sal transfers $100 to sara's account
+        storyboard.addCode();
+        storyboard.addObjectDiagram(sal, target);
+
+        blue.undoMostRecentTransaction();
+
+
+
+
+        storyboard.assertEquals("Sal's Balance:",45,sal.getAccountBalance(),0); //check that current balance equals $100
+        storyboard.assertEquals("Target Balance:",150, target.getAccountBalance(),0); //check that the current balance
+        storyboard.dumpHTML();
+
+        //storyboard.addObjectDiagram(sal);
+        //sal.setAccountBalance(50.00);
+        //double initialBalance = sal.getAccountBalance();
 
         //sal.transfer(1223334444);           //Sal transfers money to sara who's account # is 1223334444
-        blue.undoMostRecentTransaction();
-        double beforeUndo = sal.getAccountBalance();
+
+        //double beforeUndo = sal.getAccountBalance();
+        //storyboard.assertEquals("Balance:",45.50,sal.getAccountBalance(),0); //check that current balance equals $44.10
         //storyboard.assertTrue(" ", sal.getAccountBalance() == initialBalance && beforeUndo != initialBalance);      //check if the balance has been updated to initial value.
-        storyboard.dumpHTML();
+
         //also we need to check whether sara's account was updated.
 
         destroy(); //teardown the environment
