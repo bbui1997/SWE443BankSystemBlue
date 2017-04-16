@@ -1,0 +1,28 @@
+Title: Basic Android Gui
+
+Description: Using the mockups created last week, begin a basic implementation of an Android GUI for the BlueBank System.
+The app only needs to be functional. Usability and clean up will come in later weeks. The app needs to: 
+-login (if possible with persistence) 
+-create an account
+-deposit money
+-withdraw money
+-transfer money
+-modify a transaction
+
+Time estimate(s):
+2-3h
+
+Author(s):
+  -Jess
+Assigned persons (currently working on task):
+  -Ermal
+  -Sushena
+
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+- 2017-04-11: 09:35-10:15 Ermal | Started to create the Android GUI and implemented with the current project
+- 2017-04-13: 09:35-10:20 Ermal | Made some tries on different branch on how to implement androi project into current project. Not success.
+- 2017-04-13: 10:45-11:20 Ermal | Created a new repo, for android to start working on GUI for our android team and start creating the first main Actitivy
+- 2017-04-13: 19:45-20:45 Ermal | Finished main activity with the Log In screen.
+- 2017-04-15: 10:45-12:45 Ermal | Added create account form, for new custumer to register.
+- 2017-04-16: 8:30-11:40 Ermal | Linked togother the Login form,create account and the main bank screen after Login. Create the Main screen Gui
