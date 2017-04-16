@@ -147,6 +147,7 @@
          "username":"salonikab",
          "password":"asdf",
          "initialAmount":100,
+         "accountBalance":15,
          "User_Has":{
             "class":"swe443.bluebank.User",
             "id":"demo.U18"
@@ -154,7 +155,8 @@
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
             "id":"demo.B1"
-         }
+         },
+         "recentTransaction":"withdrawal 5.0"
       }
    },
    {

@@ -5,9 +5,9 @@ Description of Transaction class:
 Attributes:
 - big int amount - value of transaction
 - enum type - withdraw, deposit, transfer
-- boolean isMain -
-- boolean isFee -
-- boolean isCorrection -
+- (omitted)boolean isMain -
+- (omitted)boolean isFee -
+- (omitted)boolean isCorrection -
 * any transaction must have exactly one boolean value==true.
 
 Methods:

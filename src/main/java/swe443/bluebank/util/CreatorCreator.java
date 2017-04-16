@@ -13,6 +13,8 @@ class CreatorCreator{
       jsonIdMap.with(new BankPOCreator());
       jsonIdMap.with(new UserCreator());
       jsonIdMap.with(new UserPOCreator());
+      jsonIdMap.with(new TransactionCreator());
+      jsonIdMap.with(new TransactionPOCreator());
       return jsonIdMap;
    }
 }

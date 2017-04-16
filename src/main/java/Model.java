@@ -4,6 +4,8 @@ import de.uniks.networkparser.graph.DataType;
 import org.sdmlib.models.classes.ClassModel;
 import org.sdmlib.storyboards.Storyboard;
 
+import java.math.BigInteger;
+
 
 /**
  * Created by Truong on 3/28/17.
@@ -43,6 +45,10 @@ public class Model {
                 .withMethod("makeTransfer", DataType.VOID)
                 .withMethod("undoMostRecentTransaction",DataType.VOID)
                 .withMethod("viewBalance", DataType.VOID);
+
+        Clazz transactionClass = model.createClazz("Transaction")
+                .withAttribute("amount", DataType.INT)
+                .withMethod("logbuilder",DataType.STRING);
 
 
         Clazz userClass = model.createClazz("User")
