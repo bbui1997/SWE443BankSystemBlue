@@ -26,3 +26,6 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 - 2017-04-13: 19:45-20:45 Ermal | Finished main activity with the Log In screen.
 - 2017-04-15: 10:45-12:45 Ermal | Added create account form, for new custumer to register.
 - 2017-04-16: 8:30-11:40 Ermal | Linked togother the Login form,create account and the main bank screen after Login. Create the Main screen Gui
+- 2017-04-16: 14:00-15:30 Ermal | Added withdrawDeposit activity and created the gui for it, added button that will be trigger by the type of transaction.
+- 2017-04-16: 20:00-20:30 Ermal | Added transfer activity and created the gui for it.
+- 2017-04-16: 21:30-22:30 Ermal | Added manage account and support, linked those with the button from bank menu.
