@@ -10,7 +10,7 @@ The app only needs to be functional. Usability and clean up will come in later w
 -modify a transaction
 
 Time estimate(s):
-2-3h
+2-3h + 10 hrs = 13 hours
 
 Author(s):
   -Jess

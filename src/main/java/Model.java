@@ -1,14 +1,8 @@
-import com.sun.tools.javac.code.Attribute;
 import de.uniks.networkparser.graph.Cardinality;
 import de.uniks.networkparser.graph.Clazz;
 import de.uniks.networkparser.graph.DataType;
-import de.uniks.networkparser.graph.Parameter;
 import org.sdmlib.models.classes.ClassModel;
 import org.sdmlib.storyboards.Storyboard;
-import swe443.bluebank.Transaction;
-
-import java.math.BigInteger;
-import java.util.Enumeration;
 
 
 /**

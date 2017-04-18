@@ -126,7 +126,7 @@ public class PersistenceTest {
         System.out.println(blue.getAccount_Has().filterName("Sal").getInitialAmount().get(0));
         storyboard.assertEquals("The user is Sal",blue.getAccount_Has().filterName("Sal").getName().toString(),"(Sal)" );
         storyboard.assertEquals("The ssn is 1234",blue.getAccount_Has().filterName("Sal").getSsn().get(0),1234);
-        storyboard.assertEquals("(4/14/1990)",blue.getAccount_Has().filterName("Sal").getDob().toString(), "(04/14/1990)");
+        storyboard.assertEquals("(04/14/1990)",blue.getAccount_Has().filterName("Sal").getDob().toString(), "(04/14/1990)");
         storyboard.assertEquals("The username (sals)",blue.getAccount_Has().filterName("Sal").getUsername().toString(), "(sals)");
         storyboard.assertEquals("The password is 12345678",blue.getAccount_Has().filterName("Sal").getPassword().toString(), "(12345678)");
         storyboard.assertEquals("The initial amount is 0.0",blue.getAccount_Has().filterName("Sal").getInitialAmount().get(0), 0.0);
