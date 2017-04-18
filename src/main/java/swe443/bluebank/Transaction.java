@@ -115,9 +115,16 @@ import java.util.Date;
        /**
         * TODO perform file directory check
         */
+       //File dir =  new File("src/logs/"); //directory to store logs
+       File dir  = new File("src"+File.separator+"logs"); //directory to store logs
+       File file = new File(dir+File.separator+this.acct1.getName().toString()+"_log"); //set file name
 
-       //set file name
-       File file = new File("src/logs/"+this.acct1.getName().toString()+"_log");
+       //check if directory exists; create directory if not
+       if(!dir.exists()){
+           if(!file.mkdir()){
+                System.out.println("Error: unable to create directory to store logs."); //print error if unable to mkdir
+           }
+       }
 
        //log transaction in account's log file
        try(BufferedWriter write2file = new BufferedWriter(new FileWriter(file,true))){
