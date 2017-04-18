@@ -52,3 +52,5 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 - 2017-04-09: 20:30-21:11 Marcus | Modified scenarios
 - 2017-04-09: 01:25-01:39 Marcus | Add undo and modify scenarios
 - 2017-04-13: 00:00-02:22 Marcus | create sequence diagrams
+- 2017-04-17: 10:00-12:00 Marcus | continued implementation of TransactionClass
+- 2017-04-17: 23:00-03:07 Marcus | add Transaction Logging to Account class, test, and modify

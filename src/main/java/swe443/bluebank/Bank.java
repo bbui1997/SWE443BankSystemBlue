@@ -904,7 +904,8 @@ public class Bank implements SendableEntity {
                System.out.println("****** MAYDAY ***** MAYDAY *******");
                break;
        }
-       return;
+
+       //return;
    }
     //==========================================================================
 

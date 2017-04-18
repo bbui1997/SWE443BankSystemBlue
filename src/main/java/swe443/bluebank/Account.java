@@ -29,6 +29,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.Scanner;
 import swe443.bluebank.User;
 import swe443.bluebank.Bank;
+import java.util.*;
 
 /**
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
@@ -49,6 +50,9 @@ public class Account implements SendableEntity {
             this.iOweTheBank += fee;
             this.setAccountBalance(amount + getAccountBalance()); //add amount to the account balance.
             this.recentTransaction = "deposit " + amt;
+
+            //log the deposit transaction for this account
+            new Transaction().writeLog(Transaction.Type.deposit,this,null,amt,fee,false);
         } else {
             throw new IllegalArgumentException(amt + " is less than or equal to 0");
         }
@@ -66,14 +70,17 @@ public class Account implements SendableEntity {
             withdraw_amt =  -1; //return -1; do not do withdrawal
         }else{
 
-        //Check if amount to withdraw results in a positive balance
-        if((this.getAccountBalance() - amtandfee) > 0){
+            //Check if amount to withdraw results in a positive balance
+            if((this.getAccountBalance() - amtandfee) > 0){
 
-            this.setAccountBalance(this.getAccountBalance() - amtandfee); //deduct amount from balance. Update balance.
-            this.iOweTheBank += fee;
-            this.recentTransaction = "withdrawal " + amt;
-            withdraw_amt =  amt; //return requested amount
-        }
+                this.setAccountBalance(this.getAccountBalance() - amtandfee); //deduct amount from balance. Update balance.
+                this.iOweTheBank += fee;
+                this.recentTransaction = "withdrawal " + amt;
+                withdraw_amt =  amt; //return requested amount
+
+                //log the deposit transaction for this account
+                new Transaction().writeLog(Transaction.Type.withdraw,this,null,amt,fee,false);
+            }
         }
 
         return withdraw_amt;
@@ -132,6 +139,10 @@ public class Account implements SendableEntity {
             this.iOweTheBank += fee;
             acct.setAccountBalance(acct.getAccountBalance() + amt); //deposit amount to the acct. Update balance.
             this.recentTransaction = "transfer "+user+" "+amt;
+
+            //log the deposit transaction for this account
+            new Transaction().writeLog(Transaction.Type.transfer,this,acct,amt,fee,false);
+
             return true; //return succeed flag
         } else {
             return false; // return failure flag

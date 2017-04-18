@@ -95,7 +95,7 @@ public class TransactionPO extends PatternObject<TransactionPO, Transaction>
       return this;
    }
    
-   public int getAmount()
+   public double getAmount()
    {
       if (this.getPattern().getHasMatch())
       {
