@@ -141,7 +141,7 @@ public class Account implements SendableEntity {
             this.recentTransaction = "transfer "+user+" "+amt;
 
             //log the deposit transaction for this account
-            //new Transaction().writeLog(Transaction.Type.transfer,this,acct,amt,fee,false);
+            new Transaction().writeLog(Transaction.Type.transfer,this,acct,amt,fee,false);
 
             return true; //return succeed flag
         } else {

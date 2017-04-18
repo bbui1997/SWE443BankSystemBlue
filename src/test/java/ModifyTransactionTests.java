@@ -13,10 +13,13 @@ import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
 import swe443.bluebank.Bank;
 
+import java.io.File;
+
 public class ModifyTransactionTests {
 
     Account sal; //represents account for Sal to be used in testing.
     Bank blue;
+    File testFile1;
     /**
      * This method initializes the object to be used in testing the scenarios.
      * The balance is initialized to zero to allow modification later in testing.
@@ -35,7 +38,7 @@ public class ModifyTransactionTests {
         Bank.setAllFees(0.05);
         blue.withAccount_Has(sal);
         blue.setAcct(sal);
-
+        testFile1 = new File("src/logs/Sal_log");
     }
 
     /**
@@ -64,6 +67,7 @@ public class ModifyTransactionTests {
         System.out.println(sal.getAccountBalance());
         //storyboard.assertTrue(" ", sal.getAccountBalance() == initialBalance);      //check if the balance has been updated to initial value.
         storyboard.assertEquals("Balance:",45.00,sal.getAccountBalance(),0.01); //check that current balance equals $48
+        storyboard.assertTrue("Log created",testFile1.exists()); //check file 1 exists
         storyboard.dumpHTML();
         destroy(); //teardown the environment
     }

@@ -222,6 +222,8 @@ public class Bank implements SendableEntity {
         withAccount_Has(acct);
         withBank_Has(user);
         user.withAccount_Has(acct);
+
+        new Transaction().writeLog(Transaction.Type.account,acct,null,x,0,false); //log new account to log
     }
 
     Scanner scanStr;
@@ -875,8 +877,13 @@ public class Bank implements SendableEntity {
                double amtandfee = amount + fee;
                acct.setInitialAmount(acct.getIOweTheBank()+fee);
                //acct.withdraw(amount);
-               acct.setAccountBalance(acct.getAccountBalance() - amtandfee);  //since the last transaction was a deposit,
-               break;                                                 //deduct the deposited amount from balance.
+
+               //since the last transaction was a deposit,deduct the deposited amount from balance.
+               acct.setAccountBalance(acct.getAccountBalance() - amtandfee);
+
+               //log deposit undo transaction
+               new Transaction().writeLog(Transaction.Type.deposit,acct,null,amount,fee,true);
+               break;
 
            case "withdrawal":
 
@@ -886,8 +893,12 @@ public class Bank implements SendableEntity {
                double wAmtandfee = wAmt - wFee;
                System.out.println(wAmtandfee);
                //acct.deposit(wAmtandfee);
-               acct.setAccountBalance(acct.getAccountBalance() + wAmtandfee);    //since the last transaction was a withdrawal,
-               break;                                                 //add the amount that was withdrawn to balance.
+               //since the last transaction was a withdrawal,add the amount that was withdrawn to balance.
+               acct.setAccountBalance(acct.getAccountBalance() + wAmtandfee);
+
+               //log deposit undo transaction
+               new Transaction().writeLog(Transaction.Type.withdraw,acct,null,wAmt,wFee,true);
+               break;
 
            case "transfer":
                System.out.println("No undo transfer!!!");

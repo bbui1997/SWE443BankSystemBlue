@@ -54,3 +54,4 @@ Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 - 2017-04-13: 00:00-02:22 Marcus | create sequence diagrams
 - 2017-04-17: 10:00-12:00 Marcus | continued implementation of TransactionClass
 - 2017-04-17: 23:00-03:07 Marcus | add Transaction Logging to Account class, test, and modify
+- 2017-04-18: 10:30-11:07 Marcus | add Transaction Logging call to undo transaction, transfer, account creation

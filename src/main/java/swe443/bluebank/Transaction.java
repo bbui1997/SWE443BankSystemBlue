@@ -70,7 +70,8 @@ import java.util.Date;
                    log.append("Transfer "+getAmount()+" to "+acct2.getName()+"'s account /"+formatDate.format(currentDate));
                    break;
                case account:
-                   log.append(acct1.getName()+" opened an account.");
+                   log.append(acct1.getName()+" opened an account.\n");
+                   log.append("INITIAL DEPOSIT "+getAmount()+" /"+formatDate.format(currentDate));
                    break;
            }
        }else{ //add undo transaction to the log
@@ -88,9 +89,9 @@ import java.util.Date;
        }
 
        if((this.fee > 0) && (undo==true)){ //log for fee reversal
-           log.append("UNDONE FEE "+this.fee);
+           log.append("\nUNDONE FEE "+this.fee);
        }else if(this.fee >0){ //log for fee associated with transaction
-           log.append("Fee for "+type+":"+this.fee);
+           log.append("\nFee for "+type+":"+this.fee);
        }
        return log.toString(); //return log string
    }
@@ -112,19 +113,13 @@ import java.util.Date;
        String log = this.logbuilder(type); //call the logbuilder to build the log
 
        /**
-        * 1. Get the log accounts logfile; create a new one if doesn't exist
-        * 2. Write log to file
-        * 3. Close file
+        * TODO perform file directory check
         */
-
-       if(type.equals(Type.transfer)){
-           //log to the second account
-       }
 
        //set file name
        File file = new File("src/logs/"+this.acct1.getName().toString()+"_log");
 
-       //create/retrieve log file with account name
+       //log transaction in account's log file
        try(BufferedWriter write2file = new BufferedWriter(new FileWriter(file,true))){
            //write log to file
            write2file.write(log);
@@ -133,6 +128,22 @@ import java.util.Date;
 
        }catch (Exception e){
            System.out.print("Exception during file write in writeLog function:"+e);
+       }
+
+       //log transfer in receivers log
+       if(type.equals(Type.transfer)){
+           //log to the second account
+           String log_2 = acct1.getName()+" transfered "+getAmount()+" /"+new SimpleDateFormat("MM-dd-yyyy HH:mm").format(new Date());
+           File file2 = new File("src/logs/"+this.acct2.getName().toString()+"_log");
+
+           try(BufferedWriter write2file = new BufferedWriter(new FileWriter(file2,true))){
+               //write log to file
+               write2file.write(log_2);
+               write2file.newLine();
+               write2file.close();
+           }catch (Exception e){
+               System.out.print("Exception during file write 2 in writeLog function:"+e);
+           }
        }
    }
 

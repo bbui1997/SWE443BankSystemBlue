@@ -12,12 +12,14 @@ import static org.junit.Assert.assertEquals;
  * Created by Truong on 3/29/17.
  */
 public class CreateAccountTest {
+    File test;
     //User Sal = new User();
     Bank blueBank = new Bank();
 
     @Before
     public void setUp() {
         blueBank.setBankName("Blue_Bank");
+        test = new File("src/logs/Salonika Bose_log");
     }
 
     /**
@@ -40,6 +42,7 @@ public class CreateAccountTest {
         storyboard.assertEquals("the username is salonikab", blueBank.getAccount_Has().getUsername().toString(), "((salonikab))");
         storyboard.assertEquals("the password is asdf", blueBank.getAccount_Has().getPassword().toString(), "(password1)");
         storyboard.assertEquals("the initial anount is 100.00", blueBank.getAccount_Has().getInitialAmount().get(0), 100.00);
+        storyboard.assertTrue("Log created",test.exists());
         storyboard.dumpHTML();
 
     }

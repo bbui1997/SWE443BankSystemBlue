@@ -11,8 +11,13 @@ import org.sdmlib.storyboards.Storyboard;
 import swe443.bluebank.Account;
 import swe443.bluebank.Bank;
 
+import java.io.File;
+
 public class TransferTests {
     Account sal; //represents account for Sal to be used in testing.
+    File testFile1;
+    File testFile2;
+
     /**
      * This method initializes the object to be used in testing the scenarios.
      * The balance is initialized to zero to allow modification later in testing.
@@ -27,6 +32,8 @@ public class TransferTests {
         sal.setSsn(123568900); //set social security number
         sal.setInitialAmount(0); //set inital balance to 0
         Bank.setAllFees(0.05);
+        testFile1 = new File("src/logs/Sal_log");
+        testFile2 = new File("src/logs/Sara_log");
     }
 
     /**
@@ -57,6 +64,8 @@ public class TransferTests {
 
         storyboard.assertEquals("Sal's Balance:",45,sal.getAccountBalance(),0); //check that current balance equals $100
         storyboard.assertEquals("Target Balance:",150, target.getAccountBalance(),0); //check that the current balance
+        storyboard.assertTrue("Log created",testFile1.exists()); //check file 1 exists
+        storyboard.assertTrue("Log created",testFile2.exists()); //check file 2 exists
         storyboard.dumpHTML();
 
         destroy(); //teardown the environment
