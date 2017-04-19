@@ -899,6 +899,7 @@ public class Bank implements SendableEntity {
                double fee = amount*getUndoFee();
                double amtandfee = amount + fee;
                acct.setInitialAmount(acct.getIOweTheBank()+fee);
+               acct.setIOweTheBank(acct.getIOweTheBank() + fee);
                //acct.withdraw(amount);
 
                //since the last transaction was a deposit,deduct the deposited amount from balance.
@@ -906,6 +907,7 @@ public class Bank implements SendableEntity {
 
                //log deposit undo transaction
                new Transaction().writeLog(Transaction.Type.deposit,acct,null,amount,fee,true);
+               System.out.printf("Undo Transaction Successful - DEPOSIT: %.2f, FEE: %.2f\n", amount, fee);
                break;
 
            case "withdrawal":
@@ -914,6 +916,7 @@ public class Bank implements SendableEntity {
 
                double wFee = wAmt*getUndoFee();
                double wAmtandfee = wAmt - wFee;
+               acct.setIOweTheBank(acct.getIOweTheBank() + wFee);
                System.out.println(wAmtandfee);
                //acct.deposit(wAmtandfee);
                //since the last transaction was a withdrawal,add the amount that was withdrawn to balance.
@@ -921,6 +924,7 @@ public class Bank implements SendableEntity {
 
                //log deposit undo transaction
                new Transaction().writeLog(Transaction.Type.withdraw,acct,null,wAmt,wFee,true);
+               System.out.printf("Undo Transaction Successful - WITHDRAW: %.2f, FEE: %.2f\n", wAmt, wFee);
                break;
 
            case "transfer":

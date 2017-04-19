@@ -52,7 +52,8 @@ public class TransferTests {
         storyboard.add("Sara's account initially has a balance of $50");
         Account target = new Account()
                 .withAccountBalance(50)
-                .withName("Sara");
+                .withName("Sara")
+                .withUsername("Sara");
         storyboard.addObjectDiagram(sal,target);
 
         storyboard.add("Sal transfers $100 to Sara's account");
@@ -119,7 +120,7 @@ public class TransferTests {
         Storyboard storyboard = new Storyboard();
         storyboard.add("Sal's account initially has a balance of $150");
         storyboard.add("Her savings account has a balance of $50");
-        Account savings = new Account().withAccountBalance(50).withName("Savings");
+        Account savings = new Account().withAccountBalance(50).withUsername("Savings");
 
         storyboard.addObjectDiagram(sal, savings);
         storyboard.add("Sal transfer $100 to her new account");
