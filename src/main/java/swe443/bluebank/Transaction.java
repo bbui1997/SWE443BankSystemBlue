@@ -22,12 +22,12 @@
 package swe443.bluebank;
 
 import de.uniks.networkparser.interfaces.SendableEntity;
-import java.beans.PropertyChangeSupport;
+
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -117,7 +117,7 @@ import java.util.Date;
         */
        //File dir =  new File("src/logs/"); //directory to store logs
        File dir  = new File("src"+File.separator+"logs"); //directory to store logs
-       File file = new File(dir+File.separator+this.acct1.getName().toString()+"_log"); //set file name
+       File file = new File(dir+File.separator+this.acct1.getUsername().toString()+"_log"); //set file name
 
        //check if directory exists; create directory if not
        if(!dir.exists()){

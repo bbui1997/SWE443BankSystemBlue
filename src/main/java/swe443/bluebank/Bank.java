@@ -191,14 +191,18 @@ public class Bank implements SendableEntity {
         String un = input.next();
         String dbUn = getAccount_Has().filterUsername(un).getUsername().toString();
         //System.out.println(un + dbUn);
+
+        // adding the parentheses satisfies SDMLibs filtering check, without it, it won't be able to filter the username
         un = "(" + un +")";
         while(un.equals(dbUn)){
             System.out.println("Username already exists in system, please enter a username.");
             un = input.next();
+            un = "(" + un +")";
         }
         un = un.substring(1,un.length()-1);
         System.out.println(un);
         acct.setUsername(un);
+
         System.out.println("Please enter a password, between 8 and 16 characters");
         String password = input.next();
         while(password.length()<8 || password.length()>16){
