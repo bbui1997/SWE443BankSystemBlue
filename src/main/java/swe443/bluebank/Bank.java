@@ -665,6 +665,14 @@ public class Bank implements SendableEntity {
 
         acct.transfer(amt,accTo,user);
 
+        // Ensures the account balance is in the format 0.00
+        double num = acct.getAccountBalance();
+        num = Math.round(num * 100);
+        num = num / 100;
+
+        acct.setAccountBalance(num);
+
+        System.out.println("Your remaining balance: $" + doubleToMoneyFormat(acct.getAccountBalance())); //print balance
 
 
 

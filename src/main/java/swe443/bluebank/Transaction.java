@@ -140,8 +140,8 @@ import java.util.Date;
        //log transfer in receivers log
        if(type.equals(Type.transfer)){
            //log to the second account
-           String log_2 = acct1.getName()+" transfered "+getAmount()+" /"+new SimpleDateFormat("MM-dd-yyyy HH:mm").format(new Date());
-           File file2 = new File("src/logs/"+this.acct2.getName().toString()+"_log");
+           String log_2 = acct1.getName()+" transferred "+getAmount()+" /"+new SimpleDateFormat("MM-dd-yyyy HH:mm").format(new Date());
+           File file2 = new File("src/logs/"+this.acct2.getUsername().toString()+"_log");
 
            try(BufferedWriter write2file = new BufferedWriter(new FileWriter(file2,true))){
                //write log to file
