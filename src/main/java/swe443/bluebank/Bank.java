@@ -126,7 +126,7 @@ public class Bank implements SendableEntity {
         menu.append("5. View Balance\n");
         menu.append("6. Make Transfer\n");
         menu.append("7. Undo most recent Transaction\n");
-        menu.append("8. [ONLY FOR DEMO] Show Total Bank Income\n");
+        menu.append("8. [ONLY FOR DEMO] Show Total Bank Income from User's Fees\n");
         menu.append("\n==================================\n");
         return menu;
     }
