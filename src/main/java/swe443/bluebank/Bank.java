@@ -32,8 +32,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import swe443.bluebank.Account;
-import swe443.bluebank.User;
 
 /**
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
@@ -44,10 +42,10 @@ public class Bank implements SendableEntity {
 
     static Account acct = null;
     static User user = null;
-    static double withdrawFee = 0.00;
-    static double depositFee = 0.00;
-    static double transferFee = 0.00;
-    static double undoFee = 0.00;
+    static double withdrawFee = 0.05;
+    static double depositFee = 0.05;
+    static double transferFee = 0.05;
+    static double undoFee = 0.05;
 
     public Account getAcct() {     //manually entered this(ht)
         return this.acct;
