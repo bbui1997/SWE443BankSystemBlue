@@ -78,7 +78,7 @@ public class PersistenceTest {
         storyboard.assertEquals("The user is Anna Torres",blue.getAccount_Has().filterName("Anna Torres").getName().toString(),"(Anna Torres)" );
         storyboard.assertEquals("The ssn is 1234",blue.getAccount_Has().filterName("Anna Torres").getSsn().get(0),1234);
         storyboard.assertEquals("(05/14/1990)",blue.getAccount_Has().filterName("Anna Torres").getDob().toString(), "(5/14/1990)");
-        storyboard.assertEquals("The username (atorres)",blue.getAccount_Has().filterName("Anna Torres").getUsername().toString(), "((atorres))");
+        storyboard.assertEquals("The username (atorres)",blue.getAccount_Has().filterName("Anna Torres").getUsername().toString(), "(atorres)");
         storyboard.assertEquals("The password is 12345678",blue.getAccount_Has().filterName("Anna Torres").getPassword().toString(), "(12345678)");
         storyboard.assertEquals("The initial amount is 100.00",blue.getAccount_Has().filterName("Anna Torres").getInitialAmount().get(0), 100.00);
 
