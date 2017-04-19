@@ -23,6 +23,7 @@ package swe443.bluebank;
 
 import de.uniks.networkparser.EntityUtil;
 import de.uniks.networkparser.interfaces.SendableEntity;
+import de.uniks.networkparser.list.NumberList;
 import swe443.bluebank.util.AccountSet;
 import swe443.bluebank.util.UserSet;
 
@@ -32,8 +33,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import swe443.bluebank.Account;
-import swe443.bluebank.User;
 
 /**
  * @see <a href='../../../../../src/main/java/model.java'>model.java</a>
@@ -44,10 +43,10 @@ public class Bank implements SendableEntity {
 
     static Account acct = null;
     static User user = null;
-    static double withdrawFee = 0.00;
-    static double depositFee = 0.00;
-    static double transferFee = 0.00;
-    static double undoFee = 0.00;
+    static double withdrawFee = 0.05;
+    static double depositFee = 0.05;
+    static double transferFee = 0.05;
+    static double undoFee = 0.05;
 
     public Account getAcct() {     //manually entered this(ht)
         return this.acct;
@@ -99,6 +98,15 @@ public class Bank implements SendableEntity {
         Bank.transferFee = fee;
         Bank.undoFee = fee;
     }
+    
+    public double getTotalIncomeFromAllUsers() {
+        double currentTotal = 0;
+        NumberList numList = getAccount_Has().getIOweTheBank();
+        for(Number nums : numList){
+            currentTotal += (double)nums;
+        }
+        return currentTotal;
+    }
 
 
 
@@ -118,6 +126,7 @@ public class Bank implements SendableEntity {
         menu.append("5. View Balance\n");
         menu.append("6. Make Transfer\n");
         menu.append("7. Undo most recent Transaction\n");
+        menu.append("8. [ONLY FOR DEMO] Show Total Bank Income from User's Fees\n");
         menu.append("\n==================================\n");
         return menu;
     }
@@ -192,26 +201,32 @@ public class Bank implements SendableEntity {
         System.out.println("Please enter a username.");
         String un = input.next();
         String dbUn = getAccount_Has().filterUsername(un).getUsername().toString();
-        System.out.println(un + dbUn);
+        //System.out.println(un + dbUn);
+
+        // adding the parentheses satisfies SDMLibs filtering check, without it, it won't be able to filter the username
         un = "(" + un +")";
         while(un.equals(dbUn)){
             System.out.println("Username already exists in system, please enter a username.");
-            un = input.nextLine();
+            un = input.next();
+            un = "(" + un +")";
         }
+        un = un.substring(1,un.length()-1);
+        System.out.println(un);
         acct.setUsername(un);
+
         System.out.println("Please enter a password, between 8 and 16 characters");
-        String password = input.nextLine();
+        String password = input.next();
         while(password.length()<8 || password.length()>16){
             System.out.println("Please enter a password, between 8 and 16 characters.");
-            password = input.nextLine();
+            password = input.next();
         }
         acct.setPassword(password);
         System.out.println("Please enter the initial amount you'd like to deposit, in the format 1.00.");
         //acct.setInitialAmount(scanDouble.nextDouble());
-        double x = Double.parseDouble(input.nextLine());
+        double x = Double.parseDouble(input.next());
         while (x < 0) {
             System.out.println("Please enter a positive value.");
-            x = Double.parseDouble(input.nextLine());
+            x = Double.parseDouble(input.next());
 
         }
         acct.setInitialAmount(x);
@@ -661,6 +676,14 @@ public class Bank implements SendableEntity {
 
         acct.transfer(amt,accTo,user);
 
+        // Ensures the account balance is in the format 0.00
+        double num = acct.getAccountBalance();
+        num = Math.round(num * 100);
+        num = num / 100;
+
+        acct.setAccountBalance(num);
+
+        System.out.println("Your remaining balance: $" + doubleToMoneyFormat(acct.getAccountBalance())); //print balance
 
 
 
@@ -876,6 +899,7 @@ public class Bank implements SendableEntity {
                double fee = amount*getUndoFee();
                double amtandfee = amount + fee;
                acct.setInitialAmount(acct.getIOweTheBank()+fee);
+               acct.setIOweTheBank(acct.getIOweTheBank() + fee);
                //acct.withdraw(amount);
 
                //since the last transaction was a deposit,deduct the deposited amount from balance.
@@ -883,6 +907,7 @@ public class Bank implements SendableEntity {
 
                //log deposit undo transaction
                new Transaction().writeLog(Transaction.Type.deposit,acct,null,amount,fee,true);
+               System.out.printf("Undo Transaction Successful - DEPOSIT: %.2f, FEE: %.2f\n", amount, fee);
                break;
 
            case "withdrawal":
@@ -891,6 +916,7 @@ public class Bank implements SendableEntity {
 
                double wFee = wAmt*getUndoFee();
                double wAmtandfee = wAmt - wFee;
+               acct.setIOweTheBank(acct.getIOweTheBank() + wFee);
                System.out.println(wAmtandfee);
                //acct.deposit(wAmtandfee);
                //since the last transaction was a withdrawal,add the amount that was withdrawn to balance.
@@ -898,6 +924,7 @@ public class Bank implements SendableEntity {
 
                //log deposit undo transaction
                new Transaction().writeLog(Transaction.Type.withdraw,acct,null,wAmt,wFee,true);
+               System.out.printf("Undo Transaction Successful - WITHDRAW: %.2f, FEE: %.2f\n", wAmt, wFee);
                break;
 
            case "transfer":

@@ -118,7 +118,8 @@ public class ModifyTransactionTests {
         storyboard.add("Sara's account initially has a balance of $50");
         Account target = new Account()
                 .withAccountBalance(50)
-                .withName("Sara");
+                .withName("Sara")
+                .withUsername("Sara");
         storyboard.addObjectDiagram(sal,target);
 
         storyboard.add("Sal transfers $100 to Sara's account");

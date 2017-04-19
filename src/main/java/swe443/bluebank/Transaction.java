@@ -22,12 +22,12 @@
 package swe443.bluebank;
 
 import de.uniks.networkparser.interfaces.SendableEntity;
-import java.beans.PropertyChangeSupport;
+
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -117,7 +117,7 @@ import java.util.Date;
         */
        //File dir =  new File("src/logs/"); //directory to store logs
        File dir  = new File("src"+File.separator+"logs"); //directory to store logs
-       File file = new File(dir+File.separator+this.acct1.getName().toString()+"_log"); //set file name
+       File file = new File(dir+File.separator+this.acct1.getUsername().toString()+"_log"); //set file name
 
        //check if directory exists; create directory if not
        if(!dir.exists()){
@@ -140,8 +140,8 @@ import java.util.Date;
        //log transfer in receivers log
        if(type.equals(Type.transfer)){
            //log to the second account
-           String log_2 = acct1.getName()+" transfered "+getAmount()+" /"+new SimpleDateFormat("MM-dd-yyyy HH:mm").format(new Date());
-           File file2 = new File("src/logs/"+this.acct2.getName().toString()+"_log");
+           String log_2 = acct1.getName()+" transferred "+getAmount()+" /"+new SimpleDateFormat("MM-dd-yyyy HH:mm").format(new Date());
+           File file2 = new File("src/logs/"+this.acct2.getUsername().toString()+"_log");
 
            try(BufferedWriter write2file = new BufferedWriter(new FileWriter(file2,true))){
                //write log to file
