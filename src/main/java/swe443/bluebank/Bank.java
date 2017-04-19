@@ -23,6 +23,7 @@ package swe443.bluebank;
 
 import de.uniks.networkparser.EntityUtil;
 import de.uniks.networkparser.interfaces.SendableEntity;
+import de.uniks.networkparser.list.NumberList;
 import swe443.bluebank.util.AccountSet;
 import swe443.bluebank.util.UserSet;
 
@@ -97,6 +98,15 @@ public class Bank implements SendableEntity {
         Bank.transferFee = fee;
         Bank.undoFee = fee;
     }
+    
+    public double getTotalIncomeFromAllUsers() {
+        double currentTotal = 0;
+        NumberList numList = getAccount_Has().getIOweTheBank();
+        for(Number nums : numList){
+            currentTotal += (double)nums;
+        }
+        return currentTotal;
+    }
 
 
 
@@ -116,6 +126,7 @@ public class Bank implements SendableEntity {
         menu.append("5. View Balance\n");
         menu.append("6. Make Transfer\n");
         menu.append("7. Undo most recent Transaction\n");
+        menu.append("8. [ONLY FOR DEMO] Show Total Bank Income\n");
         menu.append("\n==================================\n");
         return menu;
     }

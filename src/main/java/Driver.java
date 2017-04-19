@@ -149,6 +149,10 @@ public class Driver {
                     }
                     break;
 
+                case "8": // print out bank's total income
+                    System.out.println(blue.doubleToMoneyFormat(blue.getTotalIncomeFromAllUsers()));
+                    break;
+
                 case "0":
                     exit(0);
 
