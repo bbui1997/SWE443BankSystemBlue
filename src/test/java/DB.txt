@@ -7,12 +7,20 @@
             {
                "class":"swe443.bluebank.Account",
                "id":"demo.A2"
+            },
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A3"
             }
          ],
          "Bank_Has":[
             {
                "class":"swe443.bluebank.User",
-               "id":"demo.U3"
+               "id":"demo.U4"
+            },
+            {
+               "class":"swe443.bluebank.User",
+               "id":"demo.U5"
             }
          ]
       }
@@ -21,34 +29,70 @@
       "class":"swe443.bluebank.Account",
       "id":"demo.A2",
       "prop":{
-         "name":"Sara B",
+         "name":"Marcus Yarbrough",
          "ssn":1234,
-         "dob":"1/25/1997",
-         "username":"sara01",
-         "password":"pass1234",
-         "initialAmount":100,
-         "accountBalance":900,
+         "dob":"1/1/1990",
+         "username":"marcus01",
+         "password":"12345678",
+         "initialAmount":500,
+         "accountBalance":500,
          "User_Has":{
             "class":"swe443.bluebank.User",
-            "id":"demo.U3"
+            "id":"demo.U4"
          },
          "Bank_has":{
             "class":"swe443.bluebank.Bank",
             "id":"demo.B1"
+         }
+      }
+   },
+   {
+      "class":"swe443.bluebank.Account",
+      "id":"demo.A3",
+      "prop":{
+         "name":"Sara Borghei",
+         "ssn":1234,
+         "dob":"1/25/1990",
+         "username":"sara01",
+         "password":"pass1234",
+         "initialAmount":1000,
+         "accountBalance":1000,
+         "User_Has":{
+            "class":"swe443.bluebank.User",
+            "id":"demo.U5"
          },
-         "recentTransaction":"deposit 1000.0",
-         "iOweTheBank":100
+         "Bank_has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }
       }
    },
    {
       "class":"swe443.bluebank.User",
-      "id":"demo.U3",
+      "id":"demo.U4",
       "prop":{
-         "userName":"Sara B",
+         "userName":"Marcus Yarbrough",
          "Account_Has":[
             {
                "class":"swe443.bluebank.Account",
                "id":"demo.A2"
+            }
+         ],
+         "User_Has":{
+            "class":"swe443.bluebank.Bank",
+            "id":"demo.B1"
+         }
+      }
+   },
+   {
+      "class":"swe443.bluebank.User",
+      "id":"demo.U5",
+      "prop":{
+         "userName":"Sara Borghei",
+         "Account_Has":[
+            {
+               "class":"swe443.bluebank.Account",
+               "id":"demo.A3"
             }
          ],
          "User_Has":{
