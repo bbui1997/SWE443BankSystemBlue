@@ -16,7 +16,7 @@ public class CreateAccountTest {
     @Before
     public void setUp() {
         blueBank.setBankName("Blue_Bank");
-        test = new File("src/logs/Salonika Bose_log");
+        test = new File("src/logs/salonikab_log");
     }
 
     /**
