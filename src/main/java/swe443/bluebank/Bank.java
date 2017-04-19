@@ -192,26 +192,28 @@ public class Bank implements SendableEntity {
         System.out.println("Please enter a username.");
         String un = input.next();
         String dbUn = getAccount_Has().filterUsername(un).getUsername().toString();
-        System.out.println(un + dbUn);
+        //System.out.println(un + dbUn);
         un = "(" + un +")";
         while(un.equals(dbUn)){
             System.out.println("Username already exists in system, please enter a username.");
             un = input.nextLine();
         }
+        un = un.substring(1,un.length()-1);
+        System.out.println("TEST: " + un);
         acct.setUsername(un);
         System.out.println("Please enter a password, between 8 and 16 characters");
-        String password = input.nextLine();
+        String password = input.next();
         while(password.length()<8 || password.length()>16){
             System.out.println("Please enter a password, between 8 and 16 characters.");
-            password = input.nextLine();
+            password = input.next();
         }
         acct.setPassword(password);
         System.out.println("Please enter the initial amount you'd like to deposit, in the format 1.00.");
         //acct.setInitialAmount(scanDouble.nextDouble());
-        double x = Double.parseDouble(input.nextLine());
+        double x = Double.parseDouble(input.next());
         while (x < 0) {
             System.out.println("Please enter a positive value.");
-            x = Double.parseDouble(input.nextLine());
+            x = Double.parseDouble(input.next());
 
         }
         acct.setInitialAmount(x);

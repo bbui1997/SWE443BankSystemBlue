@@ -61,6 +61,8 @@ public class Model {
         //account belongs to ONE bank & bank can have MANY accounts
         accountClass.withBidirectional(bankClass, "Bank_has", Cardinality.ONE, "Account_Has", Cardinality.MANY);
 
+        
+
 
         model.generate();
 
