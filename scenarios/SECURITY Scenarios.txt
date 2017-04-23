@@ -1,12 +1,43 @@
 Title: Security Scenarios
 
 Scenario 1: Password Blackout
+    - User Sal opens Blue Bank app on her Android phone.
+    - Sal is prompted for a username and password.
+    - Sal enters her username.
+    - Sal begins to enter her password and sees that the characters are appearing as "*".
+    - Sal is relieved that if anyone is looking over her shoulder to figure out her password,
+      they will not be able to see it.
+    - Sal finishes entering her password.
+    - Sal hits the Log in button, and is logged in to her account.
+
 
 Scenario 2: Enforce Strong Password
+    - User Sal wants to create a new account with Blue Bank.
+    - She opens the Blue Bank app on her Android phone.
+    - She clicks the Create New Account button.
+    - She enters her Full Name and username.
+    - She is then prompted to enter a password.
+    - She enters sal as her password first.
+    - The password box becomes red, and the following message is displayed above the box:
+      "Please enter a password that has 8-16 chars, one capital letter,
+      and at least one number or special character."
+    - Sal then enters "Salonika1".
+    - When she moves on to the next input box, she does not get an error.
+    - Sal finishes creating her account.
 
 Scenario 3: Enforce Time Out
+    - User Sal opens Blue Bank app on her Android phone.
+    - Sal is prompted for a username and password.
+    - She enters her username and password.
+    - She hits the Log in button, and is logged in to her account.
+    - Sal remembers she had to send an email, so she puts down her phone to go do that.
+    - After 15 seconds of inactivity, Sal is logged off her account.
+    - Sal finishes writing her email, and gets back to her phone.
+    - She realizes she has been logged out.
+    - Slightly frustrated she logs back in, but is glad the Blue Bank app has good security.
 
 Scenario 4: Biometric Authentication
+
 
 Scenario 5: Passwords to Encrypted Hash
 
@@ -22,4 +53,4 @@ Assigned persons (currently working on task):
 
 Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
 
-    -
+    - 2017-04-23: 1:53PM-2:10PM Salonika | worked on scenarios 1-3
