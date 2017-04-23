@@ -1,0 +1,68 @@
+Title: Android Scenarios
+
+Scenario 1: Create Account for a new user John
+    -John decides to join Blue Bank
+    -John opens the app
+    -John clicks open new Account button
+    -John enter his user name john01
+    -John enter his password john123445
+    -John opens a new account with only $50 on it
+    -John clicks create account
+    -John gets prompt to home screen that display, user ID and account balance $50 and other option for him to do.
+    -John logs out.
+
+Scenario 2: John Logs In back to his account
+    -John decide to check if he can login in his account
+    -John opens the BlueBankApp
+    -John enter his user name john01
+    -John enters his password john123445
+    -He gets to the menu screen of the bank.
+    -John logs out.
+Scenario 3: John Logs In with wrong password
+    -John opens the BlueBankApp
+    -John enter his user name john01
+    -John enters his password john12345
+    -App pops up a message telling john that the password he entered is not correct.
+    -Johns enters his password again as john123445
+    -He gets to the menu screen of the bank.
+    -John logs out.
+
+Scenario 4: John makes a deposit
+    -John opens the BlueBankApp
+    -John enter his user name john01
+    -John enters his password john123445
+    -He gets to home menu screen of the bank, current balance is $50
+    -He click deposit button
+    -He deposits $500 to his account.
+    -Apps goes back to John home menu, with current balance of $550
+    -John logs out.
+
+Scenario 5: John makes a withdraw
+        -John opens the BlueBankApp
+        -John enter his user name john01
+        -John enters his password john123445
+        -He gets to home menu screen of the bank he has $550 on his account balance
+        -He click deposit button
+        -He withdraws $150 from his account.
+        -Apps goes back to John home menu, his current balance displays $400
+        -John logs out.
+
+Scenario 6: John makes a transfer to another account
+
+Scenario 7: John change his password.
+
+
+
+Author(s):
+
+  - Ermal
+
+Assigned persons (currently working on task):
+
+  - Ermal
+  - Sushena
+  - Heymond
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+    -
