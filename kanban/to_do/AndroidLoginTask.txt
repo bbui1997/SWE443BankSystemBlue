@@ -1,0 +1,25 @@
+Title:Android Log in task
+
+Description: Users that have an existing an account can log in now, and check their current balance.
+
+Related scenario(s):
+
+  -Scenario 2: John Logs In back to his account
+  -Scenario 3: John Logs In with wrong password
+
+Time estimate(s):
+
+  2-3h
+
+Author(s):
+
+  - Ermal
+
+Assigned persons (currently working on task):
+
+  - Ermal
+  - Heymond
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  -

@@ -1,0 +1,25 @@
+Title:Android existing user makes a deposit
+
+Description:  Users that have an existing an account logs in, the app show the current balance and user make a deposit into account.
+             Which we display the right amount at the end of transaction.
+
+Related scenario(s):
+
+ - Scenario 4: John makes a deposit
+
+
+Time estimate(s):
+
+  ~30min
+
+Author(s):
+
+  - Ermal
+
+Assigned persons (currently working on task):
+
+  - Ermal
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+  -
