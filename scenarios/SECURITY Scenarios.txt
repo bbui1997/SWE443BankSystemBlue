@@ -1,0 +1,25 @@
+Title: Security Scenarios
+
+Scenario 1: Password Blackout
+
+Scenario 2: Enforce Strong Password
+
+Scenario 3: Enforce Time Out
+
+Scenario 4: Biometric Authentication
+
+Scenario 5: Passwords to Encrypted Hash
+
+Scenario 6: Two-Factor Authentication
+
+Author(s):
+
+  - Salonika
+
+Assigned persons (currently working on task):
+
+  - Salonika
+
+Log entries (YYYY-MM-DD: HH:MM-HH:MM name, separated, by, commas | notes):
+
+    -
