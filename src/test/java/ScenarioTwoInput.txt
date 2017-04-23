@@ -7,5 +7,6 @@ Salonika Bose
 1995
 salonikab
 pass
-password1
+Password1
+Password1!
 100.00

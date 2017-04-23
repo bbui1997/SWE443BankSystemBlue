@@ -4,6 +4,6 @@ Salonika Bose
 01
 1995
 salonikab
-password1
+Password1!
 -100.00
 100.00

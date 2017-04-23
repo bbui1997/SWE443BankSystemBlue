@@ -37,7 +37,7 @@ public class CreateAccountTest {
         storyboard.assertEquals("the ssn is 123456789" , blueBank.getAccount_Has().getSsn().get(0), 1234);
         storyboard.assertEquals("the dob is 01011995", blueBank.getAccount_Has().getDob().toString(), "(1/1/1995)");
         storyboard.assertEquals("the username is salonikab", blueBank.getAccount_Has().getUsername().toString(), "(salonikab)");
-        storyboard.assertEquals("the password is asdf", blueBank.getAccount_Has().getPassword().toString(), "(password1)");
+        storyboard.assertEquals("the password is Salonika1!", blueBank.getAccount_Has().getPassword().toString(), "(Salonika1!)");
         storyboard.assertEquals("the initial anount is 100.00", blueBank.getAccount_Has().getInitialAmount().get(0), 100.00);
         storyboard.assertTrue("Log created",test.exists());
         storyboard.dumpHTML();
@@ -64,7 +64,7 @@ public class CreateAccountTest {
         storyboard.assertEquals("the ssn is 123456789",blueBank.getAccount_Has().getSsn().get(0),1234);
         storyboard.assertEquals("01011995",blueBank.getAccount_Has().getDob().toString(), "(1/1/1995)");
         storyboard.assertEquals("the username salonikab",blueBank.getAccount_Has().getUsername().toString(), "(salonikab)");
-        storyboard.assertEquals("the password is asd",blueBank.getAccount_Has().getPassword().toString(), "(password1)");
+        storyboard.assertEquals("the password is Password1!",blueBank.getAccount_Has().getPassword().toString(), "(Password1!)");
         storyboard.assertEquals("the initial amount is 100.00",blueBank.getAccount_Has().getInitialAmount().get(0), 100.00);
         storyboard.dumpHTML();
     }
@@ -91,7 +91,7 @@ public class CreateAccountTest {
         storyboard.assertEquals("the ssn is 123456789",blueBank.getAccount_Has().getSsn().get(0),1234);
         storyboard.assertEquals("01011995",blueBank.getAccount_Has().getDob().toString(), "(1/1/1995)");
         storyboard.assertEquals("the username salonikab",blueBank.getAccount_Has().getUsername().toString(), "(salonikab)");
-        storyboard.assertEquals("the password is asd",blueBank.getAccount_Has().getPassword().toString(), "(password1)");
+        storyboard.assertEquals("the password is Password1!",blueBank.getAccount_Has().getPassword().toString(), "(Password1!)");
         storyboard.assertEquals("the initial amount is 100.00",blueBank.getAccount_Has().getInitialAmount().get(0), 100.00); //should fail since it allows the initial amount to be negative
         storyboard.dumpHTML();
 

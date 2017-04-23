@@ -216,10 +216,19 @@ public class Bank implements SendableEntity {
 
         System.out.println("Please enter a password, between 8 and 16 characters");
         String password = input.next();
-        while(password.length()<8 || password.length()>16){
-            System.out.println("Please enter a password, between 8 and 16 characters.");
-            password = input.next();
+        String regex2 = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$";
+        Pattern pattern2 = Pattern.compile(regex2);
+        Matcher matcher2 = pattern2.matcher(password);
+        while(!matcher2.matches()){
+            System.out.println("In loop: Please enter a password, between 8 and 16 characters.");
+            password = input.nextLine();
+            System.out.println(password);
+            matcher2 = pattern2.matcher(password);
         }
+//        while(password.length()<8 || password.length()>16){
+//            System.out.println("Please enter a password, between 8 and 16 characters.");
+//            password = input.next();
+//        }
         acct.setPassword(password);
         System.out.println("Please enter the initial amount you'd like to deposit, in the format 1.00.");
         //acct.setInitialAmount(scanDouble.nextDouble());

@@ -104,7 +104,7 @@ public class PersistenceTest {
                 "14\n" +
                 "1990\n"+
                 "sals\n"+
-                "12345678\n"+
+                "Password1!\n"+
                 "0";
         System.setIn(new ByteArrayInputStream(user.getBytes()));
         blue.createAccount();
@@ -128,7 +128,7 @@ public class PersistenceTest {
         storyboard.assertEquals("The ssn is 1234",blue.getAccount_Has().filterName("Sal").getSsn().get(0),1234);
         storyboard.assertEquals("(04/14/1990)",blue.getAccount_Has().filterName("Sal").getDob().toString(), "(04/14/1990)");
         storyboard.assertEquals("The username (sals)",blue.getAccount_Has().filterName("Sal").getUsername().toString(), "(sals)");
-        storyboard.assertEquals("The password is 12345678",blue.getAccount_Has().filterName("Sal").getPassword().toString(), "(12345678)");
+        storyboard.assertEquals("The password is Password1!",blue.getAccount_Has().filterName("Sal").getPassword().toString(), "(Password1!)");
         storyboard.assertEquals("The initial amount is 0.0",blue.getAccount_Has().filterName("Sal").getInitialAmount().get(0), 0.0);
         //
         storyboard.dumpHTML();

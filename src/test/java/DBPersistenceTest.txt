@@ -53,7 +53,7 @@
          "ssn":1234,
          "dob":"04/14/1990",
          "username":"sals",
-         "password":"12345678",
+         "password":"Password1!",
          "User_Has":{
             "class":"swe443.bluebank.User",
             "id":"demo.U5"
